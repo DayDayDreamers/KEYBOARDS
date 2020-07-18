@@ -8,4 +8,14 @@ class GetNamePriceApiRequest: NSObject {
     func DispatchWithName(name : String) {
         let url = "https://core.blockstack.org\(path)\(name).id"
         
-        Alam
+        Alamofire.request(url)
+            .responseDecodableObject(decoder: JSONDecoder())
+            {(response: DataResponse<PriceModel>) in
+                if self.delegate == nil {
+                    return
+                }
+                
+                switch response.result {
+                case .success(let value):
+                    self.delegate!.resultReceived(data:value)
+ 
