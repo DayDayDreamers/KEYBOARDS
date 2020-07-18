@@ -19,4 +19,9 @@ class GetNameHistoryApiRequest: NSObject {
                 switch response.result {
                 case .success(let value):
                     self.delegate!.resultReceived(data:value)
-             
+                case .failure(let error):
+                    self.delegate!.failWithError(error: error)
+                }
+        }
+    }
+}
