@@ -19,4 +19,15 @@ class GetNamesApiRequest : NSObject {
         Alamofire.request(url, parameters: parameters)
             .validate()
             .responseDecodableObject(decoder: JSONDecoder())
-                { (response: DataR
+                { (response: DataResponse<[String]>)
+                in
+                    
+                    if self.delegate == nil {
+                        return
+                    }
+                    switch response.result {
+                    case .success(let value):
+                        if value.count == 0 {
+                            self.hasMoreItems = false
+                            return
+    
