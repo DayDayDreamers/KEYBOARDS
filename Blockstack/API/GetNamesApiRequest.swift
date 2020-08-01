@@ -30,4 +30,20 @@ class GetNamesApiRequest : NSObject {
                         if value.count == 0 {
                             self.hasMoreItems = false
                             return
-    
+                        }
+                        
+                        self.delegate!.resultReceived(data:value)
+                    case .failure(let error):
+                        self.delegate!.failWithError(error: error) //check error
+                    }
+                }
+        }
+
+    //  MARK: - Pagination
+
+    func DispatchWithNextPage() {
+        page += 1
+        Dispatch()
+    }
+}
+
