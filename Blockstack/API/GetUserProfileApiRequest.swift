@@ -20,4 +20,8 @@ class GetUserProfileApiRequest: NSObject {
                     case .success(let value):
                         self.delegate!.resultReceived(data:value)
                     case .failure(let error):
-                        s
+                        self.delegate!.failWithError(error: error)
+                    }
+                }
+    }
+}
