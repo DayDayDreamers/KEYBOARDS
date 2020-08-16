@@ -6,17 +6,9 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "logo1-1.png",
+      "filename" : "default-blue-462x462.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo1.png",
-      "scale" : "3x"
-    }
-  ],
-  "info" : {
-    "version" : 1,
-    "author" : "xcode"
-  }
-}
+      "filename" : "default-blue-462x462
