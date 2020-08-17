@@ -11,4 +11,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "default-blue-462x462
+      "filename" : "default-blue-462x462-1.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
