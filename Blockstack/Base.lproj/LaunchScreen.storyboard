@@ -24,4 +24,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <c
+                            <constraint firstItem="TOe-MB-fR7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="FhI-NI-wa5"/>
+                            <constraint firstItem="TOe-MB-fR7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="z7o-zR-VaU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
