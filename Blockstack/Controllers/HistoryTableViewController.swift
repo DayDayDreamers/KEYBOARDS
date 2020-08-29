@@ -10,4 +10,21 @@ class HistoryTableViewController: UITableViewController, ApiCallback {
         super.viewDidLoad()
 
         let logo = UIImage(named: "Logo.png")
-        navigat
+        navigationItem.titleView = UIImageView(image:logo)
+        
+        let request = GetNameHistoryApiRequest()
+        request.delegate = self
+        request.DispatchWithName(name: name)
+    }
+
+
+    // MARK: - UITableView
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if model != nil && model.count > 0 {
+            return 1
+        }
+        return 0
+    }
+
+    ov
