@@ -36,4 +36,15 @@ class HistoryTableViewController: UITableViewController, ApiCallback {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "histor
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyReusableCell", for: indexPath)
+        cell.textLabel?.text = Array(model)[indexPath.row].value[0].operation
+        cell.textLabel?.textColor = .white
+        cell.detailTextLabel?.text = "Block #\(Array(model)[indexPath.row].key)"
+        cell.detailTextLabel?.textColor = .white
+        return cell
+    }
+    
+    //  MARK: - ApiCallback
+
+    func resultReceived(data: Any!) {
+        model = data as! 
