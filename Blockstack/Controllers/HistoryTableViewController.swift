@@ -27,4 +27,13 @@ class HistoryTableViewController: UITableViewController, ApiCallback {
         return 0
     }
 
-    ov
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if model != nil && model.count > 0 {
+            return model.count
+        }
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "histor
