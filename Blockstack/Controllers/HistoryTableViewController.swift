@@ -47,4 +47,12 @@ class HistoryTableViewController: UITableViewController, ApiCallback {
     //  MARK: - ApiCallback
 
     func resultReceived(data: Any!) {
-        model = data as! 
+        model = data as! Dictionary<String, [OperationModel]>
+        if model.count > 0 {
+            historyTableView.reloadData()
+        }
+    }
+    
+    func failWithError(error: Error!) {
+    }
+}
