@@ -11,4 +11,16 @@ class SearchViewController: UIViewController, ApiCallback {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logo = UIImage(named: 
+        let logo = UIImage(named: "Logo.png")
+        navigationItem.titleView = UIImageView(image:logo)
+        
+        priceStackView.isHidden = true
+        statusStackView.isHidden = true
+    }
+    
+    @IBAction func searchPressed(_ sender: Any) {
+        view.endEditing(true)
+        priceStackView.isHidden = true
+        statusStackView.isHidden = true
+        
+        let str = searchTextField.text?.trimmingCharacters(in: .whitespace
