@@ -23,4 +23,18 @@ class SearchViewController: UIViewController, ApiCallback {
         priceStackView.isHidden = true
         statusStackView.isHidden = true
         
-        let str = searchTextField.text?.trimmingCharacters(in: .whitespace
+        let str = searchTextField.text?.trimmingCharacters(in: .whitespaces)
+        if str?.count == 0 {
+            return
+        }
+        
+        let request = GetNameStatusApiRequest()
+        request.delegate = self
+        request.DispatchWithName(name: searchTextField.text!.trimmingCharacters(in: .whitespaces).lowercased())
+    }
+    
+    @IBAction func editFinished(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    //  MARK
