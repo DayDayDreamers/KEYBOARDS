@@ -37,4 +37,13 @@ class SearchViewController: UIViewController, ApiCallback {
         view.endEditing(true)
     }
     
-    //  MARK
+    //  MARK: - ApiCallback
+    
+    func resultReceived(data: Any!) {
+        if let model = data as? NameModel {
+            statusLabel.text = model.status.count > 0 ? model.status : model.error
+            statusStackView.isHidden = false
+            if model.status == "available" {
+                let request = GetNamePriceApiRequest()
+                request.delegate = self
+                request.Dispa
