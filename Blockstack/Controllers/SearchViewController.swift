@@ -46,4 +46,15 @@ class SearchViewController: UIViewController, ApiCallback {
             if model.status == "available" {
                 let request = GetNamePriceApiRequest()
                 request.delegate = self
-                request.Dispa
+                request.DispatchWithName(name: searchTextField.text!)
+            }
+        }
+        else if let model = data as? PriceModel {
+            priceLabel.text = String(model.price.btc)
+            priceStackView.isHidden = false
+        }
+    }
+    
+    func failWithError(error: Error!) {
+    }
+}
