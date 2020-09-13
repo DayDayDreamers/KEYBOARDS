@@ -16,4 +16,9 @@ class AccountModel : Decodable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        service = 
+        service = try container.decodeWrapper(key: .service, defaultValue: "")
+        proofUrl = try container.decodeWrapper(key: .proofUrl, defaultValue: "")
+        identifier = try container.decodeWrapper(key: .identifier, defaultValue: "")
+        contentUrl = try container.decodeWrapper(key: .contentUrl, defaultValue: "")
+    }
+}
