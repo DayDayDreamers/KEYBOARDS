@@ -1,0 +1,212 @@
+
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4498C4913B8E2A9BA5FD7C6A /* Pods_Blockstack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A4ED2F943275126EDBA49B /* Pods_Blockstack.framework */; };
+		A303A6BC20780462005EB634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A303A6BB20780462005EB634 /* AppDelegate.swift */; };
+		A303A6C120780462005EB634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A303A6BF20780462005EB634 /* Main.storyboard */; };
+		A303A6C320780462005EB634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A303A6C220780462005EB634 /* Assets.xcassets */; };
+		A303A6C620780462005EB634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A303A6C420780462005EB634 /* LaunchScreen.storyboard */; };
+		A332E51B207959510088BEBA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E51A207959510088BEBA /* ProfileViewController.swift */; };
+		A332E51D207968A00088BEBA /* GetUserProfileApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E51C207968A00088BEBA /* GetUserProfileApiRequest.swift */; };
+		A332E520207969960088BEBA /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E51F207969960088BEBA /* UserProfileModel.swift */; };
+		A332E522207976080088BEBA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E521207976080088BEBA /* ProfileModel.swift */; };
+		A332E5242079781D0088BEBA /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E5232079781D0088BEBA /* AccountModel.swift */; };
+		A332E52620797AAA0088BEBA /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E52520797AAA0088BEBA /* ImageModel.swift */; };
+		A332E529207A22F40088BEBA /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E528207A22F40088BEBA /* KeyedDecodingContainer.swift */; };
+		A332E52B207A4CE10088BEBA /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E52A207A4CE10088BEBA /* UIColor.swift */; };
+		A332E52D207A55010088BEBA /* NamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E52C207A55010088BEBA /* NamesTableViewController.swift */; };
+		A332E52F207A55950088BEBA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E52E207A55950088BEBA /* UIView.swift */; };
+		A332E531207A58330088BEBA /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E530207A58330088BEBA /* NameModel.swift */; };
+		A332E533207A585B0088BEBA /* GetNameStatusApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E532207A585B0088BEBA /* GetNameStatusApiRequest.swift */; };
+		A332E535207A5DAB0088BEBA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E534207A5DAB0088BEBA /* SearchViewController.swift */; };
+		A332E537207ACD440088BEBA /* GetNamePriceApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E536207ACD440088BEBA /* GetNamePriceApiRequest.swift */; };
+		A332E539207ACDC80088BEBA /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E538207ACDC80088BEBA /* PriceModel.swift */; };
+		A332E53B207B69C50088BEBA /* GetNameHistoryApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E53A207B69C50088BEBA /* GetNameHistoryApiRequest.swift */; };
+		A332E53D207B6B4D0088BEBA /* OperationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E53C207B6B4D0088BEBA /* OperationModel.swift */; };
+		A332E53F207B6C4C0088BEBA /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A332E53E207B6C4C0088BEBA /* HistoryTableViewController.swift */; };
+		A3861AF12078264400642796 /* GetNamesApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3861AF02078264400642796 /* GetNamesApiRequest.swift */; };
+		A3861AF32078D2A000642796 /* ApiCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3861AF22078D2A000642796 /* ApiCallback.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3AF61DBD93ACEA11977AB4A8 /* Pods-Blockstack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blockstack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blockstack/Pods-Blockstack.debug.xcconfig"; sourceTree = "<group>"; };
+		43A4ED2F943275126EDBA49B /* Pods_Blockstack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blockstack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		598E347E7CF4111844905670 /* Pods-Blockstack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blockstack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blockstack/Pods-Blockstack.release.xcconfig"; sourceTree = "<group>"; };
+		A303A6B820780462005EB634 /* Blockstack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blockstack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A303A6BB20780462005EB634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A303A6C020780462005EB634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A303A6C220780462005EB634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A303A6C520780462005EB634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A303A6C720780462005EB634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A332E51A207959510088BEBA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A332E51C207968A00088BEBA /* GetUserProfileApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserProfileApiRequest.swift; sourceTree = "<group>"; };
+		A332E51F207969960088BEBA /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
+		A332E521207976080088BEBA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A332E5232079781D0088BEBA /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		A332E52520797AAA0088BEBA /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		A332E528207A22F40088BEBA /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		A332E52A207A4CE10088BEBA /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A332E52C207A55010088BEBA /* NamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesTableViewController.swift; sourceTree = "<group>"; };
+		A332E52E207A55950088BEBA /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		A332E530207A58330088BEBA /* NameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
+		A332E532207A585B0088BEBA /* GetNameStatusApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNameStatusApiRequest.swift; sourceTree = "<group>"; };
+		A332E534207A5DAB0088BEBA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A332E536207ACD440088BEBA /* GetNamePriceApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNamePriceApiRequest.swift; sourceTree = "<group>"; };
+		A332E538207ACDC80088BEBA /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
+		A332E53A207B69C50088BEBA /* GetNameHistoryApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNameHistoryApiRequest.swift; sourceTree = "<group>"; };
+		A332E53C207B6B4D0088BEBA /* OperationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationModel.swift; sourceTree = "<group>"; };
+		A332E53E207B6C4C0088BEBA /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		A3861AF02078264400642796 /* GetNamesApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNamesApiRequest.swift; sourceTree = "<group>"; };
+		A3861AF22078D2A000642796 /* ApiCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallback.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A303A6B520780462005EB634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4498C4913B8E2A9BA5FD7C6A /* Pods_Blockstack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		683E4CD269DB3A157D2281DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43A4ED2F943275126EDBA49B /* Pods_Blockstack.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A303A6AF20780462005EB634 = {
+			isa = PBXGroup;
+			children = (
+				A303A6BA20780462005EB634 /* Blockstack */,
+				A303A6B920780462005EB634 /* Products */,
+				B413DC4B5029CBFA3D91D887 /* Pods */,
+				683E4CD269DB3A157D2281DF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A303A6B920780462005EB634 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A303A6B820780462005EB634 /* Blockstack.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A303A6BA20780462005EB634 /* Blockstack */ = {
+			isa = PBXGroup;
+			children = (
+				A332E527207A22DF0088BEBA /* Extensions */,
+				A332E51E2079693F0088BEBA /* Models */,
+				A332E519207959130088BEBA /* Controllers */,
+				A3861AEF2078262400642796 /* API */,
+				A303A6BB20780462005EB634 /* AppDelegate.swift */,
+				A303A6BF20780462005EB634 /* Main.storyboard */,
+				A303A6C220780462005EB634 /* Assets.xcassets */,
+				A303A6C420780462005EB634 /* LaunchScreen.storyboard */,
+				A303A6C720780462005EB634 /* Info.plist */,
+			);
+			path = Blockstack;
+			sourceTree = "<group>";
+		};
+		A332E519207959130088BEBA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A332E52C207A55010088BEBA /* NamesTableViewController.swift */,
+				A332E51A207959510088BEBA /* ProfileViewController.swift */,
+				A332E534207A5DAB0088BEBA /* SearchViewController.swift */,
+				A332E53E207B6C4C0088BEBA /* HistoryTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A332E51E2079693F0088BEBA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A332E51F207969960088BEBA /* UserProfileModel.swift */,
+				A332E521207976080088BEBA /* ProfileModel.swift */,
+				A332E5232079781D0088BEBA /* AccountModel.swift */,
+				A332E52520797AAA0088BEBA /* ImageModel.swift */,
+				A332E530207A58330088BEBA /* NameModel.swift */,
+				A332E538207ACDC80088BEBA /* PriceModel.swift */,
+				A332E53C207B6B4D0088BEBA /* OperationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A332E527207A22DF0088BEBA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A332E528207A22F40088BEBA /* KeyedDecodingContainer.swift */,
+				A332E52A207A4CE10088BEBA /* UIColor.swift */,
+				A332E52E207A55950088BEBA /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A3861AEF2078262400642796 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A3861AF02078264400642796 /* GetNamesApiRequest.swift */,
+				A3861AF22078D2A000642796 /* ApiCallback.swift */,
+				A332E51C207968A00088BEBA /* GetUserProfileApiRequest.swift */,
+				A332E532207A585B0088BEBA /* GetNameStatusApiRequest.swift */,
+				A332E536207ACD440088BEBA /* GetNamePriceApiRequest.swift */,
+				A332E53A207B69C50088BEBA /* GetNameHistoryApiRequest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B413DC4B5029CBFA3D91D887 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AF61DBD93ACEA11977AB4A8 /* Pods-Blockstack.debug.xcconfig */,
+				598E347E7CF4111844905670 /* Pods-Blockstack.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A303A6B720780462005EB634 /* Blockstack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A303A6CA20780462005EB634 /* Build configuration list for PBXNativeTarget "Blockstack" */;
+			buildPhases = (
+				4E459F386D767CFCF44AD665 /* [CP] Check Pods Manifest.lock */,
+				A303A6B420780462005EB634 /* Sources */,
+				A303A6B520780462005EB634 /* Frameworks */,
+				A303A6B620780462005EB634 /* Resources */,
+				893449F8457D841B90356F98 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Blockstack;
+			productName = Blockstack;
+			productReference = A303A6B820780462005EB634 /* Blockstack.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A303A6B020780462005EB634 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Julia Vi";
+				TargetAttributes = {

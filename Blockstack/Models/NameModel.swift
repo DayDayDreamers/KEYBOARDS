@@ -12,4 +12,7 @@ class NameModel : Decodable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        status = try container.decodeWrapper(key: .
+        status = try container.decodeWrapper(key: .status, defaultValue: "")
+        error = try container.decodeWrapper(key: .error, defaultValue: "")
+    }
+}
