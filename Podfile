@@ -4,4 +4,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'Blockstack' do
-pod 'Alamofire', '~> 4
+pod 'Alamofire', '~> 4.7'
+pod 'CodableAlamofire'
+
+end
