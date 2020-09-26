@@ -12,4 +12,8 @@ Alamofire is an HTTP networking library written in Swift.
 - [Features](#features)
 - [Component Libraries](#component-libraries)
 - [Requirements](#requirements)
-- [Migration Guides](#migrat
+- [Migration Guides](#migration-guides)
+- [Communication](#communication)
+- [Installation](#installation)
+- [Usage](https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md)
+    - **Intro -** [Making a Request](https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#making-a-request), [Response Handling](https://github.com/Alamofire/Alamofire/blob/master/Documentation/Usage.md#response-handling), [Response Validation](ht
