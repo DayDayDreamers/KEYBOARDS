@@ -33,4 +33,14 @@ Alamofire is an HTTP networking library written in Swift.
 
 ## Features
 
-- [x] Chainable Requ
+- [x] Chainable Request / Response Methods
+- [x] URL / JSON / plist Parameter Encoding
+- [x] Upload File / Data / Stream / MultipartFormData
+- [x] Download File using Request or Resume Data
+- [x] Authentication with URLCredential
+- [x] HTTP Response Validation
+- [x] Upload and Download Progress Closures with Progress
+- [x] cURL Command Output
+- [x] Dynamically Adapt and Retry Requests
+- [x] TLS Certificate and Public Key Pinning
+- [
