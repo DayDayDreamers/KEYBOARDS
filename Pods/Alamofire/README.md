@@ -112,4 +112,17 @@ You can install Carthage with [Homebrew](http://brew.sh/) using the following co
 
 ```bash
 $ brew update
-$ brew 
+$ brew install carthage
+```
+
+To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "Alamofire/Alamofire" ~> 4.7
+```
+
+Run `carthage update` to build the framework and drag the built `Alamofire.framework` into your Xcode project.
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/
