@@ -93,4 +93,23 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-target '<Your Target N
+target '<Your Target Name>' do
+    pod 'Alamofire', '~> 4.7'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew 
