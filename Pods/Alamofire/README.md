@@ -131,4 +131,24 @@ Once you have your Swift package set up, adding Alamofire as a dependency is as 
 
 #### Swift 3
 
+```swift
+dependencies: [
+    .Package(url: "https://github.com/Alamofire/Alamofire.git", majorVersion: 4)
+]
 ```
+
+#### Swift 4
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.0.0")
+]
+```
+
+### Manually
+
+If you prefer not to use any of the aforementioned dependency managers, you can integrate Alamofire into your project manually.
+
+#### Embedded Framework
+
+- Open up Termin
