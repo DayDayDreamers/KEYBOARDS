@@ -151,4 +151,16 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 #### Embedded Framework
 
-- Open up Termin
+- Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+
+  ```bash
+  $ git init
+  ```
+
+- Add Alamofire as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
+
+  ```bash
+  $ git submodule add https://github.com/Alamofire/Alamofire.git
+  ```
+
+- Open the new `Alamofire` folder, and dra
