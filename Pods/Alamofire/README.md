@@ -163,4 +163,9 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
   $ git submodule add https://github.com/Alamofire/Alamofire.git
   ```
 
-- Open the new `Alamofire` folder, and dra
+- Open the new `Alamofire` folder, and drag the `Alamofire.xcodeproj` into the Project Navigator of your application's Xcode project.
+
+    > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
+
+- Select the `Alamofire.xcodeproj` in the Project Navigator and verify the deployment target matches that of your application target.
+- Next, select your application project in the Pr
