@@ -171,4 +171,10 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 - Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the "Targets" heading in the sidebar.
 - In the tab bar at the top of that window, open the "General" panel.
 - Click on the `+` button under the "Embedded Binaries" section.
-- You will see two different `Alamofire.xcodeproj` folders each with two different versions of the `Alamofire.framework` nested
+- You will see two different `Alamofire.xcodeproj` folders each with two different versions of the `Alamofire.framework` nested inside a `Products` folder.
+
+    > It does not matter which `Products` folder you choose from, but it does matter whether you choose the top or bottom `Alamofire.framework`.
+
+- Select the top `Alamofire.framework` for iOS and the bottom one for OS X.
+
+    > You can verify which one you selected by inspecting the build log for your project. The build target for `Alamofire` will be listed as either `Alamofi
