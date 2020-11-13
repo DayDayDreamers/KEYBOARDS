@@ -177,4 +177,12 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 
 - Select the top `Alamofire.framework` for iOS and the bottom one for OS X.
 
-    > You can verify which one you selected by inspecting the build log for your project. The build target for `Alamofire` will be listed as either `Alamofi
+    > You can verify which one you selected by inspecting the build log for your project. The build target for `Alamofire` will be listed as either `Alamofire iOS`, `Alamofire macOS`, `Alamofire tvOS` or `Alamofire watchOS`.
+
+- And that's it!
+
+  > The `Alamofire.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
+
+## Open Radars
+
+The following radars have some effect on the current imp
