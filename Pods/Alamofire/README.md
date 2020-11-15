@@ -202,4 +202,8 @@ The following radars have been resolved over time after being filed against the 
 
 ### What's the origin of the name Alamofire?
 
-Alamofire is named aft
+Alamofire is named after the [Alamo Fire flower](https://aggie-horticulture.tamu.edu/wildseed/alamofire.html), a hybrid variant of the Bluebonnet, the official state flower of Texas.
+
+### What logic belongs in a Router vs. a Request Adapter?
+
+Simple, static data such as paths, parameters and common headers belong in the `Router`. Dynamic data such as an `Authorization` header whose value can changed based on an authentication system belongs in a `RequestAdap
