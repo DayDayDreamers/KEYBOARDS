@@ -206,4 +206,10 @@ Alamofire is named after the [Alamo Fire flower](https://aggie-horticulture.tamu
 
 ### What logic belongs in a Router vs. a Request Adapter?
 
-Simple, static data such as paths, parameters and common headers belong in the `Router`. Dynamic data such as an `Authorization` header whose value can changed based on an authentication system belongs in a `RequestAdap
+Simple, static data such as paths, parameters and common headers belong in the `Router`. Dynamic data such as an `Authorization` header whose value can changed based on an authentication system belongs in a `RequestAdapter`.
+
+The reason the dynamic data MUST be placed into the `RequestAdapter` is to support retry operations. When a `Request` is retried, the original request is not rebuilt meaning the `Router` will not be called again. The `RequestAdapter` is called again allowing the dynamic data to be updated on the original request before retrying the `Request`.
+
+## Credits
+
+Alamofire is owned and maintained by the [Alamofir
