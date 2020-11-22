@@ -212,4 +212,12 @@ The reason the dynamic data MUST be placed into the `RequestAdapter` is to suppo
 
 ## Credits
 
-Alamofire is owned and maintained by the [Alamofir
+Alamofire is owned and maintained by the [Alamofire Software Foundation](http://alamofire.org). You can follow them on Twitter at [@AlamofireSF](https://twitter.com/AlamofireSF) for project updates and releases.
+
+### Security Disclosure
+
+If you believe you have identified a security vulnerability with Alamofire, you should report it as soon as possible via email to security@alamofire.org. Please do not post it to a public issue tracker.
+
+## Donations
+
+The [
