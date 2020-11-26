@@ -220,4 +220,7 @@ If you believe you have identified a security vulnerability with Alamofire, you 
 
 ## Donations
 
-The [
+The [ASF](https://github.com/Alamofire/Foundation#members) is looking to raise money to officially register as a federal non-profit organization. Registering will allow us members to gain some legal protections and also allow us to put donations to use, tax free. Donating to the ASF will enable us to:
+
+- Pay our legal fees to register as a federal non-profit organization
+- Pay our yearly legal fees to keep the non-p
