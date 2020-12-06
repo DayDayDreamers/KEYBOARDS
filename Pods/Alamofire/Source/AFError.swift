@@ -27,4 +27,8 @@ import Foundation
 /// `AFError` is the error type returned by Alamofire. It encompasses a few different types of errors, each with
 /// their own associated reasons.
 ///
-///
+/// - invalidURL:                  Returned when a `URLConvertible` type fails to create a valid `URL`.
+/// - parameterEncodingFailed:     Returned when a parameter encoding object throws an error during the encoding process.
+/// - multipartEncodingFailed:     Returned when some step in the multipart encoding process fails.
+/// - responseValidationFailed:    Returned when a `validate()` call fails.
+/// - responseSe
