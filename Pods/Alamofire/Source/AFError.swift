@@ -36,4 +36,11 @@ public enum AFError: Error {
     /// The underlying reason the parameter encoding error occurred.
     ///
     /// - missingURL:                 The URL request did not have a URL to encode.
-    /// - jsonEncodingFailed:         JSON serialization failed with an underlying system error d
+    /// - jsonEncodingFailed:         JSON serialization failed with an underlying system error during the
+    ///                               encoding process.
+    /// - propertyListEncodingFailed: Property list serialization failed with an underlying system error during
+    ///                               encoding process.
+    public enum ParameterEncodingFailureReason {
+        case missingURL
+        case jsonEncodingFailed(error: Error)
+        case propertyListEncodingFailed(error: 
