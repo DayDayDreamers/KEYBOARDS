@@ -31,4 +31,9 @@ import Foundation
 /// - parameterEncodingFailed:     Returned when a parameter encoding object throws an error during the encoding process.
 /// - multipartEncodingFailed:     Returned when some step in the multipart encoding process fails.
 /// - responseValidationFailed:    Returned when a `validate()` call fails.
-/// - responseSe
+/// - responseSerializationFailed: Returned when a response serializer encounters an error in the serialization process.
+public enum AFError: Error {
+    /// The underlying reason the parameter encoding error occurred.
+    ///
+    /// - missingURL:                 The URL request did not have a URL to encode.
+    /// - jsonEncodingFailed:         JSON serialization failed with an underlying system error d
