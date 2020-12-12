@@ -55,4 +55,9 @@ public enum AFError: Error {
     /// - bodyPartFileNotReachable:             The file at the `fileURL` provided was not reachable.
     /// - bodyPartFileNotReachableWithError:    Attempting to check the reachability of the `fileURL` provided threw
     ///                                         an error.
-    /// - bodyPartFileIsDirectory:              The file at the `fileURL` p
+    /// - bodyPartFileIsDirectory:              The file at the `fileURL` provided is actually a directory.
+    /// - bodyPartFileSizeNotAvailable:         The size of the file at the `fileURL` provided was not returned by
+    ///                                         the system.
+    /// - bodyPartFileSizeQueryFailedWithError: The attempt to find the size of the file at the `fileURL` provided
+    ///                                         threw an error.
+    /// - bodyPartInputStreamCreationFailed:    
