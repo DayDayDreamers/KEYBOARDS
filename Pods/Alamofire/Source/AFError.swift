@@ -51,4 +51,8 @@ public enum AFError: Error {
     /// - bodyPartURLInvalid:                   The `fileURL` provided for reading an encodable body part isn't a
     ///                                         file URL.
     /// - bodyPartFilenameInvalid:              The filename of the `fileURL` provided has either an empty
-    ///                                         `la
+    ///                                         `lastPathComponent` or `pathExtension.
+    /// - bodyPartFileNotReachable:             The file at the `fileURL` provided was not reachable.
+    /// - bodyPartFileNotReachableWithError:    Attempting to check the reachability of the `fileURL` provided threw
+    ///                                         an error.
+    /// - bodyPartFileIsDirectory:              The file at the `fileURL` p
