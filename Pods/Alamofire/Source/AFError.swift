@@ -43,4 +43,12 @@ public enum AFError: Error {
     public enum ParameterEncodingFailureReason {
         case missingURL
         case jsonEncodingFailed(error: Error)
-        case propertyListEncodingFailed(error: 
+        case propertyListEncodingFailed(error: Error)
+    }
+
+    /// The underlying reason the multipart encoding error occurred.
+    ///
+    /// - bodyPartURLInvalid:                   The `fileURL` provided for reading an encodable body part isn't a
+    ///                                         file URL.
+    /// - bodyPartFilenameInvalid:              The filename of the `fileURL` provided has either an empty
+    ///                                         `la
