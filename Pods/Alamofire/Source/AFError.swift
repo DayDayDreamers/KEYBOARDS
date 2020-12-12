@@ -60,4 +60,8 @@ public enum AFError: Error {
     ///                                         the system.
     /// - bodyPartFileSizeQueryFailedWithError: The attempt to find the size of the file at the `fileURL` provided
     ///                                         threw an error.
-    /// - bodyPartInputStreamCreationFailed:    
+    /// - bodyPartInputStreamCreationFailed:    An `InputStream` could not be created for the provided `fileURL`.
+    /// - outputStreamCreationFailed:           An `OutputStream` could not be created when attempting to write the
+    ///                                         encoded data to disk.
+    /// - outputStreamFileAlreadyExists:        The encoded body data could not be writtent disk because a file
+    ///                                 
