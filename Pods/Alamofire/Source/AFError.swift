@@ -64,4 +64,9 @@ public enum AFError: Error {
     /// - outputStreamCreationFailed:           An `OutputStream` could not be created when attempting to write the
     ///                                         encoded data to disk.
     /// - outputStreamFileAlreadyExists:        The encoded body data could not be writtent disk because a file
-    ///                                 
+    ///                                         already exists at the provided `fileURL`.
+    /// - outputStreamURLInvalid:               The `fileURL` provided for writing the encoded body data to disk is
+    ///                                         not a file URL.
+    /// - outputStreamWriteFailed:              The attempt to write the encoded body data to disk failed with an
+    ///                                         underlying error.
+    /// - i
