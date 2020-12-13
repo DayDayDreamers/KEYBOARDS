@@ -69,4 +69,11 @@ public enum AFError: Error {
     ///                                         not a file URL.
     /// - outputStreamWriteFailed:              The attempt to write the encoded body data to disk failed with an
     ///                                         underlying error.
-    /// - i
+    /// - inputStreamReadFailed:                The attempt to read an encoded body part `InputStream` failed with
+    ///                                         underlying system error.
+    public enum MultipartEncodingFailureReason {
+        case bodyPartURLInvalid(url: URL)
+        case bodyPartFilenameInvalid(in: URL)
+        case bodyPartFileNotReachable(at: URL)
+        case bodyPartFileNotReachableWithError(atURL: URL, error: Error)
+        
