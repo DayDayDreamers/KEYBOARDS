@@ -76,4 +76,12 @@ public enum AFError: Error {
         case bodyPartFilenameInvalid(in: URL)
         case bodyPartFileNotReachable(at: URL)
         case bodyPartFileNotReachableWithError(atURL: URL, error: Error)
-        
+        case bodyPartFileIsDirectory(at: URL)
+        case bodyPartFileSizeNotAvailable(at: URL)
+        case bodyPartFileSizeQueryFailedWithError(forURL: URL, error: Error)
+        case bodyPartInputStreamCreationFailed(for: URL)
+
+        case outputStreamCreationFailed(for: URL)
+        case outputStreamFileAlreadyExists(at: URL)
+        case outputStreamURLInvalid(url: URL)
+        case outputStreamWriteFa
