@@ -84,4 +84,13 @@ public enum AFError: Error {
         case outputStreamCreationFailed(for: URL)
         case outputStreamFileAlreadyExists(at: URL)
         case outputStreamURLInvalid(url: URL)
-        case outputStreamWriteFa
+        case outputStreamWriteFailed(error: Error)
+
+        case inputStreamReadFailed(error: Error)
+    }
+
+    /// The underlying reason the response validation error occurred.
+    ///
+    /// - dataFileNil:             The data file containing the server response did not exist.
+    /// - dataFileReadFailed:      The data file containing the server response could not be read.
+    /// - missingContentType:      The response
