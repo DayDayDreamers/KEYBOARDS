@@ -93,4 +93,9 @@ public enum AFError: Error {
     ///
     /// - dataFileNil:             The data file containing the server response did not exist.
     /// - dataFileReadFailed:      The data file containing the server response could not be read.
-    /// - missingContentType:      The response
+    /// - missingContentType:      The response did not contain a `Content-Type` and the `acceptableContentTypes`
+    ///                            provided did not contain wildcard type.
+    /// - unacceptableContentType: The response `Content-Type` did not match any type in the provided
+    ///                            `acceptableContentTypes`.
+    /// - unacceptableStatusCode:  The response status code was not acceptable.
+    public enum Respons
