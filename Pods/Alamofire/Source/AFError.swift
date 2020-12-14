@@ -98,4 +98,14 @@ public enum AFError: Error {
     /// - unacceptableContentType: The response `Content-Type` did not match any type in the provided
     ///                            `acceptableContentTypes`.
     /// - unacceptableStatusCode:  The response status code was not acceptable.
-    public enum Respons
+    public enum ResponseValidationFailureReason {
+        case dataFileNil
+        case dataFileReadFailed(at: URL)
+        case missingContentType(acceptableContentTypes: [String])
+        case unacceptableContentType(acceptableContentTypes: [String], responseContentType: String)
+        case unacceptableStatusCode(code: Int)
+    }
+
+    /// The underlying reason the response serialization error occurred.
+    ///
+    /// - inputDataNil:         
