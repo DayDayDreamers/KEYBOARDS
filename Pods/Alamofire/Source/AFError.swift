@@ -108,4 +108,8 @@ public enum AFError: Error {
 
     /// The underlying reason the response serialization error occurred.
     ///
-    /// - inputDataNil:         
+    /// - inputDataNil:                    The server response contained no data.
+    /// - inputDataNilOrZeroLength:        The server response contained no data or the data was zero length.
+    /// - inputFileNil:                    The file containing the server response did not exist.
+    /// - inputFileReadFailed:             The file containing the server response could not be read.
+    /// - stringSerializationFailed:      
