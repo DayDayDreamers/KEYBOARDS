@@ -112,4 +112,10 @@ public enum AFError: Error {
     /// - inputDataNilOrZeroLength:        The server response contained no data or the data was zero length.
     /// - inputFileNil:                    The file containing the server response did not exist.
     /// - inputFileReadFailed:             The file containing the server response could not be read.
-    /// - stringSerializationFailed:      
+    /// - stringSerializationFailed:       String serialization failed using the provided `String.Encoding`.
+    /// - jsonSerializationFailed:         JSON serialization failed with an underlying system error.
+    /// - propertyListSerializationFailed: Property list serialization failed with an underlying system error.
+    public enum ResponseSerializationFailureReason {
+        case inputDataNil
+        case inputDataNilOrZeroLength
+        
