@@ -161,4 +161,15 @@ extension AFError {
     /// Returns whether the AFError is a multipart encoding error. When `true`, the `url` and `underlyingError` properties
     /// will contain the associated values.
     public var isMultipartEncodingError: Bool {
-        if case .multipartEncodingFailed = self { re
+        if case .multipartEncodingFailed = self { return true }
+        return false
+    }
+
+    /// Returns whether the `AFError` is a response validation error. When `true`, the `acceptableContentTypes`,
+    /// `responseContentType`, and `responseCode` properties will contain the associated values.
+    public var isResponseValidationError: Bool {
+        if case .responseValidationFailed = self { return true }
+        return false
+    }
+
+    /// Returns whether the `AF
