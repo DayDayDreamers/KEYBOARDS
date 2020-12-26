@@ -152,4 +152,13 @@ extension AFError {
     }
 
     /// Returns whether the AFError is a parameter encoding error. When `true`, the `underlyingError` property will
-    /// contain the associated
+    /// contain the associated value.
+    public var isParameterEncodingError: Bool {
+        if case .parameterEncodingFailed = self { return true }
+        return false
+    }
+
+    /// Returns whether the AFError is a multipart encoding error. When `true`, the `url` and `underlyingError` properties
+    /// will contain the associated values.
+    public var isMultipartEncodingError: Bool {
+        if case .multipartEncodingFailed = self { re
