@@ -127,4 +127,19 @@ public enum AFError: Error {
 
     case invalidURL(url: URLConvertible)
     case parameterEncodingFailed(reason: ParameterEncodingFailureReason)
-    case
+    case multipartEncodingFailed(reason: MultipartEncodingFailureReason)
+    case responseValidationFailed(reason: ResponseValidationFailureReason)
+    case responseSerializationFailed(reason: ResponseSerializationFailureReason)
+}
+
+// MARK: - Adapt Error
+
+struct AdaptError: Error {
+    let error: Error
+}
+
+extension Error {
+    var underlyingAdaptError: Error? { return (self as? AdaptError)?.error }
+}
+
+// MARK: - Erro
