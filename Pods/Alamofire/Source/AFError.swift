@@ -118,4 +118,13 @@ public enum AFError: Error {
     public enum ResponseSerializationFailureReason {
         case inputDataNil
         case inputDataNilOrZeroLength
-        
+        case inputFileNil
+        case inputFileReadFailed(at: URL)
+        case stringSerializationFailed(encoding: String.Encoding)
+        case jsonSerializationFailed(error: Error)
+        case propertyListSerializationFailed(error: Error)
+    }
+
+    case invalidURL(url: URLConvertible)
+    case parameterEncodingFailed(reason: ParameterEncodingFailureReason)
+    case
