@@ -142,4 +142,14 @@ extension Error {
     var underlyingAdaptError: Error? { return (self as? AdaptError)?.error }
 }
 
-// MARK: - Erro
+// MARK: - Error Booleans
+
+extension AFError {
+    /// Returns whether the AFError is an invalid URL error.
+    public var isInvalidURLError: Bool {
+        if case .invalidURL = self { return true }
+        return false
+    }
+
+    /// Returns whether the AFError is a parameter encoding error. When `true`, the `underlyingError` property will
+    /// contain the associated
