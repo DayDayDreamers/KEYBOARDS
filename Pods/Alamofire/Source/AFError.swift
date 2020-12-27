@@ -183,4 +183,19 @@ extension AFError {
 // MARK: - Convenience Properties
 
 extension AFError {
-    /// The `URLConvertible` asso
+    /// The `URLConvertible` associated with the error.
+    public var urlConvertible: URLConvertible? {
+        switch self {
+        case .invalidURL(let url):
+            return url
+        default:
+            return nil
+        }
+    }
+
+    /// The `URL` associated with the error.
+    public var url: URL? {
+        switch self {
+        case .multipartEncodingFailed(let reason):
+            return reason.url
+        default:
