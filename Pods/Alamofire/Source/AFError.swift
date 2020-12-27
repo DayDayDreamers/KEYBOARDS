@@ -172,4 +172,15 @@ extension AFError {
         return false
     }
 
-    /// Returns whether the `AF
+    /// Returns whether the `AFError` is a response serialization error. When `true`, the `failedStringEncoding` and
+    /// `underlyingError` properties will contain the associated values.
+    public var isResponseSerializationError: Bool {
+        if case .responseSerializationFailed = self { return true }
+        return false
+    }
+}
+
+// MARK: - Convenience Properties
+
+extension AFError {
+    /// The `URLConvertible` asso
