@@ -199,3 +199,14 @@ extension AFError {
         case .multipartEncodingFailed(let reason):
             return reason.url
         default:
+            return nil
+        }
+    }
+
+    /// The `Error` returned by a system framework associated with a `.parameterEncodingFailed`,
+    /// `.multipartEncodingFailed` or `.responseSerializationFailed` error.
+    public var underlyingError: Error? {
+        switch self {
+        case .parameterEncodingFailed(let reason):
+            return reason.underlyingError
+        case .m
