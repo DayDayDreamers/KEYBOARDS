@@ -209,4 +209,16 @@ extension AFError {
         switch self {
         case .parameterEncodingFailed(let reason):
             return reason.underlyingError
-        case .m
+        case .multipartEncodingFailed(let reason):
+            return reason.underlyingError
+        case .responseSerializationFailed(let reason):
+            return reason.underlyingError
+        default:
+            return nil
+        }
+    }
+
+    /// The acceptable `Content-Type`s of a `.responseValidationFailed` error.
+    public var acceptableContentTypes: [String]? {
+        switch self {
+        case .responseValid
