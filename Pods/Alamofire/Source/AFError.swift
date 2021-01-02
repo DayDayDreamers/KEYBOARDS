@@ -221,4 +221,15 @@ extension AFError {
     /// The acceptable `Content-Type`s of a `.responseValidationFailed` error.
     public var acceptableContentTypes: [String]? {
         switch self {
-        case .responseValid
+        case .responseValidationFailed(let reason):
+            return reason.acceptableContentTypes
+        default:
+            return nil
+        }
+    }
+
+    /// The response `Content-Type` of a `.responseValidationFailed` error.
+    public var responseContentType: String? {
+        switch self {
+        case .responseValidationFailed(let reason):
+            return reason.responseContent
