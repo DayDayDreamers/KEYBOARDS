@@ -274,4 +274,11 @@ extension AFError.MultipartEncodingFailureReason {
     var url: URL? {
         switch self {
         case .bodyPartURLInvalid(let url), .bodyPartFilenameInvalid(let url), .bodyPartFileNotReachable(let url),
-             .bodyPartFileIsDirectory(let url), .bodyPartF
+             .bodyPartFileIsDirectory(let url), .bodyPartFileSizeNotAvailable(let url),
+             .bodyPartInputStreamCreationFailed(let url), .outputStreamCreationFailed(let url),
+             .outputStreamFileAlreadyExists(let url), .outputStreamURLInvalid(let url),
+             .bodyPartFileNotReachableWithError(let url, _), .bodyPartFileSizeQueryFailedWithError(let url, _):
+            return url
+        default:
+            return nil
+       
