@@ -232,4 +232,20 @@ extension AFError {
     public var responseContentType: String? {
         switch self {
         case .responseValidationFailed(let reason):
-            return reason.responseContent
+            return reason.responseContentType
+        default:
+            return nil
+        }
+    }
+
+    /// The response code of a `.responseValidationFailed` error.
+    public var responseCode: Int? {
+        switch self {
+        case .responseValidationFailed(let reason):
+            return reason.responseCode
+        default:
+            return nil
+        }
+    }
+
+    /// The `String.Encoding` associated with a failed `.str
