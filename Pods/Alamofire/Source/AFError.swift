@@ -248,4 +248,18 @@ extension AFError {
         }
     }
 
-    /// The `String.Encoding` associated with a failed `.str
+    /// The `String.Encoding` associated with a failed `.stringResponse()` call.
+    public var failedStringEncoding: String.Encoding? {
+        switch self {
+        case .responseSerializationFailed(let reason):
+            return reason.failedStringEncoding
+        default:
+            return nil
+        }
+    }
+}
+
+extension AFError.ParameterEncodingFailureReason {
+    var underlyingError: Error? {
+        switch self {
+        case .jsonEncodingF
