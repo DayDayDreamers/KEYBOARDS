@@ -262,4 +262,16 @@ extension AFError {
 extension AFError.ParameterEncodingFailureReason {
     var underlyingError: Error? {
         switch self {
-        case .jsonEncodingF
+        case .jsonEncodingFailed(let error), .propertyListEncodingFailed(let error):
+            return error
+        default:
+            return nil
+        }
+    }
+}
+
+extension AFError.MultipartEncodingFailureReason {
+    var url: URL? {
+        switch self {
+        case .bodyPartURLInvalid(let url), .bodyPartFilenameInvalid(let url), .bodyPartFileNotReachable(let url),
+             .bodyPartFileIsDirectory(let url), .bodyPartF
