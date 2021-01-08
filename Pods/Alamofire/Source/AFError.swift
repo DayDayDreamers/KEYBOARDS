@@ -281,4 +281,19 @@ extension AFError.MultipartEncodingFailureReason {
             return url
         default:
             return nil
-       
+        }
+    }
+
+    var underlyingError: Error? {
+        switch self {
+        case .bodyPartFileNotReachableWithError(_, let error), .bodyPartFileSizeQueryFailedWithError(_, let error),
+             .outputStreamWriteFailed(let error), .inputStreamReadFailed(let error):
+            return error
+        default:
+            return nil
+        }
+    }
+}
+
+extension AFError.ResponseValidationFailureReason {
+    var acc
