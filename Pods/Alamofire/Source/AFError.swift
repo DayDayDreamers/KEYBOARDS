@@ -296,4 +296,20 @@ extension AFError.MultipartEncodingFailureReason {
 }
 
 extension AFError.ResponseValidationFailureReason {
-    var acc
+    var acceptableContentTypes: [String]? {
+        switch self {
+        case .missingContentType(let types), .unacceptableContentType(let types, _):
+            return types
+        default:
+            return nil
+        }
+    }
+
+    var responseContentType: String? {
+        switch self {
+        case .unacceptableContentType(_, let responseType):
+            return responseType
+        default:
+            return nil
+        }
+ 
