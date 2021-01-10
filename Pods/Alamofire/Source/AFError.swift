@@ -312,4 +312,21 @@ extension AFError.ResponseValidationFailureReason {
         default:
             return nil
         }
- 
+    }
+
+    var responseCode: Int? {
+        switch self {
+        case .unacceptableStatusCode(let code):
+            return code
+        default:
+            return nil
+        }
+    }
+}
+
+extension AFError.ResponseSerializationFailureReason {
+    var failedStringEncoding: String.Encoding? {
+        switch self {
+        case .stringSerializationFailed(let encoding):
+            return encoding
+        de
