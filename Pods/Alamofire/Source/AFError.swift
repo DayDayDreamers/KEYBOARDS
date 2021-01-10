@@ -329,4 +329,23 @@ extension AFError.ResponseSerializationFailureReason {
         switch self {
         case .stringSerializationFailed(let encoding):
             return encoding
-        de
+        default:
+            return nil
+        }
+    }
+
+    var underlyingError: Error? {
+        switch self {
+        case .jsonSerializationFailed(let error), .propertyListSerializationFailed(let error):
+            return error
+        default:
+            return nil
+        }
+    }
+}
+
+// MARK: - Error Descriptions
+
+extension AFError: LocalizedError {
+    public var errorDescription: String? {
+    
