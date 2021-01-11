@@ -357,4 +357,16 @@ extension AFError: LocalizedError {
             return reason.localizedDescription
         case .responseValidationFailed(let reason):
             return reason.localizedDescription
-        case 
+        case .responseSerializationFailed(let reason):
+            return reason.localizedDescription
+        }
+    }
+}
+
+extension AFError.ParameterEncodingFailureReason {
+    var localizedDescription: String {
+        switch self {
+        case .missingURL:
+            return "URL request to encode was missing a URL"
+        case .jsonEncodingFailed(let error):
+            return "JSON could not be encoded because of error:\
