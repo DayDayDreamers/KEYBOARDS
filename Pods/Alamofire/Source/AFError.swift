@@ -369,4 +369,15 @@ extension AFError.ParameterEncodingFailureReason {
         case .missingURL:
             return "URL request to encode was missing a URL"
         case .jsonEncodingFailed(let error):
-            return "JSON could not be encoded because of error:\
+            return "JSON could not be encoded because of error:\n\(error.localizedDescription)"
+        case .propertyListEncodingFailed(let error):
+            return "PropertyList could not be encoded because of error:\n\(error.localizedDescription)"
+        }
+    }
+}
+
+extension AFError.MultipartEncodingFailureReason {
+    var localizedDescription: String {
+        switch self {
+        case .bodyPartURLInvalid(let url):
+            return "The URL provided is not a file URL: \(ur
