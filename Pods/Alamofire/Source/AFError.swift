@@ -388,4 +388,12 @@ extension AFError.MultipartEncodingFailureReason {
         case .bodyPartFileNotReachableWithError(let url, let error):
             return (
                 "The system returned an error while checking the provided URL for " +
+                "reachability.\nURL: \(url)\nError: \(error)"
+            )
+        case .bodyPartFileIsDirectory(let url):
+            return "The URL provided is a directory: \(url)"
+        case .bodyPartFileSizeNotAvailable(let url):
+            return "Could not fetch the file size from the provided URL: \(url)"
+        case .bodyPartFileSizeQueryFailedWithError(let url, let error):
+            return (
    
