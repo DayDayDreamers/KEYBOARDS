@@ -380,4 +380,12 @@ extension AFError.MultipartEncodingFailureReason {
     var localizedDescription: String {
         switch self {
         case .bodyPartURLInvalid(let url):
-            return "The URL provided is not a file URL: \(ur
+            return "The URL provided is not a file URL: \(url)"
+        case .bodyPartFilenameInvalid(let url):
+            return "The URL provided does not have a valid filename: \(url)"
+        case .bodyPartFileNotReachable(let url):
+            return "The URL provided is not reachable: \(url)"
+        case .bodyPartFileNotReachableWithError(let url, let error):
+            return (
+                "The system returned an error while checking the provided URL for " +
+   
