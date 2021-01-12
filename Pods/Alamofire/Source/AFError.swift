@@ -396,4 +396,10 @@ extension AFError.MultipartEncodingFailureReason {
             return "Could not fetch the file size from the provided URL: \(url)"
         case .bodyPartFileSizeQueryFailedWithError(let url, let error):
             return (
-   
+                "The system returned an error while attempting to fetch the file size from the " +
+                "provided URL.\nURL: \(url)\nError: \(error)"
+            )
+        case .bodyPartInputStreamCreationFailed(let url):
+            return "Failed to create an InputStream for the provided URL: \(url)"
+        case .outputStreamCreationFailed(let url):
+            return "Failed t
