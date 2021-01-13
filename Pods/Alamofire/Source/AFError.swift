@@ -421,4 +421,10 @@ extension AFError.ResponseSerializationFailureReason {
         case .inputDataNil:
             return "Response could not be serialized, input data was nil."
         case .inputDataNilOrZeroLength:
-            return "Response could not be 
+            return "Response could not be serialized, input data was nil or zero length."
+        case .inputFileNil:
+            return "Response could not be serialized, input file was nil."
+        case .inputFileReadFailed(let url):
+            return "Response could not be serialized, input file could not be read: \(url)."
+        case .stringSerializationFailed(let encoding):
+            return "String could not be serialized with encoding: \(enc
