@@ -409,4 +409,16 @@ extension AFError.MultipartEncodingFailureReason {
             return "The provided OutputStream URL is invalid: \(url)"
         case .outputStreamWriteFailed(let error):
             return "OutputStream write failed with error: \(error)"
-        case .inputS
+        case .inputStreamReadFailed(let error):
+            return "InputStream read failed with error: \(error)"
+        }
+    }
+}
+
+extension AFError.ResponseSerializationFailureReason {
+    var localizedDescription: String {
+        switch self {
+        case .inputDataNil:
+            return "Response could not be serialized, input data was nil."
+        case .inputDataNilOrZeroLength:
+            return "Response could not be 
