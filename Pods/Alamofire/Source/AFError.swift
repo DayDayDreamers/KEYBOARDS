@@ -402,4 +402,11 @@ extension AFError.MultipartEncodingFailureReason {
         case .bodyPartInputStreamCreationFailed(let url):
             return "Failed to create an InputStream for the provided URL: \(url)"
         case .outputStreamCreationFailed(let url):
-            return "Failed t
+            return "Failed to create an OutputStream for URL: \(url)"
+        case .outputStreamFileAlreadyExists(let url):
+            return "A file already exists at the provided URL: \(url)"
+        case .outputStreamURLInvalid(let url):
+            return "The provided OutputStream URL is invalid: \(url)"
+        case .outputStreamWriteFailed(let error):
+            return "OutputStream write failed with error: \(error)"
+        case .inputS
