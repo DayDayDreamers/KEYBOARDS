@@ -427,4 +427,14 @@ extension AFError.ResponseSerializationFailureReason {
         case .inputFileReadFailed(let url):
             return "Response could not be serialized, input file could not be read: \(url)."
         case .stringSerializationFailed(let encoding):
-            return "String could not be serialized with encoding: \(enc
+            return "String could not be serialized with encoding: \(encoding)."
+        case .jsonSerializationFailed(let error):
+            return "JSON could not be serialized because of error:\n\(error.localizedDescription)"
+        case .propertyListSerializationFailed(let error):
+            return "PropertyList could not be serialized because of error:\n\(error.localizedDescription)"
+        }
+    }
+}
+
+extension AFError.ResponseValidationFailureReason {
+    var local
