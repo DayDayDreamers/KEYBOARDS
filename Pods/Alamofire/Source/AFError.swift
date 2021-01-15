@@ -437,4 +437,12 @@ extension AFError.ResponseSerializationFailureReason {
 }
 
 extension AFError.ResponseValidationFailureReason {
-    var local
+    var localizedDescription: String {
+        switch self {
+        case .dataFileNil:
+            return "Response could not be validated, data file was nil."
+        case .dataFileReadFailed(let url):
+            return "Response could not be validated, data file could not be read: \(url)."
+        case .missingContentType(let types):
+            return (
+                "Response Content-Type was missing and acceptable content t
