@@ -445,4 +445,13 @@ extension AFError.ResponseValidationFailureReason {
             return "Response could not be validated, data file could not be read: \(url)."
         case .missingContentType(let types):
             return (
-                "Response Content-Type was missing and acceptable content t
+                "Response Content-Type was missing and acceptable content types " +
+                "(\(types.joined(separator: ","))) do not match \"*/*\"."
+            )
+        case .unacceptableContentType(let acceptableTypes, let responseType):
+            return (
+                "Response Content-Type \"\(responseType)\" does not match any acceptable types: " +
+                "\(acceptableTypes.joined(separator: ","))."
+            )
+        case .unacceptableStatusCode(let code):
+            return "Resp
