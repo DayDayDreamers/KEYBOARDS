@@ -454,4 +454,7 @@ extension AFError.ResponseValidationFailureReason {
                 "\(acceptableTypes.joined(separator: ","))."
             )
         case .unacceptableStatusCode(let code):
-            return "Resp
+            return "Response status code was unacceptable: \(code)."
+        }
+    }
+}
