@@ -18,4 +18,17 @@
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE 
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+
+import Foundation
+
+/// Types adopting the `URLConvertible` protocol can be used to construct URLs, which are then used to construct
+/// URL requests.
+public protocol URLConvertible {
+    /// Returns a URL that conforms to RFC 2396 or throws an `Error`.
+    ///
+    /// - throws: An `Error` if the type cannot be converted to a `URL`.
+    ///
+   
