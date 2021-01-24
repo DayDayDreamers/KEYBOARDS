@@ -55,4 +55,17 @@ extension URL: URLConvertible {
 extension URLComponents: URLConvertible {
     /// Returns a URL if `url` is not nil, otherwise throws an `Error`.
     ///
-    /// - throws: An `AFError.invalidURL` if `url` is `nil
+    /// - throws: An `AFError.invalidURL` if `url` is `nil`.
+    ///
+    /// - returns: A URL or throws an `AFError`.
+    public func asURL() throws -> URL {
+        guard let url = url else { throw AFError.invalidURL(url: self) }
+        return url
+    }
+}
+
+// MARK: -
+
+/// Types adopting the `URLRequestConvertible` protocol can be used to construct URL requests.
+public protocol URLRequestConvertible {
+    /// Returns a URL request or throws if an `
