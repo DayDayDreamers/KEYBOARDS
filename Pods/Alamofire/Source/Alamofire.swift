@@ -68,4 +68,18 @@ extension URLComponents: URLConvertible {
 
 /// Types adopting the `URLRequestConvertible` protocol can be used to construct URL requests.
 public protocol URLRequestConvertible {
-    /// Returns a URL request or throws if an `
+    /// Returns a URL request or throws if an `Error` was encountered.
+    ///
+    /// - throws: An `Error` if the underlying `URLRequest` is `nil`.
+    ///
+    /// - returns: A URL request.
+    func asURLRequest() throws -> URLRequest
+}
+
+extension URLRequestConvertible {
+    /// The URL request.
+    public var urlRequest: URLRequest? { return try? asURLRequest() }
+}
+
+extension URLRequest: URLRequestConvertible {
+    /// Re
