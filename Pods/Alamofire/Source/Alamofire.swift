@@ -42,3 +42,17 @@ extension String: URLConvertible {
     ///
     /// - returns: A URL or throws an `AFError`.
     public func asURL() throws -> URL {
+        guard let url = URL(string: self) else { throw AFError.invalidURL(url: self) }
+        return url
+    }
+}
+
+extension URL: URLConvertible {
+    /// Returns self.
+    public func asURL() throws -> URL { return self }
+}
+
+extension URLComponents: URLConvertible {
+    /// Returns a URL if `url` is not nil, otherwise throws an `Error`.
+    ///
+    /// - throws: An `AFError.invalidURL` if `url` is `nil
