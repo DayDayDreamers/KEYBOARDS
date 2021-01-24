@@ -82,4 +82,15 @@ extension URLRequestConvertible {
 }
 
 extension URLRequest: URLRequestConvertible {
-    /// Re
+    /// Returns a URL request or throws if an `Error` was encountered.
+    public func asURLRequest() throws -> URLRequest { return self }
+}
+
+// MARK: -
+
+extension URLRequest {
+    /// Creates an instance with the specified `method`, `urlString` and `headers`.
+    ///
+    /// - parameter url:     The URL.
+    /// - parameter method:  The HTTP method.
+    /// - parameter headers: The HTTP head
