@@ -93,4 +93,16 @@ extension URLRequest {
     ///
     /// - parameter url:     The URL.
     /// - parameter method:  The HTTP method.
-    /// - parameter headers: The HTTP head
+    /// - parameter headers: The HTTP headers. `nil` by default.
+    ///
+    /// - returns: The new `URLRequest` instance.
+    public init(url: URLConvertible, method: HTTPMethod, headers: HTTPHeaders? = nil) throws {
+        let url = try url.asURL()
+
+        self.init(url: url)
+
+        httpMethod = method.rawValue
+
+        if let headers = headers {
+            for (headerField, headerValue) in headers {
+                set
