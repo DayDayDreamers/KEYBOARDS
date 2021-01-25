@@ -105,4 +105,18 @@ extension URLRequest {
 
         if let headers = headers {
             for (headerField, headerValue) in headers {
-                set
+                setValue(headerValue, forHTTPHeaderField: headerField)
+            }
+        }
+    }
+
+    func adapt(using adapter: RequestAdapter?) throws -> URLRequest {
+        guard let adapter = adapter else { return self }
+        return try adapter.adapt(self)
+    }
+}
+
+// MARK: - Data Request
+
+/// Creates a `DataRequest` using the default `SessionManager` to retrieve the contents of the specified `url`,
+/// `method`, `pa
