@@ -146,4 +146,15 @@ public func request(
     )
 }
 
-/// Creates a
+/// Creates a `DataRequest` using the default `SessionManager` to retrieve the contents of a URL based on the
+/// specified `urlRequest`.
+///
+/// - parameter urlRequest: The URL request
+///
+/// - returns: The created `DataRequest`.
+@discardableResult
+public func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
+    return SessionManager.default.request(urlRequest)
+}
+
+// MARK: - Downlo
