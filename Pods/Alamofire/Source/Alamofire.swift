@@ -119,4 +119,15 @@ extension URLRequest {
 // MARK: - Data Request
 
 /// Creates a `DataRequest` using the default `SessionManager` to retrieve the contents of the specified `url`,
-/// `method`, `pa
+/// `method`, `parameters`, `encoding` and `headers`.
+///
+/// - parameter url:        The URL.
+/// - parameter method:     The HTTP method. `.get` by default.
+/// - parameter parameters: The parameters. `nil` by default.
+/// - parameter encoding:   The parameter encoding. `URLEncoding.default` by default.
+/// - parameter headers:    The HTTP headers. `nil` by default.
+///
+/// - returns: The created `DataRequest`.
+@discardableResult
+public func request(
+    _ url: URLConver
