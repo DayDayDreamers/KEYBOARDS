@@ -168,4 +168,10 @@ public func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
 /// underlying URL session.
 ///
 /// - parameter url:         The URL.
-/// - parameter met
+/// - parameter method:      The HTTP method. `.get` by default.
+/// - parameter parameters:  The parameters. `nil` by default.
+/// - parameter encoding:    The parameter encoding. `URLEncoding.default` by default.
+/// - parameter headers:     The HTTP headers. `nil` by default.
+/// - parameter destination: The closure used to determine the destination of the downloaded file. `nil` by default.
+///
+/// - returns: The cr
