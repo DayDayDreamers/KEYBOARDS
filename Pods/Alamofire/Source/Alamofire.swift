@@ -157,4 +157,15 @@ public func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
     return SessionManager.default.request(urlRequest)
 }
 
-// MARK: - Downlo
+// MARK: - Download Request
+
+// MARK: URL Request
+
+/// Creates a `DownloadRequest` using the default `SessionManager` to retrieve the contents of the specified `url`,
+/// `method`, `parameters`, `encoding`, `headers` and save them to the `destination`.
+///
+/// If `destination` is not specified, the contents will remain in the temporary location determined by the
+/// underlying URL session.
+///
+/// - parameter url:         The URL.
+/// - parameter met
