@@ -198,4 +198,14 @@ public func download(
 /// Creates a `DownloadRequest` using the default `SessionManager` to retrieve the contents of a URL based on the
 /// specified `urlRequest` and save them to the `destination`.
 ///
-/// If `destination` is not specified, the contents will remain in the temporary location determined by th
+/// If `destination` is not specified, the contents will remain in the temporary location determined by the
+/// underlying URL session.
+///
+/// - parameter urlRequest:  The URL request.
+/// - parameter destination: The closure used to determine the destination of the downloaded file. `nil` by default.
+///
+/// - returns: The created `DownloadRequest`.
+@discardableResult
+public func download(
+    _ urlRequest: URLRequestConvertible,
+    to destination: DownloadRequest.DownloadFileDestination? = nil
