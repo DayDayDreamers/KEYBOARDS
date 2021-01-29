@@ -187,4 +187,15 @@ public func download(
 {
     return SessionManager.default.download(
         url,
-        method: method
+        method: method,
+        parameters: parameters,
+        encoding: encoding,
+        headers: headers,
+        to: destination
+    )
+}
+
+/// Creates a `DownloadRequest` using the default `SessionManager` to retrieve the contents of a URL based on the
+/// specified `urlRequest` and save them to the `destination`.
+///
+/// If `destination` is not specified, the contents will remain in the temporary location determined by th
