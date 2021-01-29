@@ -174,4 +174,17 @@ public func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
 /// - parameter headers:     The HTTP headers. `nil` by default.
 /// - parameter destination: The closure used to determine the destination of the downloaded file. `nil` by default.
 ///
-/// - returns: The cr
+/// - returns: The created `DownloadRequest`.
+@discardableResult
+public func download(
+    _ url: URLConvertible,
+    method: HTTPMethod = .get,
+    parameters: Parameters? = nil,
+    encoding: ParameterEncoding = URLEncoding.default,
+    headers: HTTPHeaders? = nil,
+    to destination: DownloadRequest.DownloadFileDestination? = nil)
+    -> DownloadRequest
+{
+    return SessionManager.default.download(
+        url,
+        method: method
