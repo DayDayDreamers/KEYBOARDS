@@ -219,4 +219,9 @@ public func download(
 /// Creates a `DownloadRequest` using the default `SessionManager` from the `resumeData` produced from a
 /// previous request cancellation to retrieve the contents of the original request and save them to the `destination`.
 ///
-/// If `destination` is not specified, the content
+/// If `destination` is not specified, the contents will remain in the temporary location determined by the
+/// underlying URL session.
+///
+/// On the latest release of all the Apple platforms (iOS 10, macOS 10.12, tvOS 10, watchOS 3), `resumeData` is broken
+/// on background URL session configurations. There's an underlying bug in the `resumeData` generation logic where the
+/// data is written incorrectly and will always fail to resu
