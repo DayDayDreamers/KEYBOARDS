@@ -230,4 +230,13 @@ public func download(
 ///    - http://stackoverflow.com/a/39347461/1342462
 ///
 /// - parameter resumeData:  The resume data. This is an opaque data blob produced by `URLSessionDownloadTask`
-///                          when a task is cancelled. See `URLSession -downloadTask(withResumeData:)`
+///                          when a task is cancelled. See `URLSession -downloadTask(withResumeData:)` for additional
+///                          information.
+/// - parameter destination: The closure used to determine the destination of the downloaded file. `nil` by default.
+///
+/// - returns: The created `DownloadRequest`.
+@discardableResult
+public func download(
+    resumingWith resumeData: Data,
+    to destination: DownloadRequest.DownloadFileDestination? = nil)
+    -> DownloadReq
