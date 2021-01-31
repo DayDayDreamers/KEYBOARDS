@@ -208,4 +208,15 @@ public func download(
 @discardableResult
 public func download(
     _ urlRequest: URLRequestConvertible,
-    to destination: DownloadRequest.DownloadFileDestination? = nil
+    to destination: DownloadRequest.DownloadFileDestination? = nil)
+    -> DownloadRequest
+{
+    return SessionManager.default.download(urlRequest, to: destination)
+}
+
+// MARK: Resume Data
+
+/// Creates a `DownloadRequest` using the default `SessionManager` from the `resumeData` produced from a
+/// previous request cancellation to retrieve the contents of the original request and save them to the `destination`.
+///
+/// If `destination` is not specified, the content
