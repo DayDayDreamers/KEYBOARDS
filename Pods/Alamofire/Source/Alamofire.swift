@@ -268,4 +268,13 @@ public func upload(
     return SessionManager.default.upload(fileURL, to: url, method: method, headers: headers)
 }
 
-/// Creates a `UploadRequest` using the 
+/// Creates a `UploadRequest` using the default `SessionManager` from the specified `urlRequest` for
+/// uploading the `file`.
+///
+/// - parameter file:       The file to upload.
+/// - parameter urlRequest: The URL request.
+///
+/// - returns: The created `UploadRequest`.
+@discardableResult
+public func upload(_ fileURL: URL, with urlRequest: URLRequestConvertible) -> UploadRequest {
+    return SessionManager.default.upload(f
