@@ -239,4 +239,19 @@ public func download(
 public func download(
     resumingWith resumeData: Data,
     to destination: DownloadRequest.DownloadFileDestination? = nil)
-    -> DownloadReq
+    -> DownloadRequest
+{
+    return SessionManager.default.download(resumingWith: resumeData, to: destination)
+}
+
+// MARK: - Upload Request
+
+// MARK: File
+
+/// Creates an `UploadRequest` using the default `SessionManager` from the specified `url`, `method` and `headers`
+/// for uploading the `file`.
+///
+/// - parameter file:    The file to upload.
+/// - parameter url:     The URL.
+/// - parameter method:  The HTTP method. `.post` by default.
+/
