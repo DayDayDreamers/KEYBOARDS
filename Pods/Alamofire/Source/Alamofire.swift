@@ -290,4 +290,17 @@ public func upload(_ fileURL: URL, with urlRequest: URLRequestConvertible) -> Up
 /// - parameter method:  The HTTP method. `.post` by default.
 /// - parameter headers: The HTTP headers. `nil` by default.
 ///
-/// - returns: The created `UploadReque
+/// - returns: The created `UploadRequest`.
+@discardableResult
+public func upload(
+    _ data: Data,
+    to url: URLConvertible,
+    method: HTTPMethod = .post,
+    headers: HTTPHeaders? = nil)
+    -> UploadRequest
+{
+    return SessionManager.default.upload(data, to: url, method: method, headers: headers)
+}
+
+/// Creates an `UploadRequest` using the default `SessionManager` from the specified `urlRequest` for
+/// uploading the `data`.
