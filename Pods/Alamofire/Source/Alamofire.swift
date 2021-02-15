@@ -327,4 +327,17 @@ public func upload(_ data: Data, with urlRequest: URLRequestConvertible) -> Uplo
 /// - returns: The created `UploadRequest`.
 @discardableResult
 public func upload(
-    
+    _ stream: InputStream,
+    to url: URLConvertible,
+    method: HTTPMethod = .post,
+    headers: HTTPHeaders? = nil)
+    -> UploadRequest
+{
+    return SessionManager.default.upload(stream, to: url, method: method, headers: headers)
+}
+
+/// Creates an `UploadRequest` using the default `SessionManager` from the specified `urlRequest` for
+/// uploading the `stream`.
+///
+/// - parameter urlRequest: The URL request.
+/// - parameter s
