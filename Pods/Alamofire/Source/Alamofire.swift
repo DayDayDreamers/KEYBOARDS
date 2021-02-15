@@ -304,3 +304,16 @@ public func upload(
 
 /// Creates an `UploadRequest` using the default `SessionManager` from the specified `urlRequest` for
 /// uploading the `data`.
+///
+/// - parameter data:       The data to upload.
+/// - parameter urlRequest: The URL request.
+///
+/// - returns: The created `UploadRequest`.
+@discardableResult
+public func upload(_ data: Data, with urlRequest: URLRequestConvertible) -> UploadRequest {
+    return SessionManager.default.upload(data, with: urlRequest)
+}
+
+// MARK: InputStream
+
+/// Creates an `UploadRequest` using the default
