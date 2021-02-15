@@ -316,4 +316,15 @@ public func upload(_ data: Data, with urlRequest: URLRequestConvertible) -> Uplo
 
 // MARK: InputStream
 
-/// Creates an `UploadRequest` using the default
+/// Creates an `UploadRequest` using the default `SessionManager` from the specified `url`, `method` and `headers`
+/// for uploading the `stream`.
+///
+/// - parameter stream:  The stream to upload.
+/// - parameter url:     The URL.
+/// - parameter method:  The HTTP method. `.post` by default.
+/// - parameter headers: The HTTP headers. `nil` by default.
+///
+/// - returns: The created `UploadRequest`.
+@discardableResult
+public func upload(
+    
