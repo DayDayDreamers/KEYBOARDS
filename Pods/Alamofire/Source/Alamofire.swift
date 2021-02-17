@@ -340,4 +340,15 @@ public func upload(
 /// uploading the `stream`.
 ///
 /// - parameter urlRequest: The URL request.
-/// - parameter s
+/// - parameter stream:     The stream to upload.
+///
+/// - returns: The created `UploadRequest`.
+@discardableResult
+public func upload(_ stream: InputStream, with urlRequest: URLRequestConvertible) -> UploadRequest {
+    return SessionManager.default.upload(stream, with: urlRequest)
+}
+
+// MARK: MultipartFormData
+
+/// Encodes `multipartFormData` using `encodingMemoryThreshold` with the default `SessionManager` and calls
+/// `encodingCompletion` with new `UploadReq
