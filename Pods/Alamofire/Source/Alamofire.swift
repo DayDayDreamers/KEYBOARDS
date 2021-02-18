@@ -366,4 +366,9 @@ public func upload(_ stream: InputStream, with urlRequest: URLRequestConvertible
 /// during the encoding process. Then the result is uploaded as data or as a stream depending on which encoding
 /// technique was used.
 ///
-/// - parameter multipartFormData:       The closure used to append body parts t
+/// - parameter multipartFormData:       The closure used to append body parts to the `MultipartFormData`.
+/// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
+///                                      `multipartFormDataEncodingMemoryThreshold` by default.
+/// - parameter url:                     The URL.
+/// - parameter method:                  The HTTP method. `.post` by default.
+/// - parameter headers:                
