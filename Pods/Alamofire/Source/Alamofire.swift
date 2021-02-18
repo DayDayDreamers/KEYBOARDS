@@ -361,4 +361,9 @@ public func upload(_ stream: InputStream, with urlRequest: URLRequestConvertible
 /// used for larger payloads such as video content.
 ///
 /// The `encodingMemoryThreshold` parameter allows Alamofire to automatically determine whether to encode in-memory
-/// or stream from disk. If the content lengt
+/// or stream from disk. If the content length of the `MultipartFormData` is below the `encodingMemoryThreshold`,
+/// encoding takes place in-memory. If the content length exceeds the threshold, the data is streamed to disk
+/// during the encoding process. Then the result is uploaded as data or as a stream depending on which encoding
+/// technique was used.
+///
+/// - parameter multipartFormData:       The closure used to append body parts t
