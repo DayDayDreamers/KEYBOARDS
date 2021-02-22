@@ -371,4 +371,12 @@ public func upload(_ stream: InputStream, with urlRequest: URLRequestConvertible
 ///                                      `multipartFormDataEncodingMemoryThreshold` by default.
 /// - parameter url:                     The URL.
 /// - parameter method:                  The HTTP method. `.post` by default.
-/// - parameter headers:                
+/// - parameter headers:                 The HTTP headers. `nil` by default.
+/// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
+public func upload(
+    multipartFormData: @escaping (MultipartFormData) -> Void,
+    usingThreshold encodingMemoryThreshold: UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold,
+    to url: URLConvertible,
+    method: HTTPMethod = .post,
+    headers: HTTPHeaders? = nil,
+  
