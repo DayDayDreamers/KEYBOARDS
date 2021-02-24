@@ -391,4 +391,9 @@ public func upload(
     )
 }
 
-/// Encodes `multipartFormData` using `encodingMemoryThreshold` and the default `SessionMa
+/// Encodes `multipartFormData` using `encodingMemoryThreshold` and the default `SessionManager` and
+/// calls `encodingCompletion` with new `UploadRequest` using the `urlRequest`.
+///
+/// It is important to understand the memory implications of uploading `MultipartFormData`. If the cummulative
+/// payload is small, encoding the data in-memory and directly uploading to a server is the by far the most
+/// efficient approach. However, if the payload is too large, encoding the data in-me
