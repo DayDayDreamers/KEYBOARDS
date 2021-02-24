@@ -379,4 +379,16 @@ public func upload(
     to url: URLConvertible,
     method: HTTPMethod = .post,
     headers: HTTPHeaders? = nil,
-  
+    encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?)
+{
+    return SessionManager.default.upload(
+        multipartFormData: multipartFormData,
+        usingThreshold: encodingMemoryThreshold,
+        to: url,
+        method: method,
+        headers: headers,
+        encodingCompletion: encodingCompletion
+    )
+}
+
+/// Encodes `multipartFormData` using `encodingMemoryThreshold` and the default `SessionMa
