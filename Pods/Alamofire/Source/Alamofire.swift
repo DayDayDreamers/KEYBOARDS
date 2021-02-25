@@ -419,4 +419,21 @@ public func upload(
     encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?)
 {
     return SessionManager.default.upload(
-        multipartFormData: multipartFormData
+        multipartFormData: multipartFormData,
+        usingThreshold: encodingMemoryThreshold,
+        with: urlRequest,
+        encodingCompletion: encodingCompletion
+    )
+}
+
+#if !os(watchOS)
+
+// MARK: - Stream Request
+
+// MARK: Hostname and Port
+
+/// Creates a `StreamRequest` using the default `SessionManager` for bidirectional streaming with the `hostname`
+/// and `port`.
+///
+/// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+///
