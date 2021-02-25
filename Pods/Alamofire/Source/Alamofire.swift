@@ -411,4 +411,12 @@ public func upload(
 /// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
 ///                                      `multipartFormDataEncodingMemoryThreshold` by default.
 /// - parameter urlRequest:              The URL request.
-/// - parameter encodingCompletion:      The closure called when the `Multipart
+/// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
+public func upload(
+    multipartFormData: @escaping (MultipartFormData) -> Void,
+    usingThreshold encodingMemoryThreshold: UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold,
+    with urlRequest: URLRequestConvertible,
+    encodingCompletion: ((SessionManager.MultipartFormDataEncodingResult) -> Void)?)
+{
+    return SessionManager.default.upload(
+        multipartFormData: multipartFormData
