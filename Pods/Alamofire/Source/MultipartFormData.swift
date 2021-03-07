@@ -56,4 +56,14 @@ open class MultipartFormData {
         }
 
         static func randomBoundary() -> String {
-            return String(format: "alamofire.boundary.%08x%08x", arc4random(), arc4r
+            return String(format: "alamofire.boundary.%08x%08x", arc4random(), arc4random())
+        }
+
+        static func boundaryData(forBoundaryType boundaryType: BoundaryType, boundary: String) -> Data {
+            let boundaryText: String
+
+            switch boundaryType {
+            case .initial:
+                boundaryText = "--\(boundary)\(EncodingCharacters.crlf)"
+            case .encapsulated:
+                boundaryText = "\(EncodingCharacters.crlf)--\(boundary)\(EncodingCh
