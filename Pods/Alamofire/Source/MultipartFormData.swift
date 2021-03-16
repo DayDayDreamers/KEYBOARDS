@@ -120,3 +120,16 @@ open class MultipartFormData {
         ///
 
         self.streamBufferSize = 1024
+    }
+
+    // MARK: - Body Parts
+
+    /// Creates a body part from the data and appends it to the multipart form data object.
+    ///
+    /// The body part data will be encoded using the following format:
+    ///
+    /// - `Content-Disposition: form-data; name=#{name}` (HTTP Header)
+    /// - Encoded data
+    /// - Multipart form boundary
+    ///
+    /// - parameter data: The 
