@@ -140,3 +140,15 @@ open class MultipartFormData {
         let length = UInt64(data.count)
 
         append(stream, withLength: length, headers: headers)
+    }
+
+    /// Creates a body part from the data and appends it to the multipart form data object.
+    ///
+    /// The body part data will be encoded using the following format:
+    ///
+    /// - `Content-Disposition: form-data; name=#{name}` (HTTP Header)
+    /// - `Content-Type: #{generated mimeType}` (HTTP Header)
+    /// - Encoded data
+    /// - Multipart form boundary
+    ///
+    /// - parameter data:     The 
