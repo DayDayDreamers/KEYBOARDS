@@ -132,4 +132,11 @@ open class MultipartFormData {
     /// - Encoded data
     /// - Multipart form boundary
     ///
-    /// - parameter data: The 
+    /// - parameter data: The data to encode into the multipart form data.
+    /// - parameter name: The name to associate with the data in the `Content-Disposition` HTTP header.
+    public func append(_ data: Data, withName name: String) {
+        let headers = contentHeaders(withName: name)
+        let stream = InputStream(data: data)
+        let length = UInt64(data.count)
+
+        append(stream, withLength: length, headers: headers)
