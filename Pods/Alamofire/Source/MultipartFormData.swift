@@ -151,4 +151,8 @@ open class MultipartFormData {
     /// - Encoded data
     /// - Multipart form boundary
     ///
-    /// - parameter data:     The 
+    /// - parameter data:     The data to encode into the multipart form data.
+    /// - parameter name:     The name to associate with the data in the `Content-Disposition` HTTP header.
+    /// - parameter mimeType: The MIME type to associate with the data content type in the `Content-Type` HTTP header.
+    public func append(_ data: Data, withName name: String, mimeType: String) {
+        let headers = contentHeaders(withName: nam
