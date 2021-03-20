@@ -166,4 +166,11 @@ open class MultipartFormData {
     ///
     /// The body part data will be encoded using the following format:
     ///
-    /// - `Content-Disposition: form-data; name=#{name}; filena
+    /// - `Content-Disposition: form-data; name=#{name}; filename=#{filename}` (HTTP Header)
+    /// - `Content-Type: #{mimeType}` (HTTP Header)
+    /// - Encoded file data
+    /// - Multipart form boundary
+    ///
+    /// - parameter data:     The data to encode into the multipart form data.
+    /// - parameter name:     The name to associate with the data in the `Content-Disposition` HTTP header.
+    /// - parameter fileName: The filename to assoc
