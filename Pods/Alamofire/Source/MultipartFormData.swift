@@ -202,4 +202,14 @@ open class MultipartFormData {
         let fileName = fileURL.lastPathComponent
         let pathExtension = fileURL.pathExtension
 
-        if !fileName.isEmpty &
+        if !fileName.isEmpty && !pathExtension.isEmpty {
+            let mime = mimeType(forPathExtension: pathExtension)
+            append(fileURL, withName: name, fileName: fileName, mimeType: mime)
+        } else {
+            setBodyPartError(withReason: .bodyPartFilenameInvalid(in: fileURL))
+        }
+    }
+
+    /// Creates a body part from the file and appends it to the multipart form data object.
+    ///
+    /// The body part data will be encoded 
