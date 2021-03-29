@@ -223,4 +223,12 @@ open class MultipartFormData {
     /// - parameter name:     The name to associate with the file content in the `Content-Disposition` HTTP header.
     /// - parameter fileName: The filename to associate with the file content in the `Content-Disposition` HTTP header.
     /// - parameter mimeType: The MIME type to associate with the file content in the `Content-Type` HTTP header.
-    public func append(_ fileURL: URL, withName name: String, fileN
+    public func append(_ fileURL: URL, withName name: String, fileName: String, mimeType: String) {
+        let headers = contentHeaders(withName: name, fileName: fileName, mimeType: mimeType)
+
+        //============================================================
+        //                 Check 1 - is file URL?
+        //============================================================
+
+        guard fileURL.isFileURL else {
+            setBodyPartError(withReason: .
