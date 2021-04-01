@@ -231,4 +231,15 @@ open class MultipartFormData {
         //============================================================
 
         guard fileURL.isFileURL else {
-            setBodyPartError(withReason: .
+            setBodyPartError(withReason: .bodyPartURLInvalid(url: fileURL))
+            return
+        }
+
+        //============================================================
+        //              Check 2 - is file URL reachable?
+        //============================================================
+
+        do {
+            let isReachable = try fileURL.checkPromisedItemIsReachable()
+            guard isReachable else {
+                setBodyPartError(withReason: .b
