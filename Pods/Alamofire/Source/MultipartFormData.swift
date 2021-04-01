@@ -242,4 +242,14 @@ open class MultipartFormData {
         do {
             let isReachable = try fileURL.checkPromisedItemIsReachable()
             guard isReachable else {
-                setBodyPartError(withReason: .b
+                setBodyPartError(withReason: .bodyPartFileNotReachable(at: fileURL))
+                return
+            }
+        } catch {
+            setBodyPartError(withReason: .bodyPartFileNotReachableWithError(atURL: fileURL, error: error))
+            return
+        }
+
+        //============================================================
+        //            Check 3 - is file URL a directory?
+        //=================================================
