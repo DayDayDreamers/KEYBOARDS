@@ -274,4 +274,13 @@ open class MultipartFormData {
                 return
             }
 
-    
+            bodyContentLength = fileSize.uint64Value
+        }
+        catch {
+            setBodyPartError(withReason: .bodyPartFileSizeQueryFailedWithError(forURL: fileURL, error: error))
+            return
+        }
+
+        //============================================================
+        //       Check 5 - can a stream be created from file URL?
+        //=========================================
