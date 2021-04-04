@@ -309,4 +309,15 @@ open class MultipartFormData {
     /// - parameter mimeType: The MIME type to associate with the stream content in the `Content-Type` HTTP header.
     public func append(
         _ stream: InputStream,
-        with
+        withLength length: UInt64,
+        name: String,
+        fileName: String,
+        mimeType: String)
+    {
+        let headers = contentHeaders(withName: name, fileName: fileName, mimeType: mimeType)
+        append(stream, withLength: length, headers: headers)
+    }
+
+    /// Creates a body part with the headers, stream and length and appends it to the multipart form data object.
+    ///
+    /// The body part data will be e
