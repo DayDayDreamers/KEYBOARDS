@@ -304,4 +304,9 @@ open class MultipartFormData {
     ///
     /// - parameter stream:   The input stream to encode in the multipart form data.
     /// - parameter length:   The content length of the stream.
-    /// - para
+    /// - parameter name:     The name to associate with the stream content in the `Content-Disposition` HTTP header.
+    /// - parameter fileName: The filename to associate with the stream content in the `Content-Disposition` HTTP header.
+    /// - parameter mimeType: The MIME type to associate with the stream content in the `Content-Type` HTTP header.
+    public func append(
+        _ stream: InputStream,
+        with
