@@ -295,4 +295,13 @@ open class MultipartFormData {
 
     /// Creates a body part from the stream and appends it to the multipart form data object.
     ///
-    /// The body part data will be encoded 
+    /// The body part data will be encoded using the following format:
+    ///
+    /// - `Content-Disposition: form-data; name=#{name}; filename=#{filename}` (HTTP Header)
+    /// - `Content-Type: #{mimeType}` (HTTP Header)
+    /// - Encoded stream data
+    /// - Multipart form boundary
+    ///
+    /// - parameter stream:   The input stream to encode in the multipart form data.
+    /// - parameter length:   The content length of the stream.
+    /// - para
