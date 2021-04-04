@@ -283,4 +283,16 @@ open class MultipartFormData {
 
         //============================================================
         //       Check 5 - can a stream be created from file URL?
-        //=========================================
+        //============================================================
+
+        guard let stream = InputStream(url: fileURL) else {
+            setBodyPartError(withReason: .bodyPartInputStreamCreationFailed(for: fileURL))
+            return
+        }
+
+        append(stream, withLength: bodyContentLength, headers: headers)
+    }
+
+    /// Creates a body part from the stream and appends it to the multipart form data object.
+    ///
+    /// The body part data will be encoded 
