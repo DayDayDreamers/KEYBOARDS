@@ -320,4 +320,13 @@ open class MultipartFormData {
 
     /// Creates a body part with the headers, stream and length and appends it to the multipart form data object.
     ///
-    /// The body part data will be e
+    /// The body part data will be encoded using the following format:
+    ///
+    /// - HTTP headers
+    /// - Encoded stream data
+    /// - Multipart form boundary
+    ///
+    /// - parameter stream:  The input stream to encode in the multipart form data.
+    /// - parameter length:  The content length of the stream.
+    /// - parameter headers: The HTTP headers for the body part.
+    public func append(_ stream: InputStream, withLength length: UInt64, headers: HTTPHeader
