@@ -329,4 +329,14 @@ open class MultipartFormData {
     /// - parameter stream:  The input stream to encode in the multipart form data.
     /// - parameter length:  The content length of the stream.
     /// - parameter headers: The HTTP headers for the body part.
-    public func append(_ stream: InputStream, withLength length: UInt64, headers: HTTPHeader
+    public func append(_ stream: InputStream, withLength length: UInt64, headers: HTTPHeaders) {
+        let bodyPart = BodyPart(headers: headers, bodyStream: stream, bodyContentLength: length)
+        bodyParts.append(bodyPart)
+    }
+
+    // MARK: - Data Encoding
+
+    /// Encodes all the appended body parts into a single `Data` value.
+    ///
+    /// It is important to note that this method will load all the appended body parts into memory all at the same
+    /// time. This method 
