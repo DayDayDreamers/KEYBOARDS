@@ -346,4 +346,21 @@ open class MultipartFormData {
     ///
     /// - returns: The encoded `Data` if encoding is successful.
     public func encode() throws -> Data {
-        if let bodyPartError = 
+        if let bodyPartError = bodyPartError {
+            throw bodyPartError
+        }
+
+        var encoded = Data()
+
+        bodyParts.first?.hasInitialBoundary = true
+        bodyParts.last?.hasFinalBoundary = true
+
+        for bodyPart in bodyParts {
+            let encodedData = try encode(bodyPart)
+            encoded.append(encodedData)
+        }
+
+        return encoded
+    }
+
+    /// Writes the appended body parts into the given
