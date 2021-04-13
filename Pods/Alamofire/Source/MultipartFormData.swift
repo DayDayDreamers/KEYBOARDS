@@ -371,4 +371,14 @@ open class MultipartFormData {
     /// - parameter fileURL: The file URL to write the multipart form data into.
     ///
     /// - throws: An `AFError` if encoding encounters an error.
-    public func writeEncodedData(to fil
+    public func writeEncodedData(to fileURL: URL) throws {
+        if let bodyPartError = bodyPartError {
+            throw bodyPartError
+        }
+
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            throw AFError.multipartEncodingFailed(reason: .outputStreamFileAlreadyExists(at: fileURL))
+        } else if !fileURL.isFileURL {
+            throw AFError.multipartEncodingFailed(reason: .outputStreamURLInvalid(url: fileURL))
+        }
+
