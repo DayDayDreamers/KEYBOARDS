@@ -382,3 +382,14 @@ open class MultipartFormData {
             throw AFError.multipartEncodingFailed(reason: .outputStreamURLInvalid(url: fileURL))
         }
 
+        guard let outputStream = OutputStream(url: fileURL, append: false) else {
+            throw AFError.multipartEncodingFailed(reason: .outputStreamCreationFailed(for: fileURL))
+        }
+
+        outputStream.open()
+        defer { outputStream.close() }
+
+        self.bodyParts.first?.hasInitialBoundary = true
+        self.bodyParts.last?.hasFinalBoundary = true
+
+        for bodyPart in self.bodyParts {
