@@ -406,4 +406,20 @@ open class MultipartFormData {
         encoded.append(initialData)
 
         let headerData = encodeHeaders(for: bodyPart)
-        encoded.append(headerD
+        encoded.append(headerData)
+
+        let bodyStreamData = try encodeBodyStream(for: bodyPart)
+        encoded.append(bodyStreamData)
+
+        if bodyPart.hasFinalBoundary {
+            encoded.append(finalBoundaryData())
+        }
+
+        return encoded
+    }
+
+    private func encodeHeaders(for bodyPart: BodyPart) -> Data {
+        var headerText = ""
+
+        for (key, value) in bodyPart.headers {
+            headerText 
