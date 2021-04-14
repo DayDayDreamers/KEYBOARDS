@@ -393,3 +393,17 @@ open class MultipartFormData {
         self.bodyParts.last?.hasFinalBoundary = true
 
         for bodyPart in self.bodyParts {
+            try write(bodyPart, to: outputStream)
+        }
+    }
+
+    // MARK: - Private - Body Part Encoding
+
+    private func encode(_ bodyPart: BodyPart) throws -> Data {
+        var encoded = Data()
+
+        let initialData = bodyPart.hasInitialBoundary ? initialBoundaryData() : encapsulatedBoundaryData()
+        encoded.append(initialData)
+
+        let headerData = encodeHeaders(for: bodyPart)
+        encoded.append(headerD
