@@ -422,4 +422,16 @@ open class MultipartFormData {
         var headerText = ""
 
         for (key, value) in bodyPart.headers {
-            headerText 
+            headerText += "\(key): \(value)\(EncodingCharacters.crlf)"
+        }
+        headerText += EncodingCharacters.crlf
+
+        return headerText.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+    }
+
+    private func encodeBodyStream(for bodyPart: BodyPart) throws -> Data {
+        let inputStream = bodyPart.bodyStream
+        inputStream.open()
+        defer { inputStream.close() }
+
+        var encoded
