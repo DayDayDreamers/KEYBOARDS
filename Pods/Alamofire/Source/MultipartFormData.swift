@@ -444,4 +444,18 @@ open class MultipartFormData {
                 throw AFError.multipartEncodingFailed(reason: .inputStreamReadFailed(error: error))
             }
 
-            if byt
+            if bytesRead > 0 {
+                encoded.append(buffer, count: bytesRead)
+            } else {
+                break
+            }
+        }
+
+        return encoded
+    }
+
+    // MARK: - Private - Writing Body Part to Output Stream
+
+    private func write(_ bodyPart: BodyPart, to outputStream: OutputStream) throws {
+        try writeInitialBoundaryData(for: bodyPart, to: outputStream)
+        try writeHeaderData(for: 
