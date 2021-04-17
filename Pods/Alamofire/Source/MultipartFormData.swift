@@ -476,4 +476,12 @@ open class MultipartFormData {
     private func writeBodyStream(for bodyPart: BodyPart, to outputStream: OutputStream) throws {
         let inputStream = bodyPart.bodyStream
 
-        inputStream.op
+        inputStream.open()
+        defer { inputStream.close() }
+
+        while inputStream.hasBytesAvailable {
+            var buffer = [UInt8](repeating: 0, count: streamBufferSize)
+            let bytesRead = inputStream.read(&buffer, maxLength: streamBufferSize)
+
+            if let streamError = inputStream.streamError {
+                throw AFError.multipartEncodingFailed(reason: .inputStreamReadFailed(error: streamE
