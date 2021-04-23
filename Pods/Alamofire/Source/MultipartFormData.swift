@@ -509,4 +509,15 @@ open class MultipartFormData {
 
     private func write(_ data: Data, to outputStream: OutputStream) throws {
         var buffer = [UInt8](repeating: 0, count: data.count)
-        data.copyBytes(to: &buffe
+        data.copyBytes(to: &buffer, count: data.count)
+
+        return try write(&buffer, to: outputStream)
+    }
+
+    private func write(_ buffer: inout [UInt8], to outputStream: OutputStream) throws {
+        var bytesToWrite = buffer.count
+
+        while bytesToWrite > 0, outputStream.hasSpaceAvailable {
+            let bytesWritten = outputStream.write(buffer, maxLength: bytesToWrite)
+
+            if let error = outputStream.
