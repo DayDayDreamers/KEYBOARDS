@@ -520,4 +520,18 @@ open class MultipartFormData {
         while bytesToWrite > 0, outputStream.hasSpaceAvailable {
             let bytesWritten = outputStream.write(buffer, maxLength: bytesToWrite)
 
-            if let error = outputStream.
+            if let error = outputStream.streamError {
+                throw AFError.multipartEncodingFailed(reason: .outputStreamWriteFailed(error: error))
+            }
+
+            bytesToWrite -= bytesWritten
+
+            if bytesToWrite > 0 {
+                buffer = Array(buffer[bytesWritten..<buffer.count])
+            }
+        }
+    }
+
+    // MARK: - Private - Mime Type
+
+    private func mimeType(forPathExtens
