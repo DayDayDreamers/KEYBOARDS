@@ -534,4 +534,12 @@ open class MultipartFormData {
 
     // MARK: - Private - Mime Type
 
-    private func mimeType(forPathExtens
+    private func mimeType(forPathExtension pathExtension: String) -> String {
+        if
+            let id = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, pathExtension as CFString, nil)?.takeRetainedValue(),
+            let contentType = UTTypeCopyPreferredTagWithClass(id, kUTTagClassMIMEType)?.takeRetainedValue()
+        {
+            return contentType as String
+        }
+
+        return "application/
