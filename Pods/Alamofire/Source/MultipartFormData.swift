@@ -552,4 +552,16 @@ open class MultipartFormData {
         if let fileName = fileName { disposition += "; filename=\"\(fileName)\"" }
 
         var headers = ["Content-Disposition": disposition]
-        if let mimeType = mi
+        if let mimeType = mimeType { headers["Content-Type"] = mimeType }
+
+        return headers
+    }
+
+    // MARK: - Private - Boundary Encoding
+
+    private func initialBoundaryData() -> Data {
+        return BoundaryGenerator.boundaryData(forBoundaryType: .initial, boundary: boundary)
+    }
+
+    private func encapsulatedBoundaryData() -> Data {
+        return BoundaryGenerator.boundaryData(forBoundaryType: .encapsulated, 
