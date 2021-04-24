@@ -542,4 +542,14 @@ open class MultipartFormData {
             return contentType as String
         }
 
-        return "application/
+        return "application/octet-stream"
+    }
+
+    // MARK: - Private - Content Headers
+
+    private func contentHeaders(withName name: String, fileName: String? = nil, mimeType: String? = nil) -> [String: String] {
+        var disposition = "form-data; name=\"\(name)\""
+        if let fileName = fileName { disposition += "; filename=\"\(fileName)\"" }
+
+        var headers = ["Content-Disposition": disposition]
+        if let mimeType = mi
