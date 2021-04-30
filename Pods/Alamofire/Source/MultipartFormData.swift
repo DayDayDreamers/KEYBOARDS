@@ -564,4 +564,16 @@ open class MultipartFormData {
     }
 
     private func encapsulatedBoundaryData() -> Data {
-        return BoundaryGenerator.boundaryData(forBoundaryType: .encapsulated, 
+        return BoundaryGenerator.boundaryData(forBoundaryType: .encapsulated, boundary: boundary)
+    }
+
+    private func finalBoundaryData() -> Data {
+        return BoundaryGenerator.boundaryData(forBoundaryType: .final, boundary: boundary)
+    }
+
+    // MARK: - Private - Errors
+
+    private func setBodyPartError(withReason reason: AFError.MultipartEncodingFailureReason) {
+        guard bodyPartError == nil else { return }
+        bodyPartError = AFError.multipartEncodingFailed(reason: reason)
+   
