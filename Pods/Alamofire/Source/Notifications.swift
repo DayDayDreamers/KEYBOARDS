@@ -27,4 +27,8 @@ import Foundation
 extension Notification.Name {
     /// Used as a namespace for all `URLSessionTask` related notifications.
     public struct Task {
-        /// Posted whe
+        /// Posted when a `URLSessionTask` is resumed. The notification `object` contains the resumed `URLSessionTask`.
+        public static let DidResume = Notification.Name(rawValue: "org.alamofire.notification.name.task.didResume")
+
+        /// Posted when a `URLSessionTask` is suspended. The notification `object` contains the suspended `URLSessionTask`.
+        public static let DidSuspend = Notification.Name(rawValue: "org.alamofire.notification.nam
