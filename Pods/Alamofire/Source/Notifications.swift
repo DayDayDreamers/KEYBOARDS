@@ -37,4 +37,14 @@ extension Notification.Name {
         public static let DidCancel = Notification.Name(rawValue: "org.alamofire.notification.name.task.didCancel")
 
         /// Posted when a `URLSessionTask` is completed. The notification `object` contains the completed `URLSessionTask`.
-        public static le
+        public static let DidComplete = Notification.Name(rawValue: "org.alamofire.notification.name.task.didComplete")
+    }
+}
+
+// MARK: -
+
+extension Notification {
+    /// Used as a namespace for all `Notification` user info dictionary keys.
+    public struct Key {
+        /// User info dictionary key representing the `URLSessionTask` associated with the notification.
+        public static let Task = "o
