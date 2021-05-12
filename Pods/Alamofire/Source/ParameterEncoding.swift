@@ -46,4 +46,12 @@ public typealias Parameters = [String: Any]
 
 /// A type used to define how a set of parameters are applied to a `URLRequest`.
 public protocol ParameterEncoding {
-    /// Creates a U
+    /// Creates a URL request by encoding parameters and applying them onto an existing request.
+    ///
+    /// - parameter urlRequest: The request to have parameters applied.
+    /// - parameter parameters: The parameters to apply.
+    ///
+    /// - throws: An `AFError.parameterEncodingFailed` error if encoding fails.
+    ///
+    /// - returns: The encoded request.
+    func encode(_ urlRequest: URLRequestCo
