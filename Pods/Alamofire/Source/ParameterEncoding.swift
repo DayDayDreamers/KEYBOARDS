@@ -30,4 +30,20 @@ import Foundation
 public enum HTTPMethod: String {
     case options = "OPTIONS"
     case get     = "GET"
-    case head    = 
+    case head    = "HEAD"
+    case post    = "POST"
+    case put     = "PUT"
+    case patch   = "PATCH"
+    case delete  = "DELETE"
+    case trace   = "TRACE"
+    case connect = "CONNECT"
+}
+
+// MARK: -
+
+/// A dictionary of parameters to apply to a `URLRequest`.
+public typealias Parameters = [String: Any]
+
+/// A type used to define how a set of parameters are applied to a `URLRequest`.
+public protocol ParameterEncoding {
+    /// Creates a U
