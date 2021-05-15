@@ -63,4 +63,9 @@ public protocol ParameterEncoding {
 /// body of the URL request. Whether the query string is set or appended to any existing URL query string or set as
 /// the HTTP body depends on the destination of the encoding.
 ///
-/// The `Content-Type` HTTP header field of an encode
+/// The `Content-Type` HTTP header field of an encoded request with HTTP body is set to
+/// `application/x-www-form-urlencoded; charset=utf-8`.
+///
+/// There is no published specification for how to encode collection types. By default the convention of appending
+/// `[]` to the key for array values (`foo[]=1&foo[]=2`), and appending the key surrounded by square brackets for
+/// nested dictionary values (`foo[bar]=baz`) is used. Optionally, `Arr
