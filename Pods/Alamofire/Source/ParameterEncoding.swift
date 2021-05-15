@@ -54,4 +54,13 @@ public protocol ParameterEncoding {
     /// - throws: An `AFError.parameterEncodingFailed` error if encoding fails.
     ///
     /// - returns: The encoded request.
-    func encode(_ urlRequest: URLRequestCo
+    func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest
+}
+
+// MARK: -
+
+/// Creates a url-encoded query string to be set as or appended to any existing URL query string or set as the HTTP
+/// body of the URL request. Whether the query string is set or appended to any existing URL query string or set as
+/// the HTTP body depends on the destination of the encoding.
+///
+/// The `Content-Type` HTTP header field of an encode
