@@ -68,4 +68,13 @@ public protocol ParameterEncoding {
 ///
 /// There is no published specification for how to encode collection types. By default the convention of appending
 /// `[]` to the key for array values (`foo[]=1&foo[]=2`), and appending the key surrounded by square brackets for
-/// nested dictionary values (`foo[bar]=baz`) is used. Optionally, `Arr
+/// nested dictionary values (`foo[bar]=baz`) is used. Optionally, `ArrayEncoding` can be used to omit the
+/// square brackets appended to array keys.
+///
+/// `BoolEncoding` can be used to configure how boolean values are encoded. The default behavior is to encode
+/// `true` as 1 and `false` as 0.
+public struct URLEncoding: ParameterEncoding {
+
+    // MARK: Helper Types
+
+    /// Defines whether the url-encoded query string is applied to the exis
