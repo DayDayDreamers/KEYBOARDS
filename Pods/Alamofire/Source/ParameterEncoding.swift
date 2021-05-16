@@ -83,4 +83,13 @@ public struct URLEncoding: ParameterEncoding {
     /// - methodDependent: Applies encoded query string result to existing query string for `GET`, `HEAD` and `DELETE`
     ///                    requests and sets as the HTTP body for requests with any other HTTP method.
     /// - queryString:     Sets or appends encoded query string result to existing query string.
-    /// - httpBody:        Sets
+    /// - httpBody:        Sets encoded query string result as the HTTP body of the URL request.
+    public enum Destination {
+        case methodDependent, queryString, httpBody
+    }
+
+    /// Configures how `Array` parameters are encoded.
+    ///
+    /// - brackets:        An empty set of square brackets is appended to the key for every value.
+    ///                    This is the default behavior.
+    /// - noBrackets:      No brackets are appended. Th
