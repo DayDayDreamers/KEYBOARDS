@@ -77,4 +77,10 @@ public struct URLEncoding: ParameterEncoding {
 
     // MARK: Helper Types
 
-    /// Defines whether the url-encoded query string is applied to the exis
+    /// Defines whether the url-encoded query string is applied to the existing query string or HTTP body of the
+    /// resulting URL request.
+    ///
+    /// - methodDependent: Applies encoded query string result to existing query string for `GET`, `HEAD` and `DELETE`
+    ///                    requests and sets as the HTTP body for requests with any other HTTP method.
+    /// - queryString:     Sets or appends encoded query string result to existing query string.
+    /// - httpBody:        Sets
