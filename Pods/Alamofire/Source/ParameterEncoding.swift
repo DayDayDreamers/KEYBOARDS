@@ -108,4 +108,14 @@ public struct URLEncoding: ParameterEncoding {
 
     /// Configures how `Bool` parameters are encoded.
     ///
-    /// - numeric:         Enc
+    /// - numeric:         Encode `true` as `1` and `false` as `0`. This is the default behavior.
+    /// - literal:         Encode `true` and `false` as string literals.
+    public enum BoolEncoding {
+        case numeric, literal
+
+        func encode(value: Bool) -> String {
+            switch self {
+            case .numeric:
+                return value ? "1" : "0"
+            case .literal:
+                retu
