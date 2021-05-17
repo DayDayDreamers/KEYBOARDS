@@ -92,4 +92,20 @@ public struct URLEncoding: ParameterEncoding {
     ///
     /// - brackets:        An empty set of square brackets is appended to the key for every value.
     ///                    This is the default behavior.
-    /// - noBrackets:      No brackets are appended. Th
+    /// - noBrackets:      No brackets are appended. The key is encoded as is.
+    public enum ArrayEncoding {
+        case brackets, noBrackets
+
+        func encode(key: String) -> String {
+            switch self {
+            case .brackets:
+                return "\(key)[]"
+            case .noBrackets:
+                return key
+            }
+        }
+    }
+
+    /// Configures how `Bool` parameters are encoded.
+    ///
+    /// - numeric:         Enc
