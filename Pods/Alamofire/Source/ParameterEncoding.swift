@@ -118,4 +118,17 @@ public struct URLEncoding: ParameterEncoding {
             case .numeric:
                 return value ? "1" : "0"
             case .literal:
-                retu
+                return value ? "true" : "false"
+            }
+        }
+    }
+
+    // MARK: Properties
+
+    /// Returns a default `URLEncoding` instance.
+    public static var `default`: URLEncoding { return URLEncoding() }
+
+    /// Returns a `URLEncoding` instance with a `.methodDependent` destination.
+    public static var methodDependent: URLEncoding { return URLEncoding() }
+
+    /// Returns a `URLEncoding` instan
