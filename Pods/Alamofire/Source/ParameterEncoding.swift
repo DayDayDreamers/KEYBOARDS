@@ -138,4 +138,16 @@ public struct URLEncoding: ParameterEncoding {
     public static var httpBody: URLEncoding { return URLEncoding(destination: .httpBody) }
 
     /// The destination defining where the encoded query string is to be applied to the URL request.
-    publi
+    public let destination: Destination
+
+    /// The encoding to use for `Array` parameters.
+    public let arrayEncoding: ArrayEncoding
+
+    /// The encoding to use for `Bool` parameters.
+    public let boolEncoding: BoolEncoding
+
+    // MARK: Initialization
+
+    /// Creates a `URLEncoding` instance using the specified destination.
+    ///
+    /// - parameter destination: The destination defining where the encoded query strin
