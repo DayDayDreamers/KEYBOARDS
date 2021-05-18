@@ -131,4 +131,11 @@ public struct URLEncoding: ParameterEncoding {
     /// Returns a `URLEncoding` instance with a `.methodDependent` destination.
     public static var methodDependent: URLEncoding { return URLEncoding() }
 
-    /// Returns a `URLEncoding` instan
+    /// Returns a `URLEncoding` instance with a `.queryString` destination.
+    public static var queryString: URLEncoding { return URLEncoding(destination: .queryString) }
+
+    /// Returns a `URLEncoding` instance with an `.httpBody` destination.
+    public static var httpBody: URLEncoding { return URLEncoding(destination: .httpBody) }
+
+    /// The destination defining where the encoded query string is to be applied to the URL request.
+    publi
