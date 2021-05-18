@@ -150,4 +150,9 @@ public struct URLEncoding: ParameterEncoding {
 
     /// Creates a `URLEncoding` instance using the specified destination.
     ///
-    /// - parameter destination: The destination defining where the encoded query strin
+    /// - parameter destination: The destination defining where the encoded query string is to be applied.
+    /// - parameter arrayEncoding: The encoding to use for `Array` parameters.
+    /// - parameter boolEncoding: The encoding to use for `Bool` parameters.
+    ///
+    /// - returns: The new `URLEncoding` instance.
+    public init(destination: Destination = .methodDependent, arrayEncoding: ArrayEncoding = .brackets, boolEncoding: BoolEncoding
