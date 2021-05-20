@@ -168,4 +168,12 @@ public struct URLEncoding: ParameterEncoding {
     /// - parameter urlRequest: The request to have parameters applied.
     /// - parameter parameters: The parameters to apply.
     ///
-    /// - throws: An `Error` if th
+    /// - throws: An `Error` if the encoding process encounters an error.
+    ///
+    /// - returns: The encoded request.
+    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var urlRequest = try urlRequest.asURLRequest()
+
+        guard let parameters = parameters else { return urlRequest }
+
+        if let method = HTTPMethod(rawValue: urlRequest.httpMethod ?? "GET"), encodesParametersInURL(with: method) {
