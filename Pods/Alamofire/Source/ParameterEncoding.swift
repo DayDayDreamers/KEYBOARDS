@@ -155,4 +155,17 @@ public struct URLEncoding: ParameterEncoding {
     /// - parameter boolEncoding: The encoding to use for `Bool` parameters.
     ///
     /// - returns: The new `URLEncoding` instance.
-    public init(destination: Destination = .methodDependent, arrayEncoding: ArrayEncoding = .brackets, boolEncoding: BoolEncoding
+    public init(destination: Destination = .methodDependent, arrayEncoding: ArrayEncoding = .brackets, boolEncoding: BoolEncoding = .numeric) {
+        self.destination = destination
+        self.arrayEncoding = arrayEncoding
+        self.boolEncoding = boolEncoding
+    }
+
+    // MARK: Encoding
+
+    /// Creates a URL request by encoding parameters and applying them onto an existing request.
+    ///
+    /// - parameter urlRequest: The request to have parameters applied.
+    /// - parameter parameters: The parameters to apply.
+    ///
+    /// - throws: An `Error` if th
