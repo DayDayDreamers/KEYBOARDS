@@ -183,4 +183,12 @@ public struct URLEncoding: ParameterEncoding {
 
             if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), !parameters.isEmpty {
                 let percentEncodedQuery = (urlComponents.percentEncodedQuery.map { $0 + "&" } ?? "") + query(parameters)
-                urlComponents.percentEnc
+                urlComponents.percentEncodedQuery = percentEncodedQuery
+                urlRequest.url = urlComponents.url
+            }
+        } else {
+            if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
+                urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            }
+
+            urlRequest.httpBody = query(parameters).data(using: .utf8, allowLossyConversion: fals
