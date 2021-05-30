@@ -211,4 +211,13 @@ public struct URLEncoding: ParameterEncoding {
                 components += queryComponents(fromKey: "\(key)[\(nestedKey)]", value: value)
             }
         } else if let array = value as? [Any] {
-            for value i
+            for value in array {
+                components += queryComponents(fromKey: arrayEncoding.encode(key: key), value: value)
+            }
+        } else if let value = value as? NSNumber {
+            if value.isBool {
+                components.append((escape(key), escape(boolEncoding.encode(value: value.boolValue))))
+            } else {
+                components.append((escape(key), escape("\(value)")))
+            }
+        } else if let b
