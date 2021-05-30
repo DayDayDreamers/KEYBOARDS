@@ -191,4 +191,16 @@ public struct URLEncoding: ParameterEncoding {
                 urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             }
 
-            urlRequest.httpBody = query(parameters).data(using: .utf8, allowLossyConversion: fals
+            urlRequest.httpBody = query(parameters).data(using: .utf8, allowLossyConversion: false)
+        }
+
+        return urlRequest
+    }
+
+    /// Creates percent-escaped, URL encoded query string components from the given key-value pair using recursion.
+    ///
+    /// - parameter key:   The key of the query component.
+    /// - parameter value: The value of the query component.
+    ///
+    /// - returns: The percent-escaped, URL encoded query string components.
+    public func quer
