@@ -220,4 +220,17 @@ public struct URLEncoding: ParameterEncoding {
             } else {
                 components.append((escape(key), escape("\(value)")))
             }
-        } else if let b
+        } else if let bool = value as? Bool {
+            components.append((escape(key), escape(boolEncoding.encode(value: bool))))
+        } else {
+            components.append((escape(key), escape("\(value)")))
+        }
+
+        return components
+    }
+
+    /// Returns a percent-escaped string following RFC 3986 for a query string key or value.
+    ///
+    /// RFC 3986 states that the following characters are "reserved" characters.
+    ///
+    /// - Gene
