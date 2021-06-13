@@ -261,4 +261,14 @@ public struct URLEncoding: ParameterEncoding {
         //
         //      - https://github.com/Alamofire/Alamofire/issues/206
         //
-        //=========================
+        //==========================================================================================================
+
+        if #available(iOS 8.3, *) {
+            escaped = string.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? string
+        } else {
+            let batchSize = 50
+            var index = string.startIndex
+
+            while index != string.endIndex {
+                let startIndex = index
+                let endIndex = string
