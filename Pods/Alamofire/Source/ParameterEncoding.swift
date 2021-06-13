@@ -295,4 +295,25 @@ public struct URLEncoding: ParameterEncoding {
         return components.map { "\($0)=\($1)" }.joined(separator: "&")
     }
 
-    priva
+    private func encodesParametersInURL(with method: HTTPMethod) -> Bool {
+        switch destination {
+        case .queryString:
+            return true
+        case .httpBody:
+            return false
+        default:
+            break
+        }
+
+        switch method {
+        case .get, .head, .delete:
+            return true
+        default:
+            return false
+        }
+    }
+}
+
+// MARK: -
+
+/// U
