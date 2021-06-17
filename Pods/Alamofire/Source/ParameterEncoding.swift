@@ -333,4 +333,15 @@ public struct JSONEncoding: ParameterEncoding {
 
     // MARK: Initialization
 
-    /// Creates a `JSONEn
+    /// Creates a `JSONEncoding` instance using the specified options.
+    ///
+    /// - parameter options: The options for writing the parameters as JSON data.
+    ///
+    /// - returns: The new `JSONEncoding` instance.
+    public init(options: JSONSerialization.WritingOptions = []) {
+        self.options = options
+    }
+
+    // MARK: Encoding
+
+    /// Creates a URL request by encoding parameters and applying them onto 
