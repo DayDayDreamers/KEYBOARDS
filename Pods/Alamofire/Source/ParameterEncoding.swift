@@ -375,4 +375,12 @@ public struct JSONEncoding: ParameterEncoding {
     /// Creates a URL request by encoding the JSON object and setting the resulting data on the HTTP body.
     ///
     /// - parameter urlRequest: The request to apply the JSON object to.
-    /// - parameter jsonObject: T
+    /// - parameter jsonObject: The JSON object to apply to the request.
+    ///
+    /// - throws: An `Error` if the encoding process encounters an error.
+    ///
+    /// - returns: The encoded request.
+    public func encode(_ urlRequest: URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> URLRequest {
+        var urlRequest = try urlRequest.asURLRequest()
+
+        guard let jsonObject = jsonObject else { return 
