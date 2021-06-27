@@ -362,4 +362,17 @@ public struct JSONEncoding: ParameterEncoding {
 
             if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-          
+            }
+
+            urlRequest.httpBody = data
+        } catch {
+            throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+        }
+
+        return urlRequest
+    }
+
+    /// Creates a URL request by encoding the JSON object and setting the resulting data on the HTTP body.
+    ///
+    /// - parameter urlRequest: The request to apply the JSON object to.
+    /// - parameter jsonObject: T
