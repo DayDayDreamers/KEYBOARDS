@@ -383,4 +383,15 @@ public struct JSONEncoding: ParameterEncoding {
     public func encode(_ urlRequest: URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> URLRequest {
         var urlRequest = try urlRequest.asURLRequest()
 
-        guard let jsonObject = jsonObject else { return 
+        guard let jsonObject = jsonObject else { return urlRequest }
+
+        do {
+            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: options)
+
+            if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
+                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            }
+
+            urlRequest.httpBody = data
+        } catch {
+            throw AFError.pa
