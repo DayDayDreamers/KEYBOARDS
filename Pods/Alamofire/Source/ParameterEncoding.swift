@@ -394,4 +394,16 @@ public struct JSONEncoding: ParameterEncoding {
 
             urlRequest.httpBody = data
         } catch {
-            throw AFError.pa
+            throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
+        }
+
+        return urlRequest
+    }
+}
+
+// MARK: -
+
+/// Uses `PropertyListSerialization` to create a plist representation of the parameters object, according to the
+/// associated format and write options values, which is set as the body of the request. The `Content-Type` HTTP header
+/// field of an encoded request is set to `application/x-plist`.
+public stru
