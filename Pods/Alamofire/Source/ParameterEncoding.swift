@@ -414,4 +414,12 @@ public struct PropertyListEncoding: ParameterEncoding {
     public static var `default`: PropertyListEncoding { return PropertyListEncoding() }
 
     /// Returns a `PropertyListEncoding` instance with xml formatting and default writing options.
-    public static var xml: PropertyListEncoding { return Pr
+    public static var xml: PropertyListEncoding { return PropertyListEncoding(format: .xml) }
+
+    /// Returns a `PropertyListEncoding` instance with binary formatting and default writing options.
+    public static var binary: PropertyListEncoding { return PropertyListEncoding(format: .binary) }
+
+    /// The property list serialization format.
+    public let format: PropertyListSerialization.PropertyListFormat
+
+    /// The options for writing the parameters 
