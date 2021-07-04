@@ -422,4 +422,15 @@ public struct PropertyListEncoding: ParameterEncoding {
     /// The property list serialization format.
     public let format: PropertyListSerialization.PropertyListFormat
 
-    /// The options for writing the parameters 
+    /// The options for writing the parameters as plist data.
+    public let options: PropertyListSerialization.WriteOptions
+
+    // MARK: Initialization
+
+    /// Creates a `PropertyListEncoding` instance using the specified format and options.
+    ///
+    /// - parameter format:  The property list serialization format.
+    /// - parameter options: The options for writing the parameters as plist data.
+    ///
+    /// - returns: The new `PropertyListEncoding` instance.
+    public init
