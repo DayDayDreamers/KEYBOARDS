@@ -406,4 +406,12 @@ public struct JSONEncoding: ParameterEncoding {
 /// Uses `PropertyListSerialization` to create a plist representation of the parameters object, according to the
 /// associated format and write options values, which is set as the body of the request. The `Content-Type` HTTP header
 /// field of an encoded request is set to `application/x-plist`.
-public stru
+public struct PropertyListEncoding: ParameterEncoding {
+
+    // MARK: Properties
+
+    /// Returns a default `PropertyListEncoding` instance.
+    public static var `default`: PropertyListEncoding { return PropertyListEncoding() }
+
+    /// Returns a `PropertyListEncoding` instance with xml formatting and default writing options.
+    public static var xml: PropertyListEncoding { return Pr
