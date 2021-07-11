@@ -445,4 +445,13 @@ public struct PropertyListEncoding: ParameterEncoding {
 
     /// Creates a URL request by encoding parameters and applying them onto an existing request.
     ///
-    /// - parameter urlRequest: The request to hav
+    /// - parameter urlRequest: The request to have parameters applied.
+    /// - parameter parameters: The parameters to apply.
+    ///
+    /// - throws: An `Error` if the encoding process encounters an error.
+    ///
+    /// - returns: The encoded request.
+    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var urlRequest = try urlRequest.asURLRequest()
+
+        guard let parameters = par
