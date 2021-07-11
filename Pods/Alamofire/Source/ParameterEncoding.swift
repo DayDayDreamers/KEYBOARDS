@@ -464,4 +464,20 @@ public struct PropertyListEncoding: ParameterEncoding {
             )
 
             if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
-                urlRequest.setValue("application/x-plist", forHTTPHeaderField: "
+                urlRequest.setValue("application/x-plist", forHTTPHeaderField: "Content-Type")
+            }
+
+            urlRequest.httpBody = data
+        } catch {
+            throw AFError.parameterEncodingFailed(reason: .propertyListEncodingFailed(error: error))
+        }
+
+        return urlRequest
+    }
+}
+
+// MARK: -
+
+extension NSNumber {
+    fileprivate var isBool: Bool { return CFBooleanGetTypeID() == CFGetTypeID(self) }
+}
