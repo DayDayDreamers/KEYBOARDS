@@ -433,4 +433,16 @@ public struct PropertyListEncoding: ParameterEncoding {
     /// - parameter options: The options for writing the parameters as plist data.
     ///
     /// - returns: The new `PropertyListEncoding` instance.
-    public init
+    public init(
+        format: PropertyListSerialization.PropertyListFormat = .xml,
+        options: PropertyListSerialization.WriteOptions = 0)
+    {
+        self.format = format
+        self.options = options
+    }
+
+    // MARK: Encoding
+
+    /// Creates a URL request by encoding parameters and applying them onto an existing request.
+    ///
+    /// - parameter urlRequest: The request to hav
