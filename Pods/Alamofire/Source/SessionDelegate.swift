@@ -29,4 +29,10 @@ open class SessionDelegate: NSObject {
 
     // MARK: URLSessionDelegate Overrides
 
-    /// Overrides default behavior for URLSessionDelegate method `u
+    /// Overrides default behavior for URLSessionDelegate method `urlSession(_:didBecomeInvalidWithError:)`.
+    open var sessionDidBecomeInvalidWithError: ((URLSession, Error?) -> Void)?
+
+    /// Overrides default behavior for URLSessionDelegate method `urlSession(_:didReceive:completionHandler:)`.
+    open var sessionDidReceiveChallenge: ((URLSession, URLAuthenticationChallenge) -> (URLSession.AuthChallengeDisposition, URLCredential?))?
+
+    /// Overrides all behavi
