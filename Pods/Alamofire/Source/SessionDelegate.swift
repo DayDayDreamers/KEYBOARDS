@@ -58,4 +58,10 @@ open class SessionDelegate: NSObject {
     open var taskDidReceiveChallengeWithCompletion: ((URLSession, URLSessionTask, URLAuthenticationChallenge, @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) -> Void)?
 
     /// Overrides default behavior for URLSessionTaskDelegate method `urlSession(_:task:needNewBodyStream:)`.
-    open var taskNeedNewBodyStream: ((URLSession, URLSessionTask)
+    open var taskNeedNewBodyStream: ((URLSession, URLSessionTask) -> InputStream?)?
+
+    /// Overrides all behavior for URLSessionTaskDelegate method `urlSession(_:task:needNewBodyStream:)` and
+    /// requires the caller to call the `completionHandler`.
+    open var taskNeedNewBodyStreamWithCompletion: ((URLSession, URLSessionTask, @escaping (InputStream?) -> Void) -> Void)?
+
+    /// Overrides default behavior for URLSessionTaskDelegate method `urlSession(_:task:didSendBodyData:totalBytesSent:totalBytesExpect
