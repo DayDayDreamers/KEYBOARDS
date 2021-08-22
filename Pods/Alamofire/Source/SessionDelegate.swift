@@ -64,4 +64,12 @@ open class SessionDelegate: NSObject {
     /// requires the caller to call the `completionHandler`.
     open var taskNeedNewBodyStreamWithCompletion: ((URLSession, URLSessionTask, @escaping (InputStream?) -> Void) -> Void)?
 
-    /// Overrides default behavior for URLSessionTaskDelegate method `urlSession(_:task:didSendBodyData:totalBytesSent:totalBytesExpect
+    /// Overrides default behavior for URLSessionTaskDelegate method `urlSession(_:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:)`.
+    open var taskDidSendBodyData: ((URLSession, URLSessionTask, Int64, Int64, Int64) -> Void)?
+
+    /// Overrides default behavior for URLSessionTaskDelegate method `urlSession(_:task:didCompleteWithError:)`.
+    open var taskDidComplete: ((URLSession, URLSessionTask, Error?) -> Void)?
+
+    // MARK: URLSessionDataDelegate Overrides
+
+    /// Overrides default behavior for URLSessionDataDeleg
