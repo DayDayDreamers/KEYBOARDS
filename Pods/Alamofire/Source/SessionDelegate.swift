@@ -72,4 +72,9 @@ open class SessionDelegate: NSObject {
 
     // MARK: URLSessionDataDelegate Overrides
 
-    /// Overrides default behavior for URLSessionDataDeleg
+    /// Overrides default behavior for URLSessionDataDelegate method `urlSession(_:dataTask:didReceive:completionHandler:)`.
+    open var dataTaskDidReceiveResponse: ((URLSession, URLSessionDataTask, URLResponse) -> URLSession.ResponseDisposition)?
+
+    /// Overrides all behavior for URLSessionDataDelegate method `urlSession(_:dataTask:didReceive:completionHandler:)` and
+    /// requires caller to call the `completionHandler`.
+    open var data
