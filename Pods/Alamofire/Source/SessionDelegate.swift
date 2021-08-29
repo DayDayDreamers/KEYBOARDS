@@ -82,4 +82,10 @@ open class SessionDelegate: NSObject {
     /// Overrides default behavior for URLSessionDataDelegate method `urlSession(_:dataTask:didBecome:)`.
     open var dataTaskDidBecomeDownloadTask: ((URLSession, URLSessionDataTask, URLSessionDownloadTask) -> Void)?
 
-    /// Overrides default behavior for URLSessio
+    /// Overrides default behavior for URLSessionDataDelegate method `urlSession(_:dataTask:didReceive:)`.
+    open var dataTaskDidReceiveData: ((URLSession, URLSessionDataTask, Data) -> Void)?
+
+    /// Overrides default behavior for URLSessionDataDelegate method `urlSession(_:dataTask:willCacheResponse:completionHandler:)`.
+    open var dataTaskWillCacheResponse: ((URLSession, URLSessionDataTask, CachedURLResponse) -> CachedURLResponse?)?
+
+    /// Overrides a
