@@ -92,4 +92,10 @@ open class SessionDelegate: NSObject {
     /// requires caller to call the `completionHandler`.
     open var dataTaskWillCacheResponseWithCompletion: ((URLSession, URLSessionDataTask, CachedURLResponse, @escaping (CachedURLResponse?) -> Void) -> Void)?
 
-    // MARK: URLSessionDownloadDelegate Overrid
+    // MARK: URLSessionDownloadDelegate Overrides
+
+    /// Overrides default behavior for URLSessionDownloadDelegate method `urlSession(_:downloadTask:didFinishDownloadingTo:)`.
+    open var downloadTaskDidFinishDownloadingToURL: ((URLSession, URLSessionDownloadTask, URL) -> Void)?
+
+    /// Overrides default behavior for URLSessionDownloadDelegate method `urlSession(_:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:)`.
+    
