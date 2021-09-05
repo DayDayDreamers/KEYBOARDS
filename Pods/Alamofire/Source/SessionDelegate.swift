@@ -103,4 +103,14 @@ open class SessionDelegate: NSObject {
     /// Overrides default behavior for URLSessionDownloadDelegate method `urlSession(_:downloadTask:didResumeAtOffset:expectedTotalBytes:)`.
     open var downloadTaskDidResumeAtOffset: ((URLSession, URLSessionDownloadTask, Int64, Int64) -> Void)?
 
-    // MARK: URLSessionStrea
+    // MARK: URLSessionStreamDelegate Overrides
+
+#if !os(watchOS)
+
+    /// Overrides default behavior for URLSessionStreamDelegate method `urlSession(_:readClosedFor:)`.
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    open var streamTaskReadClosed: ((URLSession, URLSessionStreamTask) -> Void)? {
+        get {
+            return _streamTaskReadClosed as? (URLSession, URLSessionStreamTask) -> Void
+        }
+        set {
