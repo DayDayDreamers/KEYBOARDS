@@ -114,3 +114,14 @@ open class SessionDelegate: NSObject {
             return _streamTaskReadClosed as? (URLSession, URLSessionStreamTask) -> Void
         }
         set {
+            _streamTaskReadClosed = newValue
+        }
+    }
+
+    /// Overrides default behavior for URLSessionStreamDelegate method `urlSession(_:writeClosedFor:)`.
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    open var streamTaskWriteClosed: ((URLSession, URLSessionStreamTask) -> Void)? {
+        get {
+            return _streamTaskWriteClosed as? (URLSession, URLSessionStreamTask) -> Void
+        }
+  
