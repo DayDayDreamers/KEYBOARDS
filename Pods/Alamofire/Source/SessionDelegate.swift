@@ -124,4 +124,13 @@ open class SessionDelegate: NSObject {
         get {
             return _streamTaskWriteClosed as? (URLSession, URLSessionStreamTask) -> Void
         }
-  
+        set {
+            _streamTaskWriteClosed = newValue
+        }
+    }
+
+    /// Overrides default behavior for URLSessionStreamDelegate method `urlSession(_:betterRouteDiscoveredFor:)`.
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    open var streamTaskBetterRouteDiscovered: ((URLSession, URLSessionStreamTask) -> Void)? {
+        get {
+            return _streamTaskBetterRouteDiscovered as? (URLSession, 
