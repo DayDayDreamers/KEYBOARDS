@@ -142,4 +142,15 @@ open class SessionDelegate: NSObject {
 
     /// Overrides default behavior for URLSessionStreamDelegate method `urlSession(_:streamTask:didBecome:outputStream:)`.
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
-    open var streamTaskDidBecomeInputAndOutputStreams: ((URLSession, URLSessionStreamTa
+    open var streamTaskDidBecomeInputAndOutputStreams: ((URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void)? {
+        get {
+            return _streamTaskDidBecomeInputStream as? (URLSession, URLSessionStreamTask, InputStream, OutputStream) -> Void
+        }
+        set {
+            _streamTaskDidBecomeInputStream = newValue
+        }
+    }
+
+    var _streamTaskReadClosed: Any?
+    var _streamTaskWriteClosed: Any?
+    var _streamTaskBetterRouteDiscovered: An
