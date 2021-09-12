@@ -153,4 +153,19 @@ open class SessionDelegate: NSObject {
 
     var _streamTaskReadClosed: Any?
     var _streamTaskWriteClosed: Any?
-    var _streamTaskBetterRouteDiscovered: An
+    var _streamTaskBetterRouteDiscovered: Any?
+    var _streamTaskDidBecomeInputStream: Any?
+
+#endif
+
+    // MARK: Properties
+
+    var retrier: RequestRetrier?
+    weak var sessionManager: SessionManager?
+
+    private var requests: [Int: Request] = [:]
+    private let lock = NSLock()
+
+    /// Access the task delegate for the specified task in a thread-safe manner.
+    open subscript(task: URLSessionTask) -> Request? {
+        get
