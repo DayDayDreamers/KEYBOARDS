@@ -168,4 +168,20 @@ open class SessionDelegate: NSObject {
 
     /// Access the task delegate for the specified task in a thread-safe manner.
     open subscript(task: URLSessionTask) -> Request? {
-        get
+        get {
+            lock.lock() ; defer { lock.unlock() }
+            return requests[task.taskIdentifier]
+        }
+        set {
+            lock.lock() ; defer { lock.unlock() }
+            requests[task.taskIdentifier] = newValue
+        }
+    }
+
+    // MARK: Lifecycle
+
+    /// Initializes the `SessionDelegate` instance.
+    ///
+    /// - returns: The new `SessionDelegate` instance.
+    public override init() {
+        super.init
