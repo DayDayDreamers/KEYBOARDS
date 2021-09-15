@@ -195,4 +195,13 @@ open class SessionDelegate: NSObject {
     /// - parameter selector: A selector that identifies a message.
     ///
     /// - returns: `true` if the receiver implements or inherits a method that can respond to selector, otherwise `false`.
-    open override func responds
+    open override func responds(to selector: Selector) -> Bool {
+        #if !os(macOS)
+            if selector == #selector(URLSessionDelegate.urlSessionDidFinishEvents(forBackgroundURLSession:)) {
+                return sessionDidFinishEventsForBackgroundURLSession != nil
+            }
+        #endif
+
+        #if !os(watchOS)
+            if #available(iOS 9.0, macOS 10.11, tvOS 9.0, *) {
+                switch selec
