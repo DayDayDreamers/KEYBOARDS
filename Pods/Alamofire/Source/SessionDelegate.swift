@@ -184,4 +184,15 @@ open class SessionDelegate: NSObject {
     ///
     /// - returns: The new `SessionDelegate` instance.
     public override init() {
-        super.init
+        super.init()
+    }
+
+    // MARK: NSObject Overrides
+
+    /// Returns a `Bool` indicating whether the `SessionDelegate` implements or inherits a method that can respond
+    /// to a specified message.
+    ///
+    /// - parameter selector: A selector that identifies a message.
+    ///
+    /// - returns: `true` if the receiver implements or inherits a method that can respond to selector, otherwise `false`.
+    open override func responds
