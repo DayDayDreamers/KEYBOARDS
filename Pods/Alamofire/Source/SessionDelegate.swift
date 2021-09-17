@@ -204,4 +204,10 @@ open class SessionDelegate: NSObject {
 
         #if !os(watchOS)
             if #available(iOS 9.0, macOS 10.11, tvOS 9.0, *) {
-                switch selec
+                switch selector {
+                case #selector(URLSessionStreamDelegate.urlSession(_:readClosedFor:)):
+                    return streamTaskReadClosed != nil
+                case #selector(URLSessionStreamDelegate.urlSession(_:writeClosedFor:)):
+                    return streamTaskWriteClosed != nil
+                case #selector(URLSessionStreamDelegate.urlSession(_:betterRouteDiscoveredFor:)):
+                    r
