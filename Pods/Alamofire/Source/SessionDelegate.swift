@@ -210,4 +210,14 @@ open class SessionDelegate: NSObject {
                 case #selector(URLSessionStreamDelegate.urlSession(_:writeClosedFor:)):
                     return streamTaskWriteClosed != nil
                 case #selector(URLSessionStreamDelegate.urlSession(_:betterRouteDiscoveredFor:)):
-                    r
+                    return streamTaskBetterRouteDiscovered != nil
+                case #selector(URLSessionStreamDelegate.urlSession(_:streamTask:didBecome:outputStream:)):
+                    return streamTaskDidBecomeInputAndOutputStreams != nil
+                default:
+                    break
+                }
+            }
+        #endif
+
+        switch selector {
+        case #selector(URLSessi
