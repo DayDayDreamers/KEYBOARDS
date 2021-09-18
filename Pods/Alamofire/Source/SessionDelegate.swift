@@ -220,4 +220,9 @@ open class SessionDelegate: NSObject {
         #endif
 
         switch selector {
-        case #selector(URLSessi
+        case #selector(URLSessionDelegate.urlSession(_:didBecomeInvalidWithError:)):
+            return sessionDidBecomeInvalidWithError != nil
+        case #selector(URLSessionDelegate.urlSession(_:didReceive:completionHandler:)):
+            return (sessionDidReceiveChallenge != nil  || sessionDidReceiveChallengeWithCompletion != nil)
+        case #selector(URLSessionTaskDelegate.urlSession(_:task:willPerformHTTPRedirection:newRequest:completionHandler:)):
+   
