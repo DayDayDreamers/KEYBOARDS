@@ -225,4 +225,9 @@ open class SessionDelegate: NSObject {
         case #selector(URLSessionDelegate.urlSession(_:didReceive:completionHandler:)):
             return (sessionDidReceiveChallenge != nil  || sessionDidReceiveChallengeWithCompletion != nil)
         case #selector(URLSessionTaskDelegate.urlSession(_:task:willPerformHTTPRedirection:newRequest:completionHandler:)):
+            return (taskWillPerformHTTPRedirection != nil || taskWillPerformHTTPRedirectionWithCompletion != nil)
+        case #selector(URLSessionDataDelegate.urlSession(_:dataTask:didReceive:completionHandler:)):
+            return (dataTaskDidReceiveResponse != nil || dataTaskDidReceiveResponseWithCompletion != nil)
+        default:
+            return type(of: self).instancesRespond(to: selector)
    
