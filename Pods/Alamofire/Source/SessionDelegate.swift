@@ -241,4 +241,12 @@ extension SessionDelegate: URLSessionDelegate {
     ///
     /// - parameter session: The session object that was invalidated.
     /// - parameter error:   The error that caused invalidation, or nil if the invalidation was explicit.
-    open func urlSession(_ session: URLSession, didBecomeInvalidWithError
+    open func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        sessionDidBecomeInvalidWithError?(session, error)
+    }
+
+    /// Requests credentials from the delegate in response to a session-level authentication request from the
+    /// remote server.
+    ///
+    /// - parameter session:           The session containing the task that requested authentication.
+    /// - parameter challenge:         An object t
