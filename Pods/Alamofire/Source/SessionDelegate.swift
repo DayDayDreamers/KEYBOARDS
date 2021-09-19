@@ -230,4 +230,15 @@ open class SessionDelegate: NSObject {
             return (dataTaskDidReceiveResponse != nil || dataTaskDidReceiveResponseWithCompletion != nil)
         default:
             return type(of: self).instancesRespond(to: selector)
-   
+        }
+    }
+}
+
+// MARK: - URLSessionDelegate
+
+extension SessionDelegate: URLSessionDelegate {
+    /// Tells the delegate that the session has been invalidated.
+    ///
+    /// - parameter session: The session object that was invalidated.
+    /// - parameter error:   The error that caused invalidation, or nil if the invalidation was explicit.
+    open func urlSession(_ session: URLSession, didBecomeInvalidWithError
