@@ -249,4 +249,10 @@ extension SessionDelegate: URLSessionDelegate {
     /// remote server.
     ///
     /// - parameter session:           The session containing the task that requested authentication.
-    /// - parameter challenge:         An object t
+    /// - parameter challenge:         An object that contains the request for authentication.
+    /// - parameter completionHandler: A handler that your delegate method must call providing the disposition
+    ///                                and credential.
+    open func urlSession(
+        _ session: URLSession,
+        didReceive challenge: URLAuthenticationChallenge,
+        completionHandler: @escaping (URLSession.AuthChallengeDispositio
