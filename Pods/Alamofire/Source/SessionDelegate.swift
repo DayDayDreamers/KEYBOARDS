@@ -255,4 +255,15 @@ extension SessionDelegate: URLSessionDelegate {
     open func urlSession(
         _ session: URLSession,
         didReceive challenge: URLAuthenticationChallenge,
-        completionHandler: @escaping (URLSession.AuthChallengeDispositio
+        completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
+    {
+        guard sessionDidReceiveChallengeWithCompletion == nil else {
+            sessionDidReceiveChallengeWithCompletion?(session, challenge, completionHandler)
+            return
+        }
+
+        var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
+        var credential: URLCredential?
+
+        if let sessionDidReceiveChallenge = sessionDidReceiveChallenge {
+            (di
