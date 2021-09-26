@@ -266,4 +266,10 @@ extension SessionDelegate: URLSessionDelegate {
         var credential: URLCredential?
 
         if let sessionDidReceiveChallenge = sessionDidReceiveChallenge {
-            (di
+            (disposition, credential) = sessionDidReceiveChallenge(session, challenge)
+        } else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+            let host = challenge.protectionSpace.host
+
+            if
+                let serverTrustPolicy = session.serverTrustPolicyManager?.serverTrustPolicy(forHost: host),
+                let serverTrus
