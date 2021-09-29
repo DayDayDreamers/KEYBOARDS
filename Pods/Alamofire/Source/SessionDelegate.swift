@@ -272,4 +272,16 @@ extension SessionDelegate: URLSessionDelegate {
 
             if
                 let serverTrustPolicy = session.serverTrustPolicyManager?.serverTrustPolicy(forHost: host),
-                let serverTrus
+                let serverTrust = challenge.protectionSpace.serverTrust
+            {
+                if serverTrustPolicy.evaluate(serverTrust, forHost: host) {
+                    disposition = .useCredential
+                    credential = URLCredential(trust: serverTrust)
+                } else {
+                    disposition = .cancelAuthenticationChallenge
+                }
+            }
+        }
+
+        completionHandler(disposition, credential)
+   
