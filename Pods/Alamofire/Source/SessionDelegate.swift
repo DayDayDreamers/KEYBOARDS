@@ -284,4 +284,20 @@ extension SessionDelegate: URLSessionDelegate {
         }
 
         completionHandler(disposition, credential)
-   
+    }
+
+#if !os(macOS)
+
+    /// Tells the delegate that all messages enqueued for a session have been delivered.
+    ///
+    /// - parameter session: The session that no longer has any outstanding requests.
+    open func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+        sessionDidFinishEventsForBackgroundURLSession?(session)
+    }
+
+#endif
+}
+
+// MARK: - URLSessionTaskDelegate
+
+extensio
