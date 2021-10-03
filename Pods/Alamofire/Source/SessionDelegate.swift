@@ -311,4 +311,11 @@ extension SessionDelegate: URLSessionTaskDelegate {
     ///                                parameter, a modified URL request object, or NULL to refuse the redirect and
     ///                                return the body of the redirect response.
     open func urlSession(
-      
+        _ session: URLSession,
+        task: URLSessionTask,
+        willPerformHTTPRedirection response: HTTPURLResponse,
+        newRequest request: URLRequest,
+        completionHandler: @escaping (URLRequest?) -> Void)
+    {
+        guard taskWillPerformHTTPRedirectionWithCompletion == nil else {
+            taskWillPerformHTTPRedirectionWithCompletion?(session, task, response, request, completionH
