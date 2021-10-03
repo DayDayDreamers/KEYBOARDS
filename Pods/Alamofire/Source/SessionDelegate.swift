@@ -318,4 +318,17 @@ extension SessionDelegate: URLSessionTaskDelegate {
         completionHandler: @escaping (URLRequest?) -> Void)
     {
         guard taskWillPerformHTTPRedirectionWithCompletion == nil else {
-            taskWillPerformHTTPRedirectionWithCompletion?(session, task, response, request, completionH
+            taskWillPerformHTTPRedirectionWithCompletion?(session, task, response, request, completionHandler)
+            return
+        }
+
+        var redirectRequest: URLRequest? = request
+
+        if let taskWillPerformHTTPRedirection = taskWillPerformHTTPRedirection {
+            redirectRequest = taskWillPerformHTTPRedirection(session, task, response, request)
+        }
+
+        completionHandler(redirectRequest)
+    }
+
+    /// Requests credentials from the delegate in response to an authen
