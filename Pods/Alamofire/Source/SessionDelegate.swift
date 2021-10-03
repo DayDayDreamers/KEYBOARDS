@@ -305,4 +305,10 @@ extension SessionDelegate: URLSessionTaskDelegate {
     ///
     /// - parameter session:           The session containing the task whose request resulted in a redirect.
     /// - parameter task:              The task whose request resulted in a redirect.
-    /// - parameter response:          An object containing the server’s response to the origi
+    /// - parameter response:          An object containing the server’s response to the original request.
+    /// - parameter request:           A URL request object filled out with the new location.
+    /// - parameter completionHandler: A closure that your handler should call with either the value of the request
+    ///                                parameter, a modified URL request object, or NULL to refuse the redirect and
+    ///                                return the body of the redirect response.
+    open func urlSession(
+      
