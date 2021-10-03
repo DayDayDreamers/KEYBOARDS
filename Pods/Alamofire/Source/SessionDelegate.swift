@@ -300,4 +300,9 @@ extension SessionDelegate: URLSessionDelegate {
 
 // MARK: - URLSessionTaskDelegate
 
-extensio
+extension SessionDelegate: URLSessionTaskDelegate {
+    /// Tells the delegate that the remote server requested an HTTP redirect.
+    ///
+    /// - parameter session:           The session containing the task whose request resulted in a redirect.
+    /// - parameter task:              The task whose request resulted in a redirect.
+    /// - parameter response:          An object containing the server’s response to the origi
