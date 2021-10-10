@@ -331,4 +331,9 @@ extension SessionDelegate: URLSessionTaskDelegate {
         completionHandler(redirectRequest)
     }
 
-    /// Requests credentials from the delegate in response to an authen
+    /// Requests credentials from the delegate in response to an authentication request from the remote server.
+    ///
+    /// - parameter session:           The session containing the task whose request requires authentication.
+    /// - parameter task:              The task whose request requires authentication.
+    /// - parameter challenge:         An object that contains the request for authentication.
+    /// - parameter completionHandler: A handler that your delegate method mus
