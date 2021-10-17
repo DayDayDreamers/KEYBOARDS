@@ -345,4 +345,14 @@ extension SessionDelegate: URLSessionTaskDelegate {
         completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
     {
         guard taskDidReceiveChallengeWithCompletion == nil else {
-            taskD
+            taskDidReceiveChallengeWithCompletion?(session, task, challenge, completionHandler)
+            return
+        }
+
+        if let taskDidReceiveChallenge = taskDidReceiveChallenge {
+            let result = taskDidReceiveChallenge(session, task, challenge)
+            completionHandler(result.0, result.1)
+        } else if let delegate = self[task]?.delegate {
+            delegate.urlSession(
+                session,
+                task: task
