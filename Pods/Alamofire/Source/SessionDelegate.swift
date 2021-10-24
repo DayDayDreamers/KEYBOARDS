@@ -355,4 +355,15 @@ extension SessionDelegate: URLSessionTaskDelegate {
         } else if let delegate = self[task]?.delegate {
             delegate.urlSession(
                 session,
-                task: task
+                task: task,
+                didReceive: challenge,
+                completionHandler: completionHandler
+            )
+        } else {
+            urlSession(session, didReceive: challenge, completionHandler: completionHandler)
+        }
+    }
+
+    /// Tells the delegate when a task requires a new request body stream to send to the remote server.
+    ///
+    /// - parameter session:           The session containing the task tha
