@@ -366,4 +366,12 @@ extension SessionDelegate: URLSessionTaskDelegate {
 
     /// Tells the delegate when a task requires a new request body stream to send to the remote server.
     ///
-    /// - parameter session:           The session containing the task tha
+    /// - parameter session:           The session containing the task that needs a new body stream.
+    /// - parameter task:              The task that needs a new body stream.
+    /// - parameter completionHandler: A completion handler that your delegate method should call with the new body stream.
+    open func urlSession(
+        _ session: URLSession,
+        task: URLSessionTask,
+        needNewBodyStream completionHandler: @escaping (InputStream?) -> Void)
+    {
+        guard taskN
