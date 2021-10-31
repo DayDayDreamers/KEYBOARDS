@@ -374,4 +374,12 @@ extension SessionDelegate: URLSessionTaskDelegate {
         task: URLSessionTask,
         needNewBodyStream completionHandler: @escaping (InputStream?) -> Void)
     {
-        guard taskN
+        guard taskNeedNewBodyStreamWithCompletion == nil else {
+            taskNeedNewBodyStreamWithCompletion?(session, task, completionHandler)
+            return
+        }
+
+        if let taskNeedNewBodyStream = taskNeedNewBodyStream {
+            completionHandler(taskNeedNewBodyStream(session, task))
+        } else if let delegate = self[task]?.delegate {
+            delegate.urlSession(session, task: task, needNewBodyStream: compl
