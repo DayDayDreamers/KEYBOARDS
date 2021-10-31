@@ -382,4 +382,13 @@ extension SessionDelegate: URLSessionTaskDelegate {
         if let taskNeedNewBodyStream = taskNeedNewBodyStream {
             completionHandler(taskNeedNewBodyStream(session, task))
         } else if let delegate = self[task]?.delegate {
-            delegate.urlSession(session, task: task, needNewBodyStream: compl
+            delegate.urlSession(session, task: task, needNewBodyStream: completionHandler)
+        }
+    }
+
+    /// Periodically informs the delegate of the progress of sending body content to the server.
+    ///
+    /// - parameter session:                  The session containing the data task.
+    /// - parameter task:                     The data task.
+    /// - parameter bytesSent:                The number of bytes sent since the last time this delegate method was called.
+    /// -
