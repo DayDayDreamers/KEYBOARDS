@@ -391,4 +391,13 @@ extension SessionDelegate: URLSessionTaskDelegate {
     /// - parameter session:                  The session containing the data task.
     /// - parameter task:                     The data task.
     /// - parameter bytesSent:                The number of bytes sent since the last time this delegate method was called.
-    /// -
+    /// - parameter totalBytesSent:           The total number of bytes sent so far.
+    /// - parameter totalBytesExpectedToSend: The expected length of the body data.
+    open func urlSession(
+        _ session: URLSession,
+        task: URLSessionTask,
+        didSendBodyData bytesSent: Int64,
+        totalBytesSent: Int64,
+        totalBytesExpectedToSend: Int64)
+    {
+        if let taskDidSendBo
