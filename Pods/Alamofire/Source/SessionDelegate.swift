@@ -400,4 +400,12 @@ extension SessionDelegate: URLSessionTaskDelegate {
         totalBytesSent: Int64,
         totalBytesExpectedToSend: Int64)
     {
-        if let taskDidSendBo
+        if let taskDidSendBodyData = taskDidSendBodyData {
+            taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesExpectedToSend)
+        } else if let delegate = self[task]?.delegate as? UploadTaskDelegate {
+            delegate.URLSession(
+                session,
+                task: task,
+                didSendBodyData: bytesSent,
+                totalBytesSent: totalBytesSent,
+     
