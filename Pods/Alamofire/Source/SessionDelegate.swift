@@ -408,4 +408,15 @@ extension SessionDelegate: URLSessionTaskDelegate {
                 task: task,
                 didSendBodyData: bytesSent,
                 totalBytesSent: totalBytesSent,
-     
+                totalBytesExpectedToSend: totalBytesExpectedToSend
+            )
+        }
+    }
+
+#if !os(watchOS)
+
+    /// Tells the delegate that the session finished collecting metrics for the task.
+    ///
+    /// - parameter session: The session collecting the metrics.
+    /// - parameter task:    The task whose metrics have been collected.
+    /// - parameter metrics: The collected 
