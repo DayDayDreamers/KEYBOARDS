@@ -430,4 +430,8 @@ extension SessionDelegate: URLSessionTaskDelegate {
 
     /// Tells the delegate that the task finished transferring data.
     ///
-    /// - parameter session: Th
+    /// - parameter session: The session containing the task whose request finished transferring data.
+    /// - parameter task:    The task whose request finished transferring data.
+    /// - parameter error:   If an error occurred, an error object indicating how the transfer failed, otherwise nil.
+    open func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        /// Executed after it is det
