@@ -434,4 +434,10 @@ extension SessionDelegate: URLSessionTaskDelegate {
     /// - parameter task:    The task whose request finished transferring data.
     /// - parameter error:   If an error occurred, an error object indicating how the transfer failed, otherwise nil.
     open func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        /// Executed after it is det
+        /// Executed after it is determined that the request is not going to be retried
+        let completeTask: (URLSession, URLSessionTask, Error?) -> Void = { [weak self] session, task, error in
+            guard let strongSelf = self else { return }
+
+            strongSelf.taskDidComplete?(session, task, error)
+
+            strongSelf[task]?.delegate.urlSession(session, task: task, didCompleteWithError: e
