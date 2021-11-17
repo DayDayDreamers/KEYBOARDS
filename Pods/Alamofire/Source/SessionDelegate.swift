@@ -465,4 +465,14 @@ extension SessionDelegate: URLSessionTaskDelegate {
         // Run all validations on the request before checking if an error occurred
         request.validations.forEach { $0() }
 
-        // Determine whether an
+        // Determine whether an error has occurred
+        var error: Error? = error
+
+        if request.delegate.error != nil {
+            error = request.delegate.error
+        }
+
+        /// If an error occurred and the retrier is set, asynchronously ask the retrier if the request
+        /// should be retried. Otherwise, complete the task by notifying the task delegate.
+        if let retrier = retrier, let error = error {
+ 
