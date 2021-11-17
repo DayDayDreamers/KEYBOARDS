@@ -451,4 +451,18 @@ extension SessionDelegate: URLSessionTaskDelegate {
             NotificationCenter.default.post(
                 name: Notification.Name.Task.DidComplete,
                 object: strongSelf,
-                userInfo: u
+                userInfo: userInfo
+            )
+
+            strongSelf[task] = nil
+        }
+
+        guard let request = self[task], let sessionManager = sessionManager else {
+            completeTask(session, task, error)
+            return
+        }
+
+        // Run all validations on the request before checking if an error occurred
+        request.validations.forEach { $0() }
+
+        // Determine whether an
