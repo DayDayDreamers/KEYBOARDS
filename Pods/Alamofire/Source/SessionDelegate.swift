@@ -481,4 +481,22 @@ extension SessionDelegate: URLSessionTaskDelegate {
                 DispatchQueue.utility.after(timeDelay) { [weak self] in
                     guard let strongSelf = self else { return }
 
-                    let retrySucceeded = strongSelf.sessionManager?.retry(request) ??
+                    let retrySucceeded = strongSelf.sessionManager?.retry(request) ?? false
+
+                    if retrySucceeded, let task = request.task {
+                        strongSelf[task] = request
+                        return
+                    } else {
+                        completeTask(session, task, error)
+                    }
+                }
+            }
+        } else {
+            completeTask(session, task, error)
+        }
+    }
+}
+
+// MARK: - URLSessionDataDelegate
+
+extension SessionDel
