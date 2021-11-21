@@ -499,4 +499,9 @@ extension SessionDelegate: URLSessionTaskDelegate {
 
 // MARK: - URLSessionDataDelegate
 
-extension SessionDel
+extension SessionDelegate: URLSessionDataDelegate {
+    /// Tells the delegate that the data task received the initial reply (headers) from the server.
+    ///
+    /// - parameter session:           The session containing the data task that received an initial reply.
+    /// - parameter dataTask:          The data task that received an initial reply.
+    /// - parameter response:          A URL response object populated with head
