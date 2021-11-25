@@ -504,4 +504,11 @@ extension SessionDelegate: URLSessionDataDelegate {
     ///
     /// - parameter session:           The session containing the data task that received an initial reply.
     /// - parameter dataTask:          The data task that received an initial reply.
-    /// - parameter response:          A URL response object populated with head
+    /// - parameter response:          A URL response object populated with headers.
+    /// - parameter completionHandler: A completion handler that your code calls to continue the transfer, passing a
+    ///                                constant to indicate whether the transfer should continue as a data task or
+    ///                                should become a download task.
+    open func urlSession(
+        _ session: URLSession,
+        dataTask: URLSessionDataTask,
+        didReceive response: URLResp
