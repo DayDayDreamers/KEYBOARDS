@@ -521,4 +521,14 @@ extension SessionDelegate: URLSessionDataDelegate {
 
         var disposition: URLSession.ResponseDisposition = .allow
 
-        if let dataTaskDidRe
+        if let dataTaskDidReceiveResponse = dataTaskDidReceiveResponse {
+            disposition = dataTaskDidReceiveResponse(session, dataTask, response)
+        }
+
+        completionHandler(disposition)
+    }
+
+    /// Tells the delegate that the data task was changed to a download task.
+    ///
+    /// - parameter session:      The session containing the task that was replaced by a download task.
+    /// - parameter dataTask
