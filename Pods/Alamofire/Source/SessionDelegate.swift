@@ -511,4 +511,14 @@ extension SessionDelegate: URLSessionDataDelegate {
     open func urlSession(
         _ session: URLSession,
         dataTask: URLSessionDataTask,
-        didReceive response: URLResp
+        didReceive response: URLResponse,
+        completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
+    {
+        guard dataTaskDidReceiveResponseWithCompletion == nil else {
+            dataTaskDidReceiveResponseWithCompletion?(session, dataTask, response, completionHandler)
+            return
+        }
+
+        var disposition: URLSession.ResponseDisposition = .allow
+
+        if let dataTaskDidRe
