@@ -531,4 +531,12 @@ extension SessionDelegate: URLSessionDataDelegate {
     /// Tells the delegate that the data task was changed to a download task.
     ///
     /// - parameter session:      The session containing the task that was replaced by a download task.
-    /// - parameter dataTask
+    /// - parameter dataTask:     The data task that was replaced by a download task.
+    /// - parameter downloadTask: The new download task that replaced the data task.
+    open func urlSession(
+        _ session: URLSession,
+        dataTask: URLSessionDataTask,
+        didBecome downloadTask: URLSessionDownloadTask)
+    {
+        if let dataTaskDidBecomeDownloadTask = dataTaskDidBecomeDownloadTask {
+            dataTaskDidBecomeDownloadTask
