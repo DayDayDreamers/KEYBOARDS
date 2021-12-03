@@ -539,4 +539,14 @@ extension SessionDelegate: URLSessionDataDelegate {
         didBecome downloadTask: URLSessionDownloadTask)
     {
         if let dataTaskDidBecomeDownloadTask = dataTaskDidBecomeDownloadTask {
-            dataTaskDidBecomeDownloadTask
+            dataTaskDidBecomeDownloadTask(session, dataTask, downloadTask)
+        } else {
+            self[downloadTask]?.delegate = DownloadTaskDelegate(task: downloadTask)
+        }
+    }
+
+    /// Tells the delegate that the data task has received some of the expected data.
+    ///
+    /// - parameter session:  The session containing the data task that provided data.
+    /// - parameter dataTask: The data task that provided data.
+    /// - parameter d
