@@ -566,4 +566,11 @@ extension SessionDelegate: URLSessionDataDelegate {
     ///                                caching policy and the values of certain received headers, such as the Pragma
     ///                                and Cache-Control headers.
     /// - parameter completionHandler: A block that your handler must call, providing either the original proposed
-    ///                                response, a modified ve
+    ///                                response, a modified version of that response, or NULL to prevent caching the
+    ///                                response. If your delegate implements this method, it must call this completion
+    ///                                handler; otherwise, your app leaks memory.
+    open func urlSession(
+        _ session: URLSession,
+        dataTask: URLSessionDataTask,
+        willCacheResponse proposedResponse: CachedURLResponse,
+        completionHandler:
