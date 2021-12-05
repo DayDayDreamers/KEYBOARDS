@@ -562,4 +562,8 @@ extension SessionDelegate: URLSessionDataDelegate {
     ///
     /// - parameter session:           The session containing the data (or upload) task.
     /// - parameter dataTask:          The data (or upload) task.
-    /// - parameter proposedResponse:  The default caching be
+    /// - parameter proposedResponse:  The default caching behavior. This behavior is determined based on the current
+    ///                                caching policy and the values of certain received headers, such as the Pragma
+    ///                                and Cache-Control headers.
+    /// - parameter completionHandler: A block that your handler must call, providing either the original proposed
+    ///                                response, a modified ve
