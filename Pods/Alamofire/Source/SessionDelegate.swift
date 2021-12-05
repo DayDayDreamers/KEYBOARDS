@@ -554,4 +554,12 @@ extension SessionDelegate: URLSessionDataDelegate {
         if let dataTaskDidReceiveData = dataTaskDidReceiveData {
             dataTaskDidReceiveData(session, dataTask, data)
         } else if let delegate = self[dataTask]?.delegate as? DataTaskDelegate {
-            delegate.u
+            delegate.urlSession(session, dataTask: dataTask, didReceive: data)
+        }
+    }
+
+    /// Asks the delegate whether the data (or upload) task should store the response in the cache.
+    ///
+    /// - parameter session:           The session containing the data (or upload) task.
+    /// - parameter dataTask:          The data (or upload) task.
+    /// - parameter proposedResponse:  The default caching be
