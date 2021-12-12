@@ -595,4 +595,11 @@ extension SessionDelegate: URLSessionDataDelegate {
     }
 }
 
-// MARK: - URLSessionDo
+// MARK: - URLSessionDownloadDelegate
+
+extension SessionDelegate: URLSessionDownloadDelegate {
+    /// Tells the delegate that a download task has finished downloading.
+    ///
+    /// - parameter session:      The session containing the download task that finished.
+    /// - parameter downloadTask: The download task that finished.
+    /// - parameter location:     A file URL for the temporary file. B
