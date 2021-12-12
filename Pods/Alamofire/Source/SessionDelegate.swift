@@ -573,4 +573,12 @@ extension SessionDelegate: URLSessionDataDelegate {
         _ session: URLSession,
         dataTask: URLSessionDataTask,
         willCacheResponse proposedResponse: CachedURLResponse,
-        completionHandler:
+        completionHandler: @escaping (CachedURLResponse?) -> Void)
+    {
+        guard dataTaskWillCacheResponseWithCompletion == nil else {
+            dataTaskWillCacheResponseWithCompletion?(session, dataTask, proposedResponse, completionHandler)
+            return
+        }
+
+        if let dataTaskWillCacheResponse = dataTaskWillCacheResponse {
+            completionHandler(dataTaskWillCacheResponse(session, dataTask, proposedResponse
