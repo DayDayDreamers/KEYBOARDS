@@ -581,4 +581,18 @@ extension SessionDelegate: URLSessionDataDelegate {
         }
 
         if let dataTaskWillCacheResponse = dataTaskWillCacheResponse {
-            completionHandler(dataTaskWillCacheResponse(session, dataTask, proposedResponse
+            completionHandler(dataTaskWillCacheResponse(session, dataTask, proposedResponse))
+        } else if let delegate = self[dataTask]?.delegate as? DataTaskDelegate {
+            delegate.urlSession(
+                session,
+                dataTask: dataTask,
+                willCacheResponse: proposedResponse,
+                completionHandler: completionHandler
+            )
+        } else {
+            completionHandler(proposedResponse)
+        }
+    }
+}
+
+// MARK: - URLSessionDo
