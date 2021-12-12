@@ -602,4 +602,10 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     ///
     /// - parameter session:      The session containing the download task that finished.
     /// - parameter downloadTask: The download task that finished.
-    /// - parameter location:     A file URL for the temporary file. B
+    /// - parameter location:     A file URL for the temporary file. Because the file is temporary, you must either
+    ///                           open the file for reading or move it to a permanent location in your app’s sandbox
+    ///                           container directory before returning from this delegate method.
+    open func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didFinishDownloadingTo location: URL
