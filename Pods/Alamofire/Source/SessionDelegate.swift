@@ -608,4 +608,13 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     open func urlSession(
         _ session: URLSession,
         downloadTask: URLSessionDownloadTask,
-        didFinishDownloadingTo location: URL
+        didFinishDownloadingTo location: URL)
+    {
+        if let downloadTaskDidFinishDownloadingToURL = downloadTaskDidFinishDownloadingToURL {
+            downloadTaskDidFinishDownloadingToURL(session, downloadTask, location)
+        } else if let delegate = self[downloadTask]?.delegate as? DownloadTaskDelegate {
+            delegate.urlSession(session, downloadTask: downloadTask, didFinishDownloadingTo: location)
+        }
+    }
+
+   
