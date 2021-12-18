@@ -617,4 +617,9 @@ extension SessionDelegate: URLSessionDownloadDelegate {
         }
     }
 
-   
+    /// Periodically informs the delegate about the download’s progress.
+    ///
+    /// - parameter session:                   The session containing the download task.
+    /// - parameter downloadTask:              The download task.
+    /// - parameter bytesWritten:              The number of bytes transferred since the last time this delegate
+    ///                       
