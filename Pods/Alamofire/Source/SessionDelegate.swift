@@ -626,4 +626,13 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     /// - parameter totalBytesWritten:         The total number of bytes transferred so far.
     /// - parameter totalBytesExpectedToWrite: The expected length of the file, as provided by the Content-Length
     ///                                        header. If this header was not provided, the value is
-    ///                                        `NSURLSession
+    ///                                        `NSURLSessionTransferSizeUnknown`.
+    open func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didWriteData bytesWritten: Int64,
+        totalBytesWritten: Int64,
+        totalBytesExpectedToWrite: Int64)
+    {
+        if let downloadTaskDidWriteData = downloadTaskDidWriteData {
+            downloadTaskDidWriteData(session, downloadTask, bytesWritten, totalBytesWritten, totalBytesExpectedT
