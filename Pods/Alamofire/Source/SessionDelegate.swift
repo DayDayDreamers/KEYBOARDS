@@ -622,4 +622,8 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     /// - parameter session:                   The session containing the download task.
     /// - parameter downloadTask:              The download task.
     /// - parameter bytesWritten:              The number of bytes transferred since the last time this delegate
-    ///                       
+    ///                                        method was called.
+    /// - parameter totalBytesWritten:         The total number of bytes transferred so far.
+    /// - parameter totalBytesExpectedToWrite: The expected length of the file, as provided by the Content-Length
+    ///                                        header. If this header was not provided, the value is
+    ///                                        `NSURLSession
