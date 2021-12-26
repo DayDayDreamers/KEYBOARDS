@@ -635,4 +635,16 @@ extension SessionDelegate: URLSessionDownloadDelegate {
         totalBytesExpectedToWrite: Int64)
     {
         if let downloadTaskDidWriteData = downloadTaskDidWriteData {
-            downloadTaskDidWriteData(session, downloadTask, bytesWritten, totalBytesWritten, totalBytesExpectedT
+            downloadTaskDidWriteData(session, downloadTask, bytesWritten, totalBytesWritten, totalBytesExpectedToWrite)
+        } else if let delegate = self[downloadTask]?.delegate as? DownloadTaskDelegate {
+            delegate.urlSession(
+                session,
+                downloadTask: downloadTask,
+                didWriteData: bytesWritten,
+                totalBytesWritten: totalBytesWritten,
+                totalBytesExpectedToWrite: totalBytesExpectedToWrite
+            )
+        }
+    }
+
+    /// Tells the delegate that the
