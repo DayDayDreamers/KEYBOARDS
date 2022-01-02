@@ -647,4 +647,9 @@ extension SessionDelegate: URLSessionDownloadDelegate {
         }
     }
 
-    /// Tells the delegate that the
+    /// Tells the delegate that the download task has resumed downloading.
+    ///
+    /// - parameter session:            The session containing the download task that finished.
+    /// - parameter downloadTask:       The download task that resumed. See explanation in the discussion.
+    /// - parameter fileOffset:         If the file's cache policy or last modified date prevents reuse of the
+    ///                                 existing content, then this value is zer
