@@ -665,4 +665,19 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     {
         if let downloadTaskDidResumeAtOffset = downloadTaskDidResumeAtOffset {
             downloadTaskDidResumeAtOffset(session, downloadTask, fileOffset, expectedTotalBytes)
-        } else
+        } else if let delegate = self[downloadTask]?.delegate as? DownloadTaskDelegate {
+            delegate.urlSession(
+                session,
+                downloadTask: downloadTask,
+                didResumeAtOffset: fileOffset,
+                expectedTotalBytes: expectedTotalBytes
+            )
+        }
+    }
+}
+
+// MARK: - URLSessionStreamDelegate
+
+#if !os(watchOS)
+
+@available(iOS 9.0, macOS 10.11, tvO
