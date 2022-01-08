@@ -656,4 +656,13 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     ///                                 integer representing the number of bytes on disk that do not need to be
     ///                                 retrieved again.
     /// - parameter expectedTotalBytes: The expected length of the file, as provided by the Content-Length header.
-    ///                                 If this header was not provided, the value is NSURLSessionTransf
+    ///                                 If this header was not provided, the value is NSURLSessionTransferSizeUnknown.
+    open func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didResumeAtOffset fileOffset: Int64,
+        expectedTotalBytes: Int64)
+    {
+        if let downloadTaskDidResumeAtOffset = downloadTaskDidResumeAtOffset {
+            downloadTaskDidResumeAtOffset(session, downloadTask, fileOffset, expectedTotalBytes)
+        } else
