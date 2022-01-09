@@ -690,4 +690,12 @@ extension SessionDelegate: URLSessionStreamDelegate {
         streamTaskReadClosed?(session, streamTask)
     }
 
-    /// Tells th
+    /// Tells the delegate that the write side of the connection has been closed.
+    ///
+    /// - parameter session:    The session.
+    /// - parameter streamTask: The stream task.
+    open func urlSession(_ session: URLSession, writeClosedFor streamTask: URLSessionStreamTask) {
+        streamTaskWriteClosed?(session, streamTask)
+    }
+
+    /// Tells the delegate that the system has determined that a better rou
