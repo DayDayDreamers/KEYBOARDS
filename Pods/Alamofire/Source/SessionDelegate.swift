@@ -680,4 +680,14 @@ extension SessionDelegate: URLSessionDownloadDelegate {
 
 #if !os(watchOS)
 
-@available(iOS 9.0, macOS 10.11, tvO
+@available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+extension SessionDelegate: URLSessionStreamDelegate {
+    /// Tells the delegate that the read side of the connection has been closed.
+    ///
+    /// - parameter session:    The session.
+    /// - parameter streamTask: The stream task.
+    open func urlSession(_ session: URLSession, readClosedFor streamTask: URLSessionStreamTask) {
+        streamTaskReadClosed?(session, streamTask)
+    }
+
+    /// Tells th
