@@ -698,4 +698,14 @@ extension SessionDelegate: URLSessionStreamDelegate {
         streamTaskWriteClosed?(session, streamTask)
     }
 
-    /// Tells the delegate that the system has determined that a better rou
+    /// Tells the delegate that the system has determined that a better route to the host is available.
+    ///
+    /// - parameter session:    The session.
+    /// - parameter streamTask: The stream task.
+    open func urlSession(_ session: URLSession, betterRouteDiscoveredFor streamTask: URLSessionStreamTask) {
+        streamTaskBetterRouteDiscovered?(session, streamTask)
+    }
+
+    /// Tells the delegate that the stream task has been completed and provides the unopened stream objects.
+    ///
+   
