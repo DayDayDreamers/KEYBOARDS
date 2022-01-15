@@ -708,4 +708,13 @@ extension SessionDelegate: URLSessionStreamDelegate {
 
     /// Tells the delegate that the stream task has been completed and provides the unopened stream objects.
     ///
-   
+    /// - parameter session:      The session.
+    /// - parameter streamTask:   The stream task.
+    /// - parameter inputStream:  The new input stream.
+    /// - parameter outputStream: The new output stream.
+    open func urlSession(
+        _ session: URLSession,
+        streamTask: URLSessionStreamTask,
+        didBecome inputStream: InputStream,
+        outputStream: OutputStream)
+    {
