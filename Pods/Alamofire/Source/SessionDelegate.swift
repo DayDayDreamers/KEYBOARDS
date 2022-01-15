@@ -718,3 +718,8 @@ extension SessionDelegate: URLSessionStreamDelegate {
         didBecome inputStream: InputStream,
         outputStream: OutputStream)
     {
+        streamTaskDidBecomeInputAndOutputStreams?(session, streamTask, inputStream, outputStream)
+    }
+}
+
+#endif
