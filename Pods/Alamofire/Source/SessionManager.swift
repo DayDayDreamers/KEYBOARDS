@@ -19,4 +19,17 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
+
+import Foundation
+
+/// Responsible for creating and managing `Request` objects, as well as their underlying `NSURLSession`.
+open class SessionManager {
+
+    // MARK: - Helper Types
+
+    /// Defines whether the `MultipartFormData` encoding was successful and contains result of the encoding as
+    /// associated values.
+    ///
+    /// - Success: Represents a succe
