@@ -47,4 +47,14 @@ open class SessionManager {
     /// directly for any ad hoc requests.
     open static let `default`: SessionManager = {
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = SessionMan
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+
+        return SessionManager(configuration: configuration)
+    }()
+
+    /// Creates default values for the "Accept-Encoding", "Accept-Language" and "User-Agent" headers.
+    open static let defaultHTTPHeaders: HTTPHeaders = {
+        // Accept-Encoding HTTP Header; see https://tools.ietf.org/html/rfc7230#section-4.2.3
+        let acceptEncoding: String = "gzip;q=1.0, compress;q=0.5"
+
+        // A
