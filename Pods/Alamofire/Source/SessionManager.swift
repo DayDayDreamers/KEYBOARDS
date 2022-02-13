@@ -38,4 +38,13 @@ open class SessionManager {
     ///            error.
     public enum MultipartFormDataEncodingResult {
         case success(request: UploadRequest, streamingFromDisk: Bool, streamFileURL: URL?)
-        case
+        case failure(Error)
+    }
+
+    // MARK: - Properties
+
+    /// A default instance of `SessionManager`, used by top-level Alamofire request methods, and suitable for use
+    /// directly for any ad hoc requests.
+    open static let `default`: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = SessionMan
