@@ -85,4 +85,16 @@ open class SessionManager {
                             return "tvOS"
                         #elseif os(macOS)
                             return "OS X"
-               
+                        #elseif os(Linux)
+                            return "Linux"
+                        #else
+                            return "Unknown"
+                        #endif
+                    }()
+
+                    return "\(osName) \(versionString)"
+                }()
+
+                let alamofireVersion: String = {
+                    guard
+                      
