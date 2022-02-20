@@ -76,4 +76,13 @@ open class SessionManager {
                     let version = ProcessInfo.processInfo.operatingSystemVersion
                     let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
 
-              
+                    let osName: String = {
+                        #if os(iOS)
+                            return "iOS"
+                        #elseif os(watchOS)
+                            return "watchOS"
+                        #elseif os(tvOS)
+                            return "tvOS"
+                        #elseif os(macOS)
+                            return "OS X"
+               
