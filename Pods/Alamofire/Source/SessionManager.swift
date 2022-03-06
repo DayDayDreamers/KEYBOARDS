@@ -120,4 +120,16 @@ open class SessionManager {
     /// Default memory threshold used when encoding `MultipartFormData` in bytes.
     open static let multipartFormDataEncodingMemoryThreshold: UInt64 = 10_000_000
 
-    /// The un
+    /// The underlying session.
+    open let session: URLSession
+
+    /// The session delegate handling all the task and session delegate callbacks.
+    open let delegate: SessionDelegate
+
+    /// Whether to start requests immediately after being constructed. `true` by default.
+    open var startRequestsImmediately: Bool = true
+
+    /// The request adapter called each time a new request is created.
+    open var adapter: RequestAdapter?
+
+   
