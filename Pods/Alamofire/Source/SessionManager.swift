@@ -132,4 +132,11 @@ open class SessionManager {
     /// The request adapter called each time a new request is created.
     open var adapter: RequestAdapter?
 
-   
+    /// The request retrier called each time a request encounters an error to determine whether to retry the request.
+    open var retrier: RequestRetrier? {
+        get { return delegate.retrier }
+        set { delegate.retrier = newValue }
+    }
+
+    /// The background completion handler closure provided by the UIApplicationDelegate
+    /// `application:handleEventsForBackgroundURLSession:completionHandler:` met
