@@ -105,4 +105,19 @@ open class SessionManager {
                 }()
 
                 return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion)) \(alamofireVersion)"
-          
+            }
+
+            return "Alamofire"
+        }()
+
+        return [
+            "Accept-Encoding": acceptEncoding,
+            "Accept-Language": acceptLanguage,
+            "User-Agent": userAgent
+        ]
+    }()
+
+    /// Default memory threshold used when encoding `MultipartFormData` in bytes.
+    open static let multipartFormDataEncodingMemoryThreshold: UInt64 = 10_000_000
+
+    /// The un
