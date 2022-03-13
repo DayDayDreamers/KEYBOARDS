@@ -139,4 +139,9 @@ open class SessionManager {
     }
 
     /// The background completion handler closure provided by the UIApplicationDelegate
-    /// `application:handleEventsForBackgroundURLSession:completionHandler:` met
+    /// `application:handleEventsForBackgroundURLSession:completionHandler:` method. By setting the background
+    /// completion handler, the SessionDelegate `sessionDidFinishEventsForBackgroundURLSession` closure implementation
+    /// will automatically call the handler.
+    ///
+    /// If you need to handle your own events before the handler is called, then you need to override the
+    /// SessionDelegate `sessionDidFinishEventsForBackgrou
