@@ -144,4 +144,14 @@ open class SessionManager {
     /// will automatically call the handler.
     ///
     /// If you need to handle your own events before the handler is called, then you need to override the
-    /// SessionDelegate `sessionDidFinishEventsForBackgrou
+    /// SessionDelegate `sessionDidFinishEventsForBackgroundURLSession` and manually call the handler when finished.
+    ///
+    /// `nil` by default.
+    open var backgroundCompletionHandler: (() -> Void)?
+
+    let queue = DispatchQueue(label: "org.alamofire.session-manager." + UUID().uuidString)
+
+    // MARK: - Lifecycle
+
+    /// Creates an instance with the specified `configuration`, `delegate` and `serverTrustPolicyManager`.
+    ///
