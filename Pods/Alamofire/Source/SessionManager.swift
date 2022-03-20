@@ -155,3 +155,8 @@ open class SessionManager {
 
     /// Creates an instance with the specified `configuration`, `delegate` and `serverTrustPolicyManager`.
     ///
+    /// - parameter configuration:            The configuration used to construct the managed session.
+    ///                                       `URLSessionConfiguration.default` by default.
+    /// - parameter delegate:                 The delegate used when initializing the session. `SessionDelegate()` by
+    ///                                       default.
+    //
