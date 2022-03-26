@@ -159,4 +159,10 @@ open class SessionManager {
     ///                                       `URLSessionConfiguration.default` by default.
     /// - parameter delegate:                 The delegate used when initializing the session. `SessionDelegate()` by
     ///                                       default.
-    //
+    /// - parameter serverTrustPolicyManager: The server trust policy manager to use for evaluating all server trust
+    ///                                       challenges. `nil` by default.
+    ///
+    /// - returns: The new `SessionManager` instance.
+    public init(
+        configuration: URLSessionConfiguration = URLSessionConfiguration.default,
+        delegate: SessionDelegate = SessionDelegate(),
