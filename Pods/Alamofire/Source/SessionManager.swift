@@ -166,3 +166,14 @@ open class SessionManager {
     public init(
         configuration: URLSessionConfiguration = URLSessionConfiguration.default,
         delegate: SessionDelegate = SessionDelegate(),
+        serverTrustPolicyManager: ServerTrustPolicyManager? = nil)
+    {
+        self.delegate = delegate
+        self.session = URLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
+
+        commonInit(serverTrustPolicyManager: serverTrustPolicyManager)
+    }
+
+    /// Creates an instance with the specified `session`, `delegate` and `serverTrustPolicyManager`.
+    ///
+    /// - paramet
