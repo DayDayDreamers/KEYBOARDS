@@ -176,4 +176,9 @@ open class SessionManager {
 
     /// Creates an instance with the specified `session`, `delegate` and `serverTrustPolicyManager`.
     ///
-    /// - paramet
+    /// - parameter session:                  The URL session.
+    /// - parameter delegate:                 The delegate of the URL session. Must equal the URL session's delegate.
+    /// - parameter serverTrustPolicyManager: The server trust policy manager to use for evaluating all server trust
+    ///                                       challenges. `nil` by default.
+    ///
+    /// - returns: The new `
