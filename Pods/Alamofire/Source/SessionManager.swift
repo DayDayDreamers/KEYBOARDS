@@ -181,4 +181,15 @@ open class SessionManager {
     /// - parameter serverTrustPolicyManager: The server trust policy manager to use for evaluating all server trust
     ///                                       challenges. `nil` by default.
     ///
-    /// - returns: The new `
+    /// - returns: The new `SessionManager` instance if the URL session's delegate matches; `nil` otherwise.
+    public init?(
+        session: URLSession,
+        delegate: SessionDelegate,
+        serverTrustPolicyManager: ServerTrustPolicyManager? = nil)
+    {
+        guard delegate === session.delegate else { return nil }
+
+        self.delegate = delegate
+        self.session = session
+
+        commonInit(serverT
