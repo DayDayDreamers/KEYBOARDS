@@ -192,4 +192,14 @@ open class SessionManager {
         self.delegate = delegate
         self.session = session
 
-        commonInit(serverT
+        commonInit(serverTrustPolicyManager: serverTrustPolicyManager)
+    }
+
+    private func commonInit(serverTrustPolicyManager: ServerTrustPolicyManager?) {
+        session.serverTrustPolicyManager = serverTrustPolicyManager
+
+        delegate.sessionManager = self
+
+        delegate.sessionDidFinishEventsForBackgroundURLSession = { [weak self] session in
+            guard let strongSelf = self else { return }
+            DispatchQueue.main.async { 
