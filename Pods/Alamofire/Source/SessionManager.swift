@@ -202,4 +202,18 @@ open class SessionManager {
 
         delegate.sessionDidFinishEventsForBackgroundURLSession = { [weak self] session in
             guard let strongSelf = self else { return }
-            DispatchQueue.main.async { 
+            DispatchQueue.main.async { strongSelf.backgroundCompletionHandler?() }
+        }
+    }
+
+    deinit {
+        session.invalidateAndCancel()
+    }
+
+    // MARK: - Data Request
+
+    /// Creates a `DataRequest` to retrieve the contents of the specified `url`, `method`, `parameters`, `encoding`
+    /// and `headers`.
+    ///
+    /// - parameter url:        The URL.
+    /// - parameter method:     The HTTP method. `.get` by 
