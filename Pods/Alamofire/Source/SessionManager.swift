@@ -236,4 +236,15 @@ open class SessionManager {
         do {
             originalRequest = try URLRequest(url: url, method: method, headers: headers)
             let encodedURLRequest = try encoding.encode(originalRequest!, with: parameters)
-            return requ
+            return request(encodedURLRequest)
+        } catch {
+            return request(originalRequest, failedWith: error)
+        }
+    }
+
+    /// Creates a `DataRequest` to retrieve the contents of a URL based on the specified `urlRequest`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter urlRequest: The URL request.
+    
