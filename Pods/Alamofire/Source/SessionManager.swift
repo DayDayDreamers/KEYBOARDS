@@ -216,4 +216,13 @@ open class SessionManager {
     /// and `headers`.
     ///
     /// - parameter url:        The URL.
-    /// - parameter method:     The HTTP method. `.get` by 
+    /// - parameter method:     The HTTP method. `.get` by default.
+    /// - parameter parameters: The parameters. `nil` by default.
+    /// - parameter encoding:   The parameter encoding. `URLEncoding.default` by default.
+    /// - parameter headers:    The HTTP headers. `nil` by default.
+    ///
+    /// - returns: The created `DataRequest`.
+    @discardableResult
+    open func request(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get
