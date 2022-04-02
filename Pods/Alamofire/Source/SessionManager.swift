@@ -225,4 +225,15 @@ open class SessionManager {
     @discardableResult
     open func request(
         _ url: URLConvertible,
-        method: HTTPMethod = .get
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil)
+        -> DataRequest
+    {
+        var originalRequest: URLRequest?
+
+        do {
+            originalRequest = try URLRequest(url: url, method: method, headers: headers)
+            let encodedURLRequest = try encoding.encode(originalRequest!, with: parameters)
+            return requ
