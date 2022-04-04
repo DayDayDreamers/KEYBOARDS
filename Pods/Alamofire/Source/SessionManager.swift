@@ -271,3 +271,13 @@ open class SessionManager {
     }
 
     // MARK: Private - Request Implementation
+
+    private func request(_ urlRequest: URLRequest?, failedWith error: Error) -> DataRequest {
+        var requestTask: Request.RequestTask = .data(nil, nil)
+
+        if let urlRequest = urlRequest {
+            let originalTask = DataRequest.Requestable(urlRequest: urlRequest)
+            requestTask = .data(originalTask, nil)
+        }
+
+        let underlyingError = error.underlyingAdapt
