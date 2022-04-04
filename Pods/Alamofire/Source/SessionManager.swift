@@ -257,4 +257,17 @@ open class SessionManager {
             originalRequest = try urlRequest.asURLRequest()
             let originalTask = DataRequest.Requestable(urlRequest: originalRequest!)
 
-            let task = try originalTask.task(s
+            let task = try originalTask.task(session: session, adapter: adapter, queue: queue)
+            let request = DataRequest(session: session, requestTask: .data(originalTask, task))
+
+            delegate[task] = request
+
+            if startRequestsImmediately { request.resume() }
+
+            return request
+        } catch {
+            return request(originalRequest, failedWith: error)
+        }
+    }
+
+    // MARK: Private - Request Implementation
