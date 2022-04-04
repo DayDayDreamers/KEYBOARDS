@@ -247,4 +247,14 @@ open class SessionManager {
     /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
     ///
     /// - parameter urlRequest: The URL request.
-    
+    ///
+    /// - returns: The created `DataRequest`.
+    @discardableResult
+    open func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
+        var originalRequest: URLRequest?
+
+        do {
+            originalRequest = try urlRequest.asURLRequest()
+            let originalTask = DataRequest.Requestable(urlRequest: originalRequest!)
+
+            let task = try originalTask.task(s
