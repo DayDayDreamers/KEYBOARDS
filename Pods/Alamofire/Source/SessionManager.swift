@@ -302,4 +302,11 @@ open class SessionManager {
     /// If `destination` is not specified, the contents will remain in the temporary location determined by the
     /// underlying URL session.
     ///
-    /// If `startRequestsImmediately` is `true`, 
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter url:         The URL.
+    /// - parameter method:      The HTTP method. `.get` by default.
+    /// - parameter parameters:  The parameters. `nil` by default.
+    /// - parameter encoding:    The parameter encoding. `URLEncoding.default` by default.
+    /// - parameter headers:     The HTTP headers. `nil` by default.
+    /// - param
