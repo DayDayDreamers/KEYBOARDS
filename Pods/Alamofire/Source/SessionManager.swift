@@ -294,4 +294,12 @@ open class SessionManager {
 
     // MARK: - Download Request
 
-    //
+    // MARK: URL Request
+
+    /// Creates a `DownloadRequest` to retrieve the contents the specified `url`, `method`, `parameters`, `encoding`,
+    /// `headers` and save them to the `destination`.
+    ///
+    /// If `destination` is not specified, the contents will remain in the temporary location determined by the
+    /// underlying URL session.
+    ///
+    /// If `startRequestsImmediately` is `true`, 
