@@ -280,4 +280,18 @@ open class SessionManager {
             requestTask = .data(originalTask, nil)
         }
 
-        let underlyingError = error.underlyingAdapt
+        let underlyingError = error.underlyingAdaptError ?? error
+        let request = DataRequest(session: session, requestTask: requestTask, error: underlyingError)
+
+        if let retrier = retrier, error is AdaptError {
+            allowRetrier(retrier, toRetry: request, with: underlyingError)
+        } else {
+            if startRequestsImmediately { request.resume() }
+        }
+
+        return request
+    }
+
+    // MARK: - Download Request
+
+    //
