@@ -326,4 +326,13 @@ open class SessionManager {
             let urlRequest = try URLRequest(url: url, method: method, headers: headers)
             let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
             return download(encodedURLRequest, to: destination)
-        } catch
+        } catch {
+            return download(nil, to: destination, failedWith: error)
+        }
+    }
+
+    /// Creates a `DownloadRequest` to retrieve the contents of a URL based on the specified `urlRequest` and save
+    /// them to the `destination`.
+    ///
+    /// If `destination` is not specified, the contents will remain in the temporary location determined by the
+    /// underlying URL
