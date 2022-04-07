@@ -318,4 +318,12 @@ open class SessionManager {
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
         encoding: ParameterEncoding = URLEncoding.default,
-        headers: HTTPHe
+        headers: HTTPHeaders? = nil,
+        to destination: DownloadRequest.DownloadFileDestination? = nil)
+        -> DownloadRequest
+    {
+        do {
+            let urlRequest = try URLRequest(url: url, method: method, headers: headers)
+            let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
+            return download(encodedURLRequest, to: destination)
+        } catch
