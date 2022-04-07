@@ -309,4 +309,13 @@ open class SessionManager {
     /// - parameter parameters:  The parameters. `nil` by default.
     /// - parameter encoding:    The parameter encoding. `URLEncoding.default` by default.
     /// - parameter headers:     The HTTP headers. `nil` by default.
-    /// - param
+    /// - parameter destination: The closure used to determine the destination of the downloaded file. `nil` by default.
+    ///
+    /// - returns: The created `DownloadRequest`.
+    @discardableResult
+    open func download(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHe
