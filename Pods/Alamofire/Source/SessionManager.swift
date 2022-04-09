@@ -335,4 +335,13 @@ open class SessionManager {
     /// them to the `destination`.
     ///
     /// If `destination` is not specified, the contents will remain in the temporary location determined by the
-    /// underlying URL
+    /// underlying URL session.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter urlRequest:  The URL request
+    /// - parameter destination: The closure used to determine the destination of the downloaded file. `nil` by default.
+    ///
+    /// - returns: The created `DownloadRequest`.
+    @discardableResult
+    open func download(
