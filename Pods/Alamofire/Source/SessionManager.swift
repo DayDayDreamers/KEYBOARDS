@@ -345,3 +345,16 @@ open class SessionManager {
     /// - returns: The created `DownloadRequest`.
     @discardableResult
     open func download(
+        _ urlRequest: URLRequestConvertible,
+        to destination: DownloadRequest.DownloadFileDestination? = nil)
+        -> DownloadRequest
+    {
+        do {
+            let urlRequest = try urlRequest.asURLRequest()
+            return download(.request(urlRequest), to: destination)
+        } catch {
+            return download(nil, to: destination, failedWith: error)
+        }
+    }
+
+    // MAR
