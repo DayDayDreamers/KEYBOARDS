@@ -357,4 +357,12 @@ open class SessionManager {
         }
     }
 
-    // MAR
+    // MARK: Resume Data
+
+    /// Creates a `DownloadRequest` from the `resumeData` produced from a previous request cancellation to retrieve
+    /// the contents of the original request and save them to the `destination`.
+    ///
+    /// If `destination` is not specified, the contents will remain in the temporary location determined by the
+    /// underlying URL session.
+    ///
+    /// If `startRequests
