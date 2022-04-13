@@ -365,4 +365,8 @@ open class SessionManager {
     /// If `destination` is not specified, the contents will remain in the temporary location determined by the
     /// underlying URL session.
     ///
-    /// If `startRequests
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// On the latest release of all the Apple platforms (iOS 10, macOS 10.12, tvOS 10, watchOS 3), `resumeData` is broken
+    /// on background URL session configurations. There's an underlying bug in the `resumeData` generation logic where the
+    /// data is written incorrectly and will always fail
