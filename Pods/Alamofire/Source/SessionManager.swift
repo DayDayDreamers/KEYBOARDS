@@ -383,4 +383,18 @@ open class SessionManager {
     @discardableResult
     open func download(
         resumingWith resumeData: Data,
-        
+        to destination: DownloadRequest.DownloadFileDestination? = nil)
+        -> DownloadRequest
+    {
+        return download(.resumeData(resumeData), to: destination)
+    }
+
+    // MARK: Private - Download Implementation
+
+    private func download(
+        _ downloadable: DownloadRequest.Downloadable,
+        to destination: DownloadRequest.DownloadFileDestination?)
+        -> DownloadRequest
+    {
+        do {
+          
