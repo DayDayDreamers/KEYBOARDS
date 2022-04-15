@@ -408,4 +408,16 @@ open class SessionManager {
 
             return download
         } catch {
- 
+            return download(downloadable, to: destination, failedWith: error)
+        }
+    }
+
+    private func download(
+        _ downloadable: DownloadRequest.Downloadable?,
+        to destination: DownloadRequest.DownloadFileDestination?,
+        failedWith error: Error)
+        -> DownloadRequest
+    {
+        var downloadTask: Request.RequestTask = .download(nil, nil)
+
+        if let downloadable = down
