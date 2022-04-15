@@ -397,4 +397,15 @@ open class SessionManager {
         -> DownloadRequest
     {
         do {
-          
+            let task = try downloadable.task(session: session, adapter: adapter, queue: queue)
+            let download = DownloadRequest(session: session, requestTask: .download(downloadable, task))
+
+            download.downloadDelegate.destination = destination
+
+            delegate[task] = download
+
+            if startRequestsImmediately { download.resume() }
+
+            return download
+        } catch {
+ 
