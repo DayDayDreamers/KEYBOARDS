@@ -420,4 +420,14 @@ open class SessionManager {
     {
         var downloadTask: Request.RequestTask = .download(nil, nil)
 
-        if let downloadable = down
+        if let downloadable = downloadable {
+            downloadTask = .download(downloadable, nil)
+        }
+
+        let underlyingError = error.underlyingAdaptError ?? error
+
+        let download = DownloadRequest(session: session, requestTask: downloadTask, error: underlyingError)
+        download.downloadDelegate.destination = destination
+
+        if let retrier = retrier, error is AdaptError {
+            allowRetrier(retrier, toRetry:
