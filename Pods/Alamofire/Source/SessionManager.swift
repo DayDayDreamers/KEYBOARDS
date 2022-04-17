@@ -430,4 +430,20 @@ open class SessionManager {
         download.downloadDelegate.destination = destination
 
         if let retrier = retrier, error is AdaptError {
-            allowRetrier(retrier, toRetry:
+            allowRetrier(retrier, toRetry: download, with: underlyingError)
+        } else {
+            if startRequestsImmediately { download.resume() }
+        }
+
+        return download
+    }
+
+    // MARK: - Upload Request
+
+    // MARK: File
+
+    /// Creates an `UploadRequest` from the specified `url`, `method` and `headers` for uploading the `file`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+  
