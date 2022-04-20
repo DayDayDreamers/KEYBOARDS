@@ -479,4 +479,15 @@ open class SessionManager {
     @discardableResult
     open func upload(_ fileURL: URL, with urlRequest: URLRequestConvertible) -> UploadRequest {
         do {
-            let urlRequest = try
+            let urlRequest = try urlRequest.asURLRequest()
+            return upload(.file(fileURL, urlRequest))
+        } catch {
+            return upload(nil, failedWith: error)
+        }
+    }
+
+    // MARK: Data
+
+    /// Creates an `UploadRequest` from the specified `url`, `method` and `headers` for uploading the `data`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
