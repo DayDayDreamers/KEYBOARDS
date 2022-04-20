@@ -491,3 +491,15 @@ open class SessionManager {
     /// Creates an `UploadRequest` from the specified `url`, `method` and `headers` for uploading the `data`.
     ///
     /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter data:    The data to upload.
+    /// - parameter url:     The URL.
+    /// - parameter method:  The HTTP method. `.post` by default.
+    /// - parameter headers: The HTTP headers. `nil` by default.
+    ///
+    /// - returns: The created `UploadRequest`.
+    @discardableResult
+    open func upload(
+        _ data: Data,
+        to url: URLConvertible,
+        method: HTTPM
