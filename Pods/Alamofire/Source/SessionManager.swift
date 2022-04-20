@@ -456,4 +456,18 @@ open class SessionManager {
     open func upload(
         _ fileURL: URL,
         to url: URLConvertible,
-        method: HTTPMethod = .p
+        method: HTTPMethod = .post,
+        headers: HTTPHeaders? = nil)
+        -> UploadRequest
+    {
+        do {
+            let urlRequest = try URLRequest(url: url, method: method, headers: headers)
+            return upload(fileURL, with: urlRequest)
+        } catch {
+            return upload(nil, failedWith: error)
+        }
+    }
+
+    /// Creates a `UploadRequest` from the specified `urlRequest` for uploading the `file`.
+    ///
+    /// If `startRequestsImmediately
