@@ -470,4 +470,13 @@ open class SessionManager {
 
     /// Creates a `UploadRequest` from the specified `urlRequest` for uploading the `file`.
     ///
-    /// If `startRequestsImmediately
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter file:       The file to upload.
+    /// - parameter urlRequest: The URL request.
+    ///
+    /// - returns: The created `UploadRequest`.
+    @discardableResult
+    open func upload(_ fileURL: URL, with urlRequest: URLRequestConvertible) -> UploadRequest {
+        do {
+            let urlRequest = try
