@@ -514,4 +514,13 @@ open class SessionManager {
         }
     }
 
-    /// Creates an `UploadRequest` from the specified `urlRequest` for upl
+    /// Creates an `UploadRequest` from the specified `urlRequest` for uploading the `data`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter data:       The data to upload.
+    /// - parameter urlRequest: The URL request.
+    ///
+    /// - returns: The created `UploadRequest`.
+    @discardableResult
+    open func upload(_ data: Data, with urlRequest: URLRequestConvertible) -
