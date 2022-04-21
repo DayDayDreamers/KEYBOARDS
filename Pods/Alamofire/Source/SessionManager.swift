@@ -523,4 +523,17 @@ open class SessionManager {
     ///
     /// - returns: The created `UploadRequest`.
     @discardableResult
-    open func upload(_ data: Data, with urlRequest: URLRequestConvertible) -
+    open func upload(_ data: Data, with urlRequest: URLRequestConvertible) -> UploadRequest {
+        do {
+            let urlRequest = try urlRequest.asURLRequest()
+            return upload(.data(data, urlRequest))
+        } catch {
+            return upload(nil, failedWith: error)
+        }
+    }
+
+    // MARK: InputStream
+
+    /// Creates an `UploadRequest` from the specified `url`, `method` and `headers` for uploading the `stream`.
+    ///
+    /// If `startRequestsImmediately
