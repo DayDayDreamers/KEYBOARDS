@@ -502,4 +502,16 @@ open class SessionManager {
     open func upload(
         _ data: Data,
         to url: URLConvertible,
-        method: HTTPM
+        method: HTTPMethod = .post,
+        headers: HTTPHeaders? = nil)
+        -> UploadRequest
+    {
+        do {
+            let urlRequest = try URLRequest(url: url, method: method, headers: headers)
+            return upload(data, with: urlRequest)
+        } catch {
+            return upload(nil, failedWith: error)
+        }
+    }
+
+    /// Creates an `UploadRequest` from the specified `urlRequest` for upl
