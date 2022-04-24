@@ -569,4 +569,15 @@ open class SessionManager {
     ///
     /// - returns: The created `UploadRequest`.
     @discardableResult
-    open 
+    open func upload(_ stream: InputStream, with urlRequest: URLRequestConvertible) -> UploadRequest {
+        do {
+            let urlRequest = try urlRequest.asURLRequest()
+            return upload(.stream(stream, urlRequest))
+        } catch {
+            return upload(nil, failedWith: error)
+        }
+    }
+
+    // MARK: MultipartFormData
+
+    /// Encodes `multipartFormData` using `encodingMemoryThreshold` and calls `encodingCompleti
