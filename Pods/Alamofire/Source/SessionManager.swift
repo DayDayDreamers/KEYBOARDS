@@ -546,4 +546,18 @@ open class SessionManager {
     /// - returns: The created `UploadRequest`.
     @discardableResult
     open func upload(
-        _
+        _ stream: InputStream,
+        to url: URLConvertible,
+        method: HTTPMethod = .post,
+        headers: HTTPHeaders? = nil)
+        -> UploadRequest
+    {
+        do {
+            let urlRequest = try URLRequest(url: url, method: method, headers: headers)
+            return upload(stream, with: urlRequest)
+        } catch {
+            return upload(nil, failedWith: error)
+        }
+    }
+
+    /// Creates 
