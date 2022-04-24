@@ -560,4 +560,13 @@ open class SessionManager {
         }
     }
 
-    /// Creates 
+    /// Creates an `UploadRequest` from the specified `urlRequest` for uploading the `stream`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter stream:     The stream to upload.
+    /// - parameter urlRequest: The URL request.
+    ///
+    /// - returns: The created `UploadRequest`.
+    @discardableResult
+    open 
