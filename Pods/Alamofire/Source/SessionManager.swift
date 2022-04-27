@@ -580,4 +580,9 @@ open class SessionManager {
 
     // MARK: MultipartFormData
 
-    /// Encodes `multipartFormData` using `encodingMemoryThreshold` and calls `encodingCompleti
+    /// Encodes `multipartFormData` using `encodingMemoryThreshold` and calls `encodingCompletion` with new
+    /// `UploadRequest` using the `url`, `method` and `headers`.
+    ///
+    /// It is important to understand the memory implications of uploading `MultipartFormData`. If the cummulative
+    /// payload is small, encoding the data in-memory and directly uploading to a server is the by far the most
+    /// efficient approach. However, if the payload is too large, encoding the data in-memory could 
