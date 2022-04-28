@@ -600,4 +600,10 @@ open class SessionManager {
     ///
     /// - parameter multipartFormData:       The closure used to append body parts to the `MultipartFormData`.
     /// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
-    ///                                      `multipartFormDataEncodin
+    ///                                      `multipartFormDataEncodingMemoryThreshold` by default.
+    /// - parameter url:                     The URL.
+    /// - parameter method:                  The HTTP method. `.post` by default.
+    /// - parameter headers:                 The HTTP headers. `nil` by default.
+    /// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
+    open func upload(
+        multipartFormData:
