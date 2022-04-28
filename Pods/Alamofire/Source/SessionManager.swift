@@ -595,4 +595,9 @@ open class SessionManager {
     /// encoding takes place in-memory. If the content length exceeds the threshold, the data is streamed to disk
     /// during the encoding process. Then the result is uploaded as data or as a stream depending on which encoding
     /// technique was used.
- 
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter multipartFormData:       The closure used to append body parts to the `MultipartFormData`.
+    /// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
+    ///                                      `multipartFormDataEncodin
