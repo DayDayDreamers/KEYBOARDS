@@ -614,4 +614,17 @@ open class SessionManager {
         encodingCompletion: ((MultipartFormDataEncodingResult) -> Void)?)
     {
         do {
-            let urlRequest = try URLReques
+            let urlRequest = try URLRequest(url: url, method: method, headers: headers)
+
+            return upload(
+                multipartFormData: multipartFormData,
+                usingThreshold: encodingMemoryThreshold,
+                with: urlRequest,
+                encodingCompletion: encodingCompletion
+            )
+        } catch {
+            DispatchQueue.main.async { encodingCompletion?(.failure(error)) }
+        }
+    }
+
+    /// Encodes `multipar
