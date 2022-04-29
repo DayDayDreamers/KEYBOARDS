@@ -606,4 +606,12 @@ open class SessionManager {
     /// - parameter headers:                 The HTTP headers. `nil` by default.
     /// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
     open func upload(
-        multipartFormData:
+        multipartFormData: @escaping (MultipartFormData) -> Void,
+        usingThreshold encodingMemoryThreshold: UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold,
+        to url: URLConvertible,
+        method: HTTPMethod = .post,
+        headers: HTTPHeaders? = nil,
+        encodingCompletion: ((MultipartFormDataEncodingResult) -> Void)?)
+    {
+        do {
+            let urlRequest = try URLReques
