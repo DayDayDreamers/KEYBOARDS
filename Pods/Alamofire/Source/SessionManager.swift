@@ -637,4 +637,9 @@ open class SessionManager {
     /// footprint low, then the data can be uploaded as a stream from the resulting file. Streaming from disk MUST be
     /// used for larger payloads such as video content.
     ///
-    /// The `encodingMemoryThreshold` parameter allows Alamofire to automatically determine whether to encode 
+    /// The `encodingMemoryThreshold` parameter allows Alamofire to automatically determine whether to encode in-memory
+    /// or stream from disk. If the content length of the `MultipartFormData` is below the `encodingMemoryThreshold`,
+    /// encoding takes place in-memory. If the content length exceeds the threshold, the data is streamed to disk
+    /// during the encoding process. Then the result is uploaded as data or as a stream depending on which encoding
+    /// technique was used.
+    ///
