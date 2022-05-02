@@ -664,4 +664,12 @@ open class SessionManager {
 
             do {
                 var urlRequestWithContentType = try urlRequest.asURLRequest()
-                urlReques
+                urlRequestWithContentType.setValue(formData.contentType, forHTTPHeaderField: "Content-Type")
+
+                let isBackgroundSession = self.session.configuration.identifier != nil
+
+                if formData.contentLength < encodingMemoryThreshold && !isBackgroundSession {
+                    let data = try formData.encode()
+
+                    let encodingResult = MultipartFormDataEncodingResult.success(
+      
