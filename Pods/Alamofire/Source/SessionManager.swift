@@ -647,4 +647,10 @@ open class SessionManager {
     ///
     /// - parameter multipartFormData:       The closure used to append body parts to the `MultipartFormData`.
     /// - parameter encodingMemoryThreshold: The encoding memory threshold in bytes.
-    ///                                      `multipartFormDataEncodingMemoryThreshold` by de
+    ///                                      `multipartFormDataEncodingMemoryThreshold` by default.
+    /// - parameter urlRequest:              The URL request.
+    /// - parameter encodingCompletion:      The closure called when the `MultipartFormData` encoding is complete.
+    open func upload(
+        multipartFormData: @escaping (MultipartFormData) -> Void,
+        usingThreshold encodingMemoryThreshold: UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold,
+        wit
