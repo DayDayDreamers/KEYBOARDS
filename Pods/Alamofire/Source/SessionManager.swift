@@ -653,4 +653,15 @@ open class SessionManager {
     open func upload(
         multipartFormData: @escaping (MultipartFormData) -> Void,
         usingThreshold encodingMemoryThreshold: UInt64 = SessionManager.multipartFormDataEncodingMemoryThreshold,
-        wit
+        with urlRequest: URLRequestConvertible,
+        encodingCompletion: ((MultipartFormDataEncodingResult) -> Void)?)
+    {
+        DispatchQueue.global(qos: .utility).async {
+            let formData = MultipartFormData()
+            multipartFormData(formData)
+
+            var tempFileURL: URL?
+
+            do {
+                var urlRequestWithContentType = try urlRequest.asURLRequest()
+                urlReques
