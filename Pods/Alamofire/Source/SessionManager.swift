@@ -672,4 +672,12 @@ open class SessionManager {
                     let data = try formData.encode()
 
                     let encodingResult = MultipartFormDataEncodingResult.success(
-      
+                        request: self.upload(data, with: urlRequestWithContentType),
+                        streamingFromDisk: false,
+                        streamFileURL: nil
+                    )
+
+                    DispatchQueue.main.async { encodingCompletion?(encodingResult) }
+                } else {
+                    let fileManager = FileManager.default
+                    let tempDirectoryURL = URL(fil
