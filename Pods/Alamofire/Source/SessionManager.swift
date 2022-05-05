@@ -680,4 +680,13 @@ open class SessionManager {
                     DispatchQueue.main.async { encodingCompletion?(encodingResult) }
                 } else {
                     let fileManager = FileManager.default
-                    let tempDirectoryURL = URL(fil
+                    let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory())
+                    let directoryURL = tempDirectoryURL.appendingPathComponent("org.alamofire.manager/multipart.form.data")
+                    let fileName = UUID().uuidString
+                    let fileURL = directoryURL.appendingPathComponent(fileName)
+
+                    tempFileURL = fileURL
+
+                    var directoryError: Error?
+
+               
