@@ -696,4 +696,15 @@ open class SessionManager {
                         } catch {
                             directoryError = error
                         }
-               
+                    }
+
+                    if let directoryError = directoryError { throw directoryError }
+
+                    try formData.writeEncodedData(to: fileURL)
+
+                    let upload = self.upload(fileURL, with: urlRequestWithContentType)
+
+                    // Cleanup the temp file once the upload is complete
+                    upload.delegate.queue.addOperation {
+                        do {
+        
