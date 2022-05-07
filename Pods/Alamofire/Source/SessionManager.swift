@@ -689,4 +689,11 @@ open class SessionManager {
 
                     var directoryError: Error?
 
+                    // Create directory inside serial queue to ensure two threads don't do this in parallel
+                    self.queue.sync {
+                        do {
+                            try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
+                        } catch {
+                            directoryError = error
+                        }
                
