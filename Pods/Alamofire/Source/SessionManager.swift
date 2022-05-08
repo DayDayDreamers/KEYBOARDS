@@ -707,4 +707,14 @@ open class SessionManager {
                     // Cleanup the temp file once the upload is complete
                     upload.delegate.queue.addOperation {
                         do {
-        
+                            try FileManager.default.removeItem(at: fileURL)
+                        } catch {
+                            // No-op
+                        }
+                    }
+
+                    DispatchQueue.main.async {
+                        let encodingResult = MultipartFormDataEncodingResult.success(
+                            request: upload,
+                            streamingFromDisk: true,
+    
