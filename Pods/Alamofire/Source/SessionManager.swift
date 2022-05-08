@@ -727,4 +727,17 @@ open class SessionManager {
                 // Cleanup the temp file in the event that the multipart form data encoding failed
                 if let tempFileURL = tempFileURL {
                     do {
-                        try F
+                        try FileManager.default.removeItem(at: tempFileURL)
+                    } catch {
+                        // No-op
+                    }
+                }
+
+                DispatchQueue.main.async { encodingCompletion?(.failure(error)) }
+            }
+        }
+    }
+
+    // MARK: Private - Upload Implementation
+
+    private func upload(_ uploadable: UploadRequest.Uploadable) -> UploadReques
