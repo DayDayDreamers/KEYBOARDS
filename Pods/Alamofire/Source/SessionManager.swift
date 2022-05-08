@@ -740,4 +740,13 @@ open class SessionManager {
 
     // MARK: Private - Upload Implementation
 
-    private func upload(_ uploadable: UploadRequest.Uploadable) -> UploadReques
+    private func upload(_ uploadable: UploadRequest.Uploadable) -> UploadRequest {
+        do {
+            let task = try uploadable.task(session: session, adapter: adapter, queue: queue)
+            let upload = UploadRequest(session: session, requestTask: .upload(uploadable, task))
+
+            if case let .stream(inputStream, _) = uploadable {
+                upload.delegate.taskNeedNewBodyStream = { _, _ in inputStream }
+            }
+
+            dele
