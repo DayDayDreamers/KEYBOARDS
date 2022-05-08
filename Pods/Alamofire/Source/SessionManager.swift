@@ -717,4 +717,14 @@ open class SessionManager {
                         let encodingResult = MultipartFormDataEncodingResult.success(
                             request: upload,
                             streamingFromDisk: true,
-    
+                            streamFileURL: fileURL
+                        )
+
+                        encodingCompletion?(encodingResult)
+                    }
+                }
+            } catch {
+                // Cleanup the temp file in the event that the multipart form data encoding failed
+                if let tempFileURL = tempFileURL {
+                    do {
+                        try F
