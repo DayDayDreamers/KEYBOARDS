@@ -772,4 +772,20 @@ open class SessionManager {
         if let retrier = retrier, error is AdaptError {
             allowRetrier(retrier, toRetry: upload, with: underlyingError)
         } else {
-            if startRequestsImmediately { upload.resume(
+            if startRequestsImmediately { upload.resume() }
+        }
+
+        return upload
+    }
+
+#if !os(watchOS)
+
+    // MARK: - Stream Request
+
+    // MARK: Hostname and Port
+
+    /// Creates a `StreamRequest` for bidirectional streaming using the `hostname` and `port`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter hostName: The hostname of the server to connect 
