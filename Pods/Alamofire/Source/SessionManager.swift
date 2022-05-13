@@ -762,4 +762,14 @@ open class SessionManager {
     private func upload(_ uploadable: UploadRequest.Uploadable?, failedWith error: Error) -> UploadRequest {
         var uploadTask: Request.RequestTask = .upload(nil, nil)
 
-        if let uploadable = uploadab
+        if let uploadable = uploadable {
+            uploadTask = .upload(uploadable, nil)
+        }
+
+        let underlyingError = error.underlyingAdaptError ?? error
+        let upload = UploadRequest(session: session, requestTask: uploadTask, error: underlyingError)
+
+        if let retrier = retrier, error is AdaptError {
+            allowRetrier(retrier, toRetry: upload, with: underlyingError)
+        } else {
+            if startRequestsImmediately { upload.resume(
