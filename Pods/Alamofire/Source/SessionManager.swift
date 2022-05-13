@@ -788,4 +788,16 @@ open class SessionManager {
     ///
     /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
     ///
-    /// - parameter hostName: The hostname of the server to connect 
+    /// - parameter hostName: The hostname of the server to connect to.
+    /// - parameter port:     The port of the server to connect to.
+    ///
+    /// - returns: The created `StreamRequest`.
+    @discardableResult
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    open func stream(withHostName hostName: String, port: Int) -> StreamRequest {
+        return stream(.stream(hostName: hostName, port: port))
+    }
+
+    // MARK: NetService
+
+    /// Creates a
