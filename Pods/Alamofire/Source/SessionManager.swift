@@ -749,4 +749,17 @@ open class SessionManager {
                 upload.delegate.taskNeedNewBodyStream = { _, _ in inputStream }
             }
 
-            dele
+            delegate[task] = upload
+
+            if startRequestsImmediately { upload.resume() }
+
+            return upload
+        } catch {
+            return upload(uploadable, failedWith: error)
+        }
+    }
+
+    private func upload(_ uploadable: UploadRequest.Uploadable?, failedWith error: Error) -> UploadRequest {
+        var uploadTask: Request.RequestTask = .upload(nil, nil)
+
+        if let uploadable = uploadab
