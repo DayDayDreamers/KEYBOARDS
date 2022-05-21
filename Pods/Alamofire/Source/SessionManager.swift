@@ -800,4 +800,13 @@ open class SessionManager {
 
     // MARK: NetService
 
-    /// Creates a
+    /// Creates a `StreamRequest` for bidirectional streaming using the `netService`.
+    ///
+    /// If `startRequestsImmediately` is `true`, the request will have `resume()` called before being returned.
+    ///
+    /// - parameter netService: The net service used to identify the endpoint.
+    ///
+    /// - returns: The created `StreamRequest`.
+    @discardableResult
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    open func s
