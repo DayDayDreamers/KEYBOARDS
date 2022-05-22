@@ -809,4 +809,13 @@ open class SessionManager {
     /// - returns: The created `StreamRequest`.
     @discardableResult
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
-    open func s
+    open func stream(with netService: NetService) -> StreamRequest {
+        return stream(.netService(netService))
+    }
+
+    // MARK: Private - Stream Implementation
+
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    private func stream(_ streamable: StreamRequest.Streamable) -> StreamRequest {
+        do {
+            let task = try streamable.task(session: session, adapter: adapter, 
