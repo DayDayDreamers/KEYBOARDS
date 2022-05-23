@@ -846,4 +846,21 @@ open class SessionManager {
         guard let originalTask = request.originalTask else { return false }
 
         do {
-            let task = try originalTask.task(
+            let task = try originalTask.task(session: session, adapter: adapter, queue: queue)
+
+            request.delegate.task = task // resets all task delegate data
+
+            request.retryCount += 1
+            request.startTime = CFAbsoluteTimeGetCurrent()
+            request.endTime = nil
+
+            task.resume()
+
+            return true
+        } catch {
+            request.delegate.error = error.underlyingAdaptError ?? error
+            return false
+        }
+    }
+
+    private
