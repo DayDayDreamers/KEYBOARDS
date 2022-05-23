@@ -832,4 +832,18 @@ open class SessionManager {
     }
 
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
-    private func stream(failedWith error: Erro
+    private func stream(failedWith error: Error) -> StreamRequest {
+        let stream = StreamRequest(session: session, requestTask: .stream(nil, nil), error: error)
+        if startRequestsImmediately { stream.resume() }
+        return stream
+    }
+
+#endif
+
+    // MARK: - Internal - Retry Request
+
+    func retry(_ request: Request) -> Bool {
+        guard let originalTask = request.originalTask else { return false }
+
+        do {
+            let task = try originalTask.task(
