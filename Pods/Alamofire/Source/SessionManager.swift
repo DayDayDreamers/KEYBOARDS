@@ -818,4 +818,18 @@ open class SessionManager {
     @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
     private func stream(_ streamable: StreamRequest.Streamable) -> StreamRequest {
         do {
-            let task = try streamable.task(session: session, adapter: adapter, 
+            let task = try streamable.task(session: session, adapter: adapter, queue: queue)
+            let request = StreamRequest(session: session, requestTask: .stream(streamable, task))
+
+            delegate[task] = request
+
+            if startRequestsImmediately { request.resume() }
+
+            return request
+        } catch {
+            return stream(failedWith: error)
+        }
+    }
+
+    @available(iOS 9.0, macOS 10.11, tvOS 9.0, *)
+    private func stream(failedWith error: Erro
