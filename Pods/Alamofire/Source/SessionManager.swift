@@ -870,4 +870,15 @@ open class SessionManager {
             retrier.should(strongSelf, retry: request, with: error) { shouldRetry, timeDelay in
                 guard let strongSelf = self else { return }
 
-                guard shou
+                guard shouldRetry else {
+                    if strongSelf.startRequestsImmediately { request.resume() }
+                    return
+                }
+
+                DispatchQueue.utility.after(timeDelay) {
+                    guard let strongSelf = self else { return }
+
+                    let retrySucceeded = strongSelf.retry(request)
+
+                    if retrySucceeded, let task = request.task {
+                        strongSelf.deleg
