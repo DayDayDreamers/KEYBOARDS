@@ -863,4 +863,11 @@ open class SessionManager {
         }
     }
 
-    private
+    private func allowRetrier(_ retrier: RequestRetrier, toRetry request: Request, with error: Error) {
+        DispatchQueue.utility.async { [weak self] in
+            guard let strongSelf = self else { return }
+
+            retrier.should(strongSelf, retry: request, with: error) { shouldRetry, timeDelay in
+                guard let strongSelf = self else { return }
+
+                guard shou
