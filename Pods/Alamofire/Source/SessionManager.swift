@@ -881,4 +881,12 @@ open class SessionManager {
                     let retrySucceeded = strongSelf.retry(request)
 
                     if retrySucceeded, let task = request.task {
-                        strongSelf.deleg
+                        strongSelf.delegate[task] = request
+                    } else {
+                        if strongSelf.startRequestsImmediately { request.resume() }
+                    }
+                }
+            }
+        }
+    }
+}
