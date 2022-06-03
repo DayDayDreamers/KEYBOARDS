@@ -25,4 +25,20 @@
 import Foundation
 
 /// The task delegate is responsible for handling all delegate callbacks for the underlying task as well as
-/// executing all operations attached to the serial operation queue upon task completi
+/// executing all operations attached to the serial operation queue upon task completion.
+open class TaskDelegate: NSObject {
+
+    // MARK: Properties
+
+    /// The serial operation queue used to execute all operations after the task completes.
+    open let queue: OperationQueue
+
+    /// The data returned by the server.
+    public var data: Data? { return nil }
+
+    /// The error generated throughout the lifecyle of the task.
+    public var error: Error?
+
+    var task: URLSessionTask? {
+        set {
+           
