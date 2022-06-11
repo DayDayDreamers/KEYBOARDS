@@ -56,4 +56,20 @@ open class TaskDelegate: NSObject {
 
     private var _task: URLSessionTask? {
         didSet { reset() }
-  
+    }
+
+    private let taskLock = NSLock()
+
+    // MARK: Lifecycle
+
+    init(task: URLSessionTask?) {
+        _task = task
+
+        self.queue = {
+            let operationQueue = OperationQueue()
+
+            operationQueue.maxConcurrentOperationCount = 1
+            operationQueue.isSuspended = true
+            operationQueue.qualityOfService = .utility
+
+            return op
