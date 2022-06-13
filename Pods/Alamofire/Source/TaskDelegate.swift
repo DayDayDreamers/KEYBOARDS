@@ -92,4 +92,14 @@ open class TaskDelegate: NSObject {
     func urlSession(
         _ session: URLSession,
         task: URLSessionTask,
-        willPerformHTT
+        willPerformHTTPRedirection response: HTTPURLResponse,
+        newRequest request: URLRequest,
+        completionHandler: @escaping (URLRequest?) -> Void)
+    {
+        var redirectRequest: URLRequest? = request
+
+        if let taskWillPerformHTTPRedirection = taskWillPerformHTTPRedirection {
+            redirectRequest = taskWillPerformHTTPRedirection(session, task, response, request)
+        }
+
+        completionHan
