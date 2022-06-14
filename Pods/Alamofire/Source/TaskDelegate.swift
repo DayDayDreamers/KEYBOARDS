@@ -112,4 +112,12 @@ open class TaskDelegate: NSObject {
         didReceive challenge: URLAuthenticationChallenge,
         completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void)
     {
-        var disposition: URLSession.AuthChallengeDisposition = .pe
+        var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling
+        var credential: URLCredential?
+
+        if let taskDidReceiveChallenge = taskDidReceiveChallenge {
+            (disposition, credential) = taskDidReceiveChallenge(session, task, challenge)
+        } else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+            let host = challenge.protectionSpace.host
+
+           
