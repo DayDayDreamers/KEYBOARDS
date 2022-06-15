@@ -135,4 +135,19 @@ open class TaskDelegate: NSObject {
             if challenge.previousFailureCount > 0 {
                 disposition = .rejectProtectionSpace
             } else {
-                credential = self.credential ?? session.configuration.urlCredentialStorage?.defaultCredential(for: cha
+                credential = self.credential ?? session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
+
+                if credential != nil {
+                    disposition = .useCredential
+                }
+            }
+        }
+
+        completionHandler(disposition, credential)
+    }
+
+    @objc(URLSession:task:needNewBodyStream:)
+    func urlSession(
+        _ session: URLSession,
+        task: URLSessionTask,
+        needNewBodyStrea
