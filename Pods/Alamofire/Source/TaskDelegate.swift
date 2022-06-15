@@ -127,4 +127,12 @@ open class TaskDelegate: NSObject {
                 if serverTrustPolicy.evaluate(serverTrust, forHost: host) {
                     disposition = .useCredential
                     credential = URLCredential(trust: serverTrust)
-           
+                } else {
+                    disposition = .cancelAuthenticationChallenge
+                }
+            }
+        } else {
+            if challenge.previousFailureCount > 0 {
+                disposition = .rejectProtectionSpace
+            } else {
+                credential = self.credential ?? session.configuration.urlCredentialStorage?.defaultCredential(for: cha
