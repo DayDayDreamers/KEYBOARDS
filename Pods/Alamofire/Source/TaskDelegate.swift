@@ -150,4 +150,16 @@ open class TaskDelegate: NSObject {
     func urlSession(
         _ session: URLSession,
         task: URLSessionTask,
-        needNewBodyStrea
+        needNewBodyStream completionHandler: @escaping (InputStream?) -> Void)
+    {
+        var bodyStream: InputStream?
+
+        if let taskNeedNewBodyStream = taskNeedNewBodyStream {
+            bodyStream = taskNeedNewBodyStream(session, task)
+        }
+
+        completionHandler(bodyStream)
+    }
+
+    @objc(URLSession:task:didCompleteWithError:)
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Err
