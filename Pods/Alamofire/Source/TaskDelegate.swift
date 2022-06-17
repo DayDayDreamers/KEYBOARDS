@@ -162,4 +162,13 @@ open class TaskDelegate: NSObject {
     }
 
     @objc(URLSession:task:didCompleteWithError:)
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Err
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let taskDidCompleteWithError = taskDidCompleteWithError {
+            taskDidCompleteWithError(session, task, error)
+        } else {
+            if let error = error {
+                if self.error == nil { self.error = error }
+
+                if
+                    let downloadDelegate = self as? DownloadTaskDelegate,
+                    let resumeData = (error as NSError).userInfo[NSURLSessionDownloadTaskR
