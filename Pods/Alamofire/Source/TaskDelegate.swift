@@ -171,4 +171,24 @@ open class TaskDelegate: NSObject {
 
                 if
                     let downloadDelegate = self as? DownloadTaskDelegate,
-                    let resumeData = (error as NSError).userInfo[NSURLSessionDownloadTaskR
+                    let resumeData = (error as NSError).userInfo[NSURLSessionDownloadTaskResumeData] as? Data
+                {
+                    downloadDelegate.resumeData = resumeData
+                }
+            }
+
+            queue.isSuspended = false
+        }
+    }
+}
+
+// MARK: -
+
+class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
+
+    // MARK: Properties
+
+    var dataTask: URLSessionDataTask { return task as! URLSessionDataTask }
+
+    override var data: Data? {
+        if dataStream != nil 
