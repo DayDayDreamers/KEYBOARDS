@@ -191,4 +191,19 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
     var dataTask: URLSessionDataTask { return task as! URLSessionDataTask }
 
     override var data: Data? {
-        if dataStream != nil 
+        if dataStream != nil {
+            return nil
+        } else {
+            return mutableData
+        }
+    }
+
+    var progress: Progress
+    var progressHandler: (closure: Request.ProgressHandler, queue: DispatchQueue)?
+
+    var dataStream: ((_ data: Data) -> Void)?
+
+    private var totalBytesReceived: Int64 = 0
+    private var mutableData: Data
+
+    private var expectedContentLength: Int64
