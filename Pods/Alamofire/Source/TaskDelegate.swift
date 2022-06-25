@@ -226,4 +226,9 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
         expectedContentLength = nil
     }
 
-    // MARK: URLSessionData
+    // MARK: URLSessionDataDelegate
+
+    var dataTaskDidReceiveResponse: ((URLSession, URLSessionDataTask, URLResponse) -> URLSession.ResponseDisposition)?
+    var dataTaskDidBecomeDownloadTask: ((URLSession, URLSessionDataTask, URLSessionDownloadTask) -> Void)?
+    var dataTaskDidReceiveData: ((URLSession, URLSessionDataTask, Data) -> Void)?
+    var dataTaskWillCacheResponse: ((URLSession, URLSessionDataTas
