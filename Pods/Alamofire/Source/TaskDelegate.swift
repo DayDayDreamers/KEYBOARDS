@@ -231,4 +231,16 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
     var dataTaskDidReceiveResponse: ((URLSession, URLSessionDataTask, URLResponse) -> URLSession.ResponseDisposition)?
     var dataTaskDidBecomeDownloadTask: ((URLSession, URLSessionDataTask, URLSessionDownloadTask) -> Void)?
     var dataTaskDidReceiveData: ((URLSession, URLSessionDataTask, Data) -> Void)?
-    var dataTaskWillCacheResponse: ((URLSession, URLSessionDataTas
+    var dataTaskWillCacheResponse: ((URLSession, URLSessionDataTask, CachedURLResponse) -> CachedURLResponse?)?
+
+    func urlSession(
+        _ session: URLSession,
+        dataTask: URLSessionDataTask,
+        didReceive response: URLResponse,
+        completionHandler: @escaping (URLSession.ResponseDisposition) -> Void)
+    {
+        var disposition: URLSession.ResponseDisposition = .allow
+
+        expectedContentLength = response.expectedContentLength
+
+        if let 
