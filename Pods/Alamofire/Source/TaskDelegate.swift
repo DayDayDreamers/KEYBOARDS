@@ -243,4 +243,16 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
 
         expectedContentLength = response.expectedContentLength
 
-        if let 
+        if let dataTaskDidReceiveResponse = dataTaskDidReceiveResponse {
+            disposition = dataTaskDidReceiveResponse(session, dataTask, response)
+        }
+
+        completionHandler(disposition)
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        dataTask: URLSessionDataTask,
+        didBecome downloadTask: URLSessionDownloadTask)
+    {
+        dataTaskDidBecomeDownloadTask?(ses
