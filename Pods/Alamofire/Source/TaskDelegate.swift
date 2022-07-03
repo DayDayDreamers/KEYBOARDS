@@ -286,4 +286,19 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
     func urlSession(
         _ session: URLSession,
         dataTask: URLSessionDataTask,
-        willCacheResponse proposedResponse: CachedURLRespon
+        willCacheResponse proposedResponse: CachedURLResponse,
+        completionHandler: @escaping (CachedURLResponse?) -> Void)
+    {
+        var cachedResponse: CachedURLResponse? = proposedResponse
+
+        if let dataTaskWillCacheResponse = dataTaskWillCacheResponse {
+            cachedResponse = dataTaskWillCacheResponse(session, dataTask, proposedResponse)
+        }
+
+        completionHandler(cachedResponse)
+    }
+}
+
+// MARK: -
+
+class DownloadTaskDelegate: TaskDelegate, URLSessio
