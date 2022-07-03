@@ -255,4 +255,13 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
         dataTask: URLSessionDataTask,
         didBecome downloadTask: URLSessionDownloadTask)
     {
-        dataTaskDidBecomeDownloadTask?(ses
+        dataTaskDidBecomeDownloadTask?(session, dataTask, downloadTask)
+    }
+
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        if initialResponseTime == nil { initialResponseTime = CFAbsoluteTimeGetCurrent() }
+
+        if let dataTaskDidReceiveData = dataTaskDidReceiveData {
+            dataTaskDidReceiveData(session, dataTask, data)
+        } else {
+            if let dat
