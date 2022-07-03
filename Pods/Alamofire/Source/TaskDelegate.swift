@@ -274,4 +274,16 @@ class DataTaskDelegate: TaskDelegate, URLSessionDataDelegate {
             totalBytesReceived += bytesReceived
             let totalBytesExpected = dataTask.response?.expectedContentLength ?? NSURLSessionTransferSizeUnknown
 
-            progress.totalUnitCount = totalBytesExpect
+            progress.totalUnitCount = totalBytesExpected
+            progress.completedUnitCount = totalBytesReceived
+
+            if let progressHandler = progressHandler {
+                progressHandler.queue.async { progressHandler.closure(self.progress) }
+            }
+        }
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        dataTask: URLSessionDataTask,
+        willCacheResponse proposedResponse: CachedURLRespon
