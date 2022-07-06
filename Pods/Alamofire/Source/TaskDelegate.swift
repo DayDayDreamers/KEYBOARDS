@@ -316,4 +316,22 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
     var destination: DownloadRequest.DownloadFileDestination?
 
     var temporaryURL: URL?
-    var
+    var destinationURL: URL?
+
+    var fileURL: URL? { return destination != nil ? destinationURL : temporaryURL }
+
+    // MARK: Lifecycle
+
+    override init(task: URLSessionTask?) {
+        progress = Progress(totalUnitCount: 0)
+        super.init(task: task)
+    }
+
+    override func reset() {
+        super.reset()
+
+        progress = Progress(totalUnitCount: 0)
+        resumeData = nil
+    }
+
+    // MARK: URLSessionDownl
