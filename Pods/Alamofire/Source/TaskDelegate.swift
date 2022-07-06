@@ -341,4 +341,16 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
     var downloadTaskDidResumeAtOffset: ((URLSession, URLSessionDownloadTask, Int64, Int64) -> Void)?
 
     func urlSession(
-        _ session: URLSession
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didFinishDownloadingTo location: URL)
+    {
+        temporaryURL = location
+
+        guard
+            let destination = destination,
+            let response = downloadTask.response as? HTTPURLResponse
+        else { return }
+
+        let result = destination(location, response)
+        let destinationURL 
