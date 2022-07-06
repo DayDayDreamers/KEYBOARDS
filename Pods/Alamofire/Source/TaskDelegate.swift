@@ -334,4 +334,11 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
         resumeData = nil
     }
 
-    // MARK: URLSessionDownl
+    // MARK: URLSessionDownloadDelegate
+
+    var downloadTaskDidFinishDownloadingToURL: ((URLSession, URLSessionDownloadTask, URL) -> URL)?
+    var downloadTaskDidWriteData: ((URLSession, URLSessionDownloadTask, Int64, Int64, Int64) -> Void)?
+    var downloadTaskDidResumeAtOffset: ((URLSession, URLSessionDownloadTask, Int64, Int64) -> Void)?
+
+    func urlSession(
+        _ session: URLSession
