@@ -376,4 +376,15 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
 
     func urlSession(
         _ session: URLSession,
-        downl
+        downloadTask: URLSessionDownloadTask,
+        didWriteData bytesWritten: Int64,
+        totalBytesWritten: Int64,
+        totalBytesExpectedToWrite: Int64)
+    {
+        if initialResponseTime == nil { initialResponseTime = CFAbsoluteTimeGetCurrent() }
+
+        if let downloadTaskDidWriteData = downloadTaskDidWriteData {
+            downloadTaskDidWriteData(
+                session,
+                downloadTask,
+    
