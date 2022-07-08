@@ -387,4 +387,14 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
             downloadTaskDidWriteData(
                 session,
                 downloadTask,
+                bytesWritten,
+                totalBytesWritten,
+                totalBytesExpectedToWrite
+            )
+        } else {
+            progress.totalUnitCount = totalBytesExpectedToWrite
+            progress.completedUnitCount = totalBytesWritten
+
+            if let progressHandler = progressHandler {
+                progressHandler.queue.async { progressHandler.closure(self.progress) }
     
