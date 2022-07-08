@@ -363,4 +363,17 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
                 try FileManager.default.removeItem(at: destinationURL)
             }
 
-            if options.contains(.createIntermediateDirectories)
+            if options.contains(.createIntermediateDirectories) {
+                let directory = destinationURL.deletingLastPathComponent()
+                try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+            }
+
+            try FileManager.default.moveItem(at: location, to: destinationURL)
+        } catch {
+            self.error = error
+        }
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        downl
