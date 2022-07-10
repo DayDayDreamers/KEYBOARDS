@@ -397,4 +397,17 @@ class DownloadTaskDelegate: TaskDelegate, URLSessionDownloadDelegate {
 
             if let progressHandler = progressHandler {
                 progressHandler.queue.async { progressHandler.closure(self.progress) }
-    
+            }
+        }
+    }
+
+    func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didResumeAtOffset fileOffset: Int64,
+        expectedTotalBytes: Int64)
+    {
+        if let downloadTaskDidResumeAtOffset = downloadTaskDidResumeAtOffset {
+            downloadTaskDidResumeAtOffset(session, downloadTask, fileOffset, expectedTotalBytes)
+        } else {
+            progress.
