@@ -429,4 +429,19 @@ class UploadTaskDelegate: DataTaskDelegate {
 
     // MARK: Lifecycle
 
-    
+    override init(task: URLSessionTask?) {
+        uploadProgress = Progress(totalUnitCount: 0)
+        super.init(task: task)
+    }
+
+    override func reset() {
+        super.reset()
+        uploadProgress = Progress(totalUnitCount: 0)
+    }
+
+    // MARK: URLSessionTaskDelegate
+
+    var taskDidSendBodyData: ((URLSession, URLSessionTask, Int64, Int64, Int64) -> Void)?
+
+    func URLSession(
+        _ session: 
