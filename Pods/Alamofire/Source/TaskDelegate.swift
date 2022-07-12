@@ -444,4 +444,13 @@ class UploadTaskDelegate: DataTaskDelegate {
     var taskDidSendBodyData: ((URLSession, URLSessionTask, Int64, Int64, Int64) -> Void)?
 
     func URLSession(
-        _ session: 
+        _ session: URLSession,
+        task: URLSessionTask,
+        didSendBodyData bytesSent: Int64,
+        totalBytesSent: Int64,
+        totalBytesExpectedToSend: Int64)
+    {
+        if initialResponseTime == nil { initialResponseTime = CFAbsoluteTimeGetCurrent() }
+
+        if let taskDidSendBodyData = taskDidSendBodyData {
+            taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesE
