@@ -453,4 +453,14 @@ class UploadTaskDelegate: DataTaskDelegate {
         if initialResponseTime == nil { initialResponseTime = CFAbsoluteTimeGetCurrent() }
 
         if let taskDidSendBodyData = taskDidSendBodyData {
-            taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesE
+            taskDidSendBodyData(session, task, bytesSent, totalBytesSent, totalBytesExpectedToSend)
+        } else {
+            uploadProgress.totalUnitCount = totalBytesExpectedToSend
+            uploadProgress.completedUnitCount = totalBytesSent
+
+            if let uploadProgressHandler = uploadProgressHandler {
+                uploadProgressHandler.queue.async { uploadProgressHandler.closure(self.uploadProgress) }
+            }
+        }
+    }
+}
