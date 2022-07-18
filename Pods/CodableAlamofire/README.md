@@ -11,4 +11,8 @@
 
 **Swift 4 introduces a new `Codable` protocol that lets you serialize and deserialize custom data types without writing any special code and without having to worry about losing your value types. 🎉**
 
-**Awesome, isn't it? And this li
+**Awesome, isn't it? And this library helps you write less code! It's an extension for `Alamofire` that converts `JSON` data into `Decodable` object.**
+
+### Useful Resources:
+- [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types) - Article by Apple
+- [Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_seriali
