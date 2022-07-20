@@ -15,4 +15,16 @@
 
 ### Useful Resources:
 - [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types) - Article by Apple
-- [Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_seriali
+- [Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types) - Swift Playground
+- Also there is a special session from `WWDC2017` that covers this new feature - [What's New in Foundation](https://developer.apple.com/videos/play/wwdc2017/212/)
+
+# Usage
+
+Let's decode a simple json file:
+```
+{
+    "result": {
+        "libraries": [
+            {
+                "name": "Alamofire",
+       
