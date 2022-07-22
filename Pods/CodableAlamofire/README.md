@@ -42,4 +42,22 @@ Let's decode a simple json file:
 }
 ```
 
-with the 
+with the following Swift model: 
+
+```swift
+private struct Repo: Decodable {
+    let name: String
+    let stars: Int
+    let url: URL
+    let randomDateCommit: Date
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case stars
+        case url
+        case randomDateCommit = "random_date_commit"
+    }
+}
+```
+
+There is a similar method to `responseData`, `responseJSON` - **
