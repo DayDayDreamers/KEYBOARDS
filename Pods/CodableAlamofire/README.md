@@ -60,4 +60,12 @@ private struct Repo: Decodable {
 }
 ```
 
-There is a similar method to `responseData`, `responseJSON` - **
+There is a similar method to `responseData`, `responseJSON` - **`responseDecodableObject`**:
+
+```swift 
+func responseDecodableObject<T: Decodable>(queue: DispatchQueue? = nil, keyPath: String? = nil, decoder: JSONDecoder = JSONDecoder(), completionHandler: @escaping (DataResponse<T>) -> Void)
+```
+
+- `queue` - The queue on which the completion handler is dispatched.
+- `keyPath` - The keyPath where object decoding should be performed.
+- `decoder` - The decoder that perfo
