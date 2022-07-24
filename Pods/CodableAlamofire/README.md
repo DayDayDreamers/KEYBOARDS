@@ -93,4 +93,27 @@ Alamofire.request(url).responseDecodableObject(keyPath: "result.libraries", deco
 
 ## CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. It has over eighteen thousand libraries and can help you scale you
+[CocoaPods](http://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. It has over eighteen thousand libraries and can help you scale your projects elegantly. You can install it with the following command:
+
+```bash
+$ sudo gem install cocoapods
+```
+
+To integrate CodableAlamofire, simply add the following line to your `Podfile`:
+
+```ruby
+target 'Test' do
+  use_frameworks!
+
+  pod 'CodableAlamofire'
+  
+end
+```
+
+## Carthage
+
+**NOTE: Don't forget to set the correct Command Line Tools:**
+*Xcode > Preferences > Locations > Command Line Tools > Xcode 9.0.*
+
+
+[Carthage](h
