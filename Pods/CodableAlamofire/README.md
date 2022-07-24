@@ -68,4 +68,11 @@ func responseDecodableObject<T: Decodable>(queue: DispatchQueue? = nil, keyPath:
 
 - `queue` - The queue on which the completion handler is dispatched.
 - `keyPath` - The keyPath where object decoding should be performed.
-- `decoder` - The decoder that perfo
+- `decoder` - The decoder that performs the decoding of JSON into semantic `Decodable` type.
+
+```swift
+let url = URL(string: "https://raw.githubusercontent.com/otbivnoe/CodableAlamofire/master/keypathArray.json")!
+let decoder = JSONDecoder()
+decoder.dateDecodingStrategy = .secondsSince1970 // It is necessary for correct decoding. Timestamp -> Date.
+
+Alamofire.request(url).responseDecodableObject(keyPath: "result.libraries", decoder: decoder) { (response: DataResp
