@@ -75,4 +75,22 @@ let url = URL(string: "https://raw.githubusercontent.com/otbivnoe/CodableAlamofi
 let decoder = JSONDecoder()
 decoder.dateDecodingStrategy = .secondsSince1970 // It is necessary for correct decoding. Timestamp -> Date.
 
-Alamofire.request(url).responseDecodableObject(keyPath: "result.libraries", decoder: decoder) { (response: DataResp
+Alamofire.request(url).responseDecodableObject(keyPath: "result.libraries", decoder: decoder) { (response: DataResponse<[Repo]>) in
+    let repo = response.result.value
+    print(repo)
+}
+```
+
+### Note: 
+ - For array: `DataResponse<[Repo]>`
+ - For single object: `DataResponse<Repo>`
+
+# Requirements
+ - Swift 4+
+ - Xcode 9+
+
+# Installation 🔥
+
+## CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. It has over eighteen thousand libraries and can help you scale you
