@@ -19,4 +19,11 @@ extension DataRequest {
             if let keyPath = keyPath {
                 if keyPath.isEmpty {
                     return .failure(AlamofireDecodableError.emptyKeyPath)
-   
+                }
+                return DataRequest.decodeToObject(byKeyPath: keyPath, decoder: decoder, response: response, data: data)
+            }
+            return DataRequest.decodeToObject(decoder: decoder, response: response, data: data)
+        }
+    }
+    
+    private static func decodeToObject<T: Decodable>(decoder: JSONDecoder, response: HTTPURLResponse?, data: Data?) -> Result<T> {
