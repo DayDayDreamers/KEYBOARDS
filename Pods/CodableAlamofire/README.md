@@ -126,4 +126,7 @@ $ brew install carthage
 ```
 To integrate CodableAlamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 ```odgl
-github "Otbivnoe
+github "Otbivnoe/CodableAlamofire"
+```
+
+Run `carthage update` to build the framework and drag the built `CodableAlamofire.framework` into your Xcode project.
