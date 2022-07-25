@@ -11,4 +11,12 @@ import Alamofire
 
 extension DataRequest {
     
-    private static fu
+    private static func DecodableObjectSerializer<T: Decodable>(_ keyPath: String?, _ decoder: JSONDecoder) -> DataResponseSerializer<T> {
+        return DataResponseSerializer { _, response, data, error in
+            if let error = error {
+                return .failure(error)
+            }
+            if let keyPath = keyPath {
+                if keyPath.isEmpty {
+                    return .failure(AlamofireDecodableError.emptyKeyPath)
+   
