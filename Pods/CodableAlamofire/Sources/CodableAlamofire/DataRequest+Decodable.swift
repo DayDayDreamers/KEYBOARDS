@@ -58,4 +58,14 @@ extension DataRequest {
                 }
             }
             else {
-               
+                return .failure(AlamofireDecodableError.invalidKeyPath)
+            }
+        case .failure(let error): return .failure(error)
+        }
+    }
+    
+    
+    /// Adds a handler to be called once the request has finished.
+     
+    /// - parameter queue:             The queue on which the completion handler is dispatched.
+    /// - parameter keyPath:           The keyPath where object decoding
