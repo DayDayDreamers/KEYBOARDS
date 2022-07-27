@@ -38,4 +38,13 @@ extension DataRequest {
             catch {
                 return .failure(error)
             }
-        case .failure(let er
+        case .failure(let error): return .failure(error)
+        }
+    }
+    
+    private static func decodeToObject<T: Decodable>(byKeyPath keyPath: String, decoder: JSONDecoder, response: HTTPURLResponse?, data: Data?) -> Result<T> {
+        let result = Request.serializeResponseJSON(options: [], response: response, data: data, error: nil)
+        
+        switch result {
+        case .success(let json):
+            if let nestedJson = (json a
