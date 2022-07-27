@@ -27,3 +27,15 @@ extension DataRequest {
     }
     
     private static func decodeToObject<T: Decodable>(decoder: JSONDecoder, response: HTTPURLResponse?, data: Data?) -> Result<T> {
+        let result = Request.serializeResponseData(response: response, data: data, error: nil)
+        
+        switch result {
+        case .success(let data):
+            do {
+                let object = try decoder.decode(T.self, from: data)
+                return .success(object)
+            }
+            catch {
+                return .failure(error)
+            }
+        case .failure(let er
