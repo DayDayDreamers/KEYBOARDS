@@ -47,4 +47,15 @@ extension DataRequest {
         
         switch result {
         case .success(let json):
-            if let nestedJson = (json a
+            if let nestedJson = (json as AnyObject).value(forKeyPath: keyPath) {
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: nestedJson)
+                    let object = try decoder.decode(T.self, from: data)
+                    return .success(object)
+                }
+                catch {
+                    return .failure(error)
+                }
+            }
+            else {
+               
