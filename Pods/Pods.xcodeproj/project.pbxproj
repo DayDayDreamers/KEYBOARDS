@@ -21,4 +21,7 @@
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E130A3F58D9A767A5598BA420236BA7E /* Result.swift */; };
 		7EC0C35B109AD405F57A920C1554B994 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D0533E4EC2277AAAC8888328EC5A64B /* Foundation.framework */; };
 		8EAA18681D72E5805579DF1AE716BF14 /* Pods-Blockstack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA88C5412515D5610E60206A36292C79 /* Pods-Blockstack-dummy.m */; };
-		92898FFE01AAA45365D9C949713487B5 /* CodableAlamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379762F3D06F92B5314CBA149503793 /* CodableAlamofire-dummy.m */
+		92898FFE01AAA45365D9C949713487B5 /* CodableAlamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4379762F3D06F92B5314CBA149503793 /* CodableAlamofire-dummy.m */; };
+		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8865E9A0F5224809A064BC57EA596 /* AFError.swift */; };
+		9F81E12723FA9616B0F22BE000DBD13C /* DataRequest+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F085761E18264E17DCAC76BD121B9DB /* DataRequest+Decodable.swift */; };
+		A1FBE78AD78C6E29805C52768DE953D7 /* Foundation.framework in Framewor
