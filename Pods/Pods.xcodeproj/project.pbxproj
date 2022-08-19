@@ -29,4 +29,6 @@
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6856B1275BBFD93F011689FEA637D6 /* Alamofire-dummy.m */; };
 		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1BA67CC39284BD0E14FA66E0FE7742 /* SessionManager.swift */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B559B9F9504A2109506254568DA8B08 /* MultipartFormData.swift */; };
-		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* 
+		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF529C803A927C6BF694311CBE93BCE8 /* Validation.swift */; };
+		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA12364428DEB0B14E7F8239F9A6F57D /* ParameterEncoding.swift */; };
+		C99AFCF5AE424631584BBCF94375195D /* Pods-Blockstack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F11B0F
