@@ -54,4 +54,14 @@
 			remoteGlobalIDString = A61A36265E36ADACF274ABCD4B49CEEE;
 			remoteInfo = CodableAlamofire;
 		};
-		BF7DC6BB047598B01DDB96B3242837D8 
+		BF7DC6BB047598B01DDB96B3242837D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0596D690B8443E2AC838A3E711ADE26E /* Pods-Blockstack-resources.sh */ = {isa = PBXFi
