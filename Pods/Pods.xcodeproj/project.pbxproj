@@ -64,4 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0596D690B8443E2AC838A3E711ADE26E /* Pods-Blockstack-resources.sh */ = {isa = PBXFi
+		0596D690B8443E2AC838A3E711ADE26E /* Pods-Blockstack-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Blockstack-resources.sh"; sourceTree = "<group>"; };
+		0A2C6223044E62DAD3FBB9E136640AE1 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		0C1BA67CC39284BD0
