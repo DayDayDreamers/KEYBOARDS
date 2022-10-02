@@ -99,4 +99,6 @@
 		BC53F980F53C28ECB7149E0F60260306 /* Pods-Blockstack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Blockstack.modulemap"; sourceTree = "<group>"; };
 		BC6856B1275BBFD93F011689FEA637D6 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		CA88C5412515D5610E60206A36292C79 /* Pods-Blockstack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Blockstack-dummy.m"; sourceTree = "<group>"; };
-		CFE3B0241AA2C392BE76B6C8E5AE891E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; 
+		CFE3B0241AA2C392BE76B6C8E5AE891E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D962FA072DBFC8E2251E09EF8A7EB7D6 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		DF529C803A927C6BF694311CBE93BCE8 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex =
