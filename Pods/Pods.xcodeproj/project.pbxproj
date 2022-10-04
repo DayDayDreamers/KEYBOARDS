@@ -109,4 +109,6 @@
 		ECB1342CEA7FC19B8540E778EC73E2C8 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		ED6ADCB13C6C412623C9099E4A53B365 /* Pods-Blockstack-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Blockstack-acknowledgements.plist"; sourceTree = "<group>"; };
 		F11B0FEF908C0359DEC921F2D9CD18C6 /* Pods-Blockstack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Blockstack-umbrella.h"; sourceTree = "<group>"; };
-		F92E5C3D285987941846570294BDFBB1 /* CodableAlamofire.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CodableAlamof
+		F92E5C3D285987941846570294BDFBB1 /* CodableAlamofire.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CodableAlamofire.h; path = "Sources/Supporting Files/CodableAlamofire.h"; sourceTree = "<group>"; };
+		FB3B48B086BE5748583BD8238838BF71 /* Pods-Blockstack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Blockstack.debug.xcconfig"; sourceTree = "<group>"; };
+		FBF161307597C58D22CBF1BED8ECBF86 /* Pods-Blockstack.release.xcconfig */ = {isa = PBXFileReference; includeInI
