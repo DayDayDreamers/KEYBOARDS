@@ -143,4 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		049754B70B632548BBEBC0487FE3380D /* Support Files 
+		049754B70B632548BBEBC0487FE3380D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AA57A98B2DC1B2812EB63815B560AC9 /* Alamofire.modulemap */,
+				B1D0067176ECBEA4BBFC4CD562A7C70A /* Alamofire.xcconfig */,
+				BC6856B1275BBFD93F011689FEA637D6 /* Alamofire-dummy.m */,
+				10596FBDE849030D721A41FFDC527529 /* Alamofire-prefix.pch */,
+				3E6A28C907A89148DA4727D763410170 /* Alamofire-umbrella.h */,
+				7A6329AEB8685DA54F63970F1D0808E0 /* Info.plist */,
+			);
+			name = "Support File
