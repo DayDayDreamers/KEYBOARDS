@@ -153,4 +153,19 @@
 				3E6A28C907A89148DA4727D763410170 /* Alamofire-umbrella.h */,
 				7A6329AEB8685DA54F63970F1D0808E0 /* Info.plist */,
 			);
-			name = "Support File
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		13CEFC689CBFAB60F5EDCB1C583CA769 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2C283A147243F774E4789804189F822 /* Pods-Blockstack */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		18F258E0A72B089B7E2BB68F978E7594 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				A9
