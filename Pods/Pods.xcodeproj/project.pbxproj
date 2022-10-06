@@ -168,4 +168,10 @@
 		18F258E0A72B089B7E2BB68F978E7594 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				A9
+				A9B8865E9A0F5224809A064BC57EA596 /* AFError.swift */,
+				1125E2F5BC9D23A25E8AAF4D6057C1DC /* Alamofire.swift */,
+				2D8BB6FE453954EA94734C62D899B07C /* DispatchQueue+Alamofire.swift */,
+				8B559B9F9504A2109506254568DA8B08 /* MultipartFormData.swift */,
+				ECB1342CEA7FC19B8540E778EC73E2C8 /* NetworkReachabilityManager.swift */,
+				E3014FDD078B1802404F13D138AF437C /* Notifications.swift */,
+				EA12364428DEB0B14E7F8239F9A6F57D /* ParameterEncoding.s
