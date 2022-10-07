@@ -191,4 +191,11 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
-		2704D28510652150366D
+		2704D28510652150366D11B26C1D8B26 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E524089593B973F366D52F8B1BF19956 /* CodableAlamofire.modulemap */,
+				940CCE517BB47989E8A2CC3411174C0F /* CodableAlamofire.xcconfig */,
+				4379762F3D06F92B5314CBA149503793 /* CodableAlamofire-dummy.m */,
+				777A604F8B5609B63D18B803BA74A760 /* CodableAlamofire-prefix.pch */,
+				8E124861
