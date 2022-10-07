@@ -181,4 +181,14 @@
 				E130A3F58D9A767A5598BA420236BA7E /* Result.swift */,
 				1EC7139843244E3C1C7C95B29B2CB137 /* ServerTrustPolicy.swift */,
 				0A2C6223044E62DAD3FBB9E136640AE1 /* SessionDelegate.swift */,
-				0
+				0C1BA67CC39284BD0E14FA66E0FE7742 /* SessionManager.swift */,
+				5012A0FA7411A061E4C848F2DD25103F /* TaskDelegate.swift */,
+				570414C24827B0770C7125BAF0BDC0A0 /* Timeline.swift */,
+				DF529C803A927C6BF694311CBE93BCE8 /* Validation.swift */,
+				049754B70B632548BBEBC0487FE3380D /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		2704D28510652150366D
