@@ -225,4 +225,15 @@
 		6219699EBE4373711E17DACE2117ABE1 /* CodableAlamofire */ = {
 			isa = PBXGroup;
 			children = (
-				B048B8E32A
+				B048B8E32A5AF1189A8A080027CBF77B /* AlamofireDecodableError.swift */,
+				F92E5C3D285987941846570294BDFBB1 /* CodableAlamofire.h */,
+				9F085761E18264E17DCAC76BD121B9DB /* DataRequest+Decodable.swift */,
+				2704D28510652150366D11B26C1D8B26 /* Support Files */,
+			);
+			name = CodableAlamofire;
+			path = CodableAlamofire;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
