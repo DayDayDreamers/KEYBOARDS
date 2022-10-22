@@ -237,3 +237,15 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				59B91F212518421F271EBA85D5530651 /* Frameworks */,
+				9F2C41AD085E94F2C8724F6F6392C4E2 /* Pods */,
+				F17CF6775F5E9654D0AA4821C92C7110 /* Products */,
+				13CEFC689CBFAB60F5EDCB1C583CA769 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9F2C41AD085E94F2C8724F6F6392C4E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18F258E0A
