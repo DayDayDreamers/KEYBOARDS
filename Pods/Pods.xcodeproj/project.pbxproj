@@ -248,4 +248,15 @@
 		9F2C41AD085E94F2C8724F6F6392C4E2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				18F258E0A
+				18F258E0A72B089B7E2BB68F978E7594 /* Alamofire */,
+				6219699EBE4373711E17DACE2117ABE1 /* CodableAlamofire */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D2C283A147243F774E4789804189F822 /* Pods-Blockstack */ = {
+			isa = PBXGroup;
+			children = (
+				49D64B8E222AEEFB421A239A973B1435 /* Info.plist */,
+				BC53F980F53C28ECB7149E0F60260306 /* Pods-Blockstack.modulemap */,
+				54
