@@ -275,4 +275,16 @@
 		F17CF6775F5E9654D0AA4821C92C7110 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A22D8E67C2367211B931CBE0E1ED324A /* Alamofire.f
+				A22D8E67C2367211B931CBE0E1ED324A /* Alamofire.framework */,
+				15EE9D2B016299336C815610722D3A94 /* CodableAlamofire.framework */,
+				2FD9DE06304724BE37C61FDCD3632F26 /* Pods_Blockstack.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		05B5B8F45841C63430597EFA6742A19F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 21474836
