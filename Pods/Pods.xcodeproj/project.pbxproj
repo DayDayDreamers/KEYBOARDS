@@ -264,4 +264,15 @@
 				CA88C5412515D5610E60206A36292C79 /* Pods-Blockstack-dummy.m */,
 				77DB628567AAB690248A0AA0C0C7AE6C /* Pods-Blockstack-frameworks.sh */,
 				0596D690B8443E2AC838A3E711ADE26E /* Pods-Blockstack-resources.sh */,
-				F11B0FEF908C0359DEC921F2D9CD18C6 /* Pods-Blockstack
+				F11B0FEF908C0359DEC921F2D9CD18C6 /* Pods-Blockstack-umbrella.h */,
+				FB3B48B086BE5748583BD8238838BF71 /* Pods-Blockstack.debug.xcconfig */,
+				FBF161307597C58D22CBF1BED8ECBF86 /* Pods-Blockstack.release.xcconfig */,
+			);
+			name = "Pods-Blockstack";
+			path = "Target Support Files/Pods-Blockstack";
+			sourceTree = "<group>";
+		};
+		F17CF6775F5E9654D0AA4821C92C7110 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A22D8E67C2367211B931CBE0E1ED324A /* Alamofire.f
