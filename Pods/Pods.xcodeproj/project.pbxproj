@@ -259,4 +259,9 @@
 			children = (
 				49D64B8E222AEEFB421A239A973B1435 /* Info.plist */,
 				BC53F980F53C28ECB7149E0F60260306 /* Pods-Blockstack.modulemap */,
-				54
+				54EF52E5E145104311C88AD4E87BDB8C /* Pods-Blockstack-acknowledgements.markdown */,
+				ED6ADCB13C6C412623C9099E4A53B365 /* Pods-Blockstack-acknowledgements.plist */,
+				CA88C5412515D5610E60206A36292C79 /* Pods-Blockstack-dummy.m */,
+				77DB628567AAB690248A0AA0C0C7AE6C /* Pods-Blockstack-frameworks.sh */,
+				0596D690B8443E2AC838A3E711ADE26E /* Pods-Blockstack-resources.sh */,
+				F11B0FEF908C0359DEC921F2D9CD18C6 /* Pods-Blockstack
