@@ -287,4 +287,15 @@
 /* Begin PBXHeadersBuildPhase section */
 		05B5B8F45841C63430597EFA6742A19F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
-			buildActionMask = 21474836
+			buildActionMask = 2147483647;
+			files = (
+				C99AFCF5AE424631584BBCF94375195D /* Pods-Blockstack-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3C84BAA312CC20B80B8720405579D9C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3651A14CB08B28AF0C1856483E39A792 /* CodableAlamofire-umbrella.h in Headers */,
+				4C15F1C77246BD76D04EA594BDEAD5C7 /* CodableAla
