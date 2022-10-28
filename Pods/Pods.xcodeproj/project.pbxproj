@@ -298,4 +298,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3651A14CB08B28AF0C1856483E39A792 /* CodableAlamofire-umbrella.h in Headers */,
-				4C15F1C77246BD76D04EA594BDEAD5C7 /* CodableAla
+				4C15F1C77246BD76D04EA594BDEAD5C7 /* CodableAlamofire.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		88E9EC28
