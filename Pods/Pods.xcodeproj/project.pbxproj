@@ -322,3 +322,14 @@
 				B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */,
 			);
 			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = A22D8E67C2367211B931CBE0E1ED324A /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		985B5FF7EA9D68096A124A42102BDD72 /* Pods-Blockstack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F218E194B4ADCC46302268546D806E6 /* Build configuration list for 
