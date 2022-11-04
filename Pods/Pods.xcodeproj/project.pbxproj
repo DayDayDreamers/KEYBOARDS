@@ -344,4 +344,11 @@
 				461C98654BEB60FBEABE4936CCAA7043 /* PBXTargetDependency */,
 				890BDCB3FE7EAAE2E739D04121BE38D1 /* PBXTargetDependency */,
 			);
-			na
+			name = "Pods-Blockstack";
+			productName = "Pods-Blockstack";
+			productReference = 2FD9DE06304724BE37C61FDCD3632F26 /* Pods_Blockstack.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A61A36265E36ADACF274ABCD4B49CEEE /* CodableAlamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2D9A2E288D0DDE1F8EC3473D2F0FEA /* Build configuration list for PBXNativeTarget "Coda
