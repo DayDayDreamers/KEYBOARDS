@@ -388,4 +388,16 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				88E9EC28B8B46C3631
+				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
+				A61A36265E36ADACF274ABCD4B49CEEE /* CodableAlamofire */,
+				985B5FF7EA9D68096A124A42102BDD72 /* Pods-Blockstack */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0CBED4A751D4CECD114DD6E3894E6D71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0565129BB5E2067E993228788F0CDD /* AlamofireD
