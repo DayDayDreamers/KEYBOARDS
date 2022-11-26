@@ -439,4 +439,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXSourcesBuildPhase secti
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		461C98654BEB60FBEABE4936CCAA7043 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = 1257ED0B846DADBD29C09022C746624A /* PBXContainerItemProxy */;
+		};
+		890BDCB3FE7EAAE2E739D04121BE38D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CodableAla
