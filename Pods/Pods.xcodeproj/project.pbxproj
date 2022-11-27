@@ -450,4 +450,12 @@
 		};
 		890BDCB3FE7EAAE2E739D04121BE38D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = CodableAla
+			name = CodableAlamofire;
+			target = A61A36265E36ADACF274ABCD4B49CEEE /* CodableAlamofire */;
+			targetProxy = 88F0DB86863BC290891C6F09DD1AD8F6 /* PBXContainerItemProxy */;
+		};
+		B3464CA010FAE0F96071895B35C6FE82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = BF7DC6BB047598B01DDB96B3242837D8 /* PBXContainer
