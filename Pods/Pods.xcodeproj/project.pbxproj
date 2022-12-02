@@ -526,4 +526,13 @@
 			};
 			name = Debug;
 		};
-		5846E926731F0888A7EE257759A4DE8D /* Release *
+		5846E926731F0888A7EE257759A4DE8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 940CCE517BB47989E8A2CC3411174C0F /* CodableAlamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = 
