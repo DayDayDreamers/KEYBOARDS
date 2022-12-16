@@ -619,4 +619,14 @@
 		};
 		9A0C73B4C311E60D4A498800C2C1DD72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfiguratio
+			baseConfigurationReference = FBF161307597C58D22CBF1BED8ECBF86 /* Pods-Blockstack.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBI
