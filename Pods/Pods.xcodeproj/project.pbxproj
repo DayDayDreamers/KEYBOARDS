@@ -714,4 +714,15 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-		
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E7D6DE3BF2B5F42D1B491B85E7E90F80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB3B48B086BE5748583BD8238838BF71 /* Pods-Blockstack.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_
