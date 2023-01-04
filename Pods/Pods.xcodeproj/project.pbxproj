@@ -755,4 +755,15 @@
 			name = Debug;
 		};
 		EA0ADC75B20BB62958101306980460E6 /* Debug */ = {
-			
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D0067176ECBEA4BBFC4CD562A7C70A /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+	
