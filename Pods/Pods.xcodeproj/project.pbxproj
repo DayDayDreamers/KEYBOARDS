@@ -807,4 +807,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F218E194B4ADCC46302268546D806E6 /* Build configuration list for
+		7F218E194B4ADCC46302268546D806E6 /* Build configuration list for PBXNativeTarget "Pods-Blockstack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7D6DE3BF2B5F42D1B491B85E7E90F80 /* Debug */,
+				9A0C73B4C311E60D4A498800C2C1DD72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2D9A2E288D0DDE1F8EC3473D2F0FEA /* Build configuration list for PBXNativeTarget "CodableAlamofire" */ = {
+			isa = XCConfigurationList
