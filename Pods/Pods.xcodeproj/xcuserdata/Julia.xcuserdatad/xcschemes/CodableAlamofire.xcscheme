@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0930"
@@ -14,10 +15,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88E9EC28B8B46C3631E6B242B50F4442"
-               BlueprintName = "Alamofire"
+               BlueprintIdentifier = "A61A36265E36ADACF274ABCD4B49CEEE"
+               BlueprintName = "CodableAlamofire"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Alamofire.framework">
+               BuildableName = "CodableAlamofire.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
