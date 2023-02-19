@@ -20,4 +20,7 @@
   <string>????</string>
   <key>CFBundleVersion</key>
   <string>${CURRENT_PROJECT_VERSION}</string>
-  <key>NSP
+  <key>NSPrincipalClass</key>
+  <string></string>
+</dict>
+</plist>
