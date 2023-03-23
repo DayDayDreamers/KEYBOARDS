@@ -34,4 +34,24 @@ case "${TARGETED_DEVICE_FAMILY:-}" in
     TARGET_DEVICE_ARGS="--target-device tv"
     ;;
   4)
-    TARGET_DEVICE_ARGS
+    TARGET_DEVICE_ARGS="--target-device watch"
+    ;;
+  *)
+    TARGET_DEVICE_ARGS="--target-device mac"
+    ;;
+esac
+
+install_resource()
+{
+  if [[ "$1" = /* ]] ; then
+    RESOURCE_PATH="$1"
+  else
+    RESOURCE_PATH="${PODS_ROOT}/$1"
+  fi
+  if [[ ! -e "$RESOURCE_PATH" ]] ; then
+    cat << EOM
+error: Resource "$RESOURCE_PATH" not found. Run 'pod install' to update the copy resources script.
+EOM
+    exit 1
+  fi
+  case $RESOURC
