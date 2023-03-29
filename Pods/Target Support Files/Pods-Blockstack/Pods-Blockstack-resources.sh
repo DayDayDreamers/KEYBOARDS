@@ -79,4 +79,18 @@ EOM
       ;;
     *.xcmappingmodel)
       echo "xcrun mapc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcmappingmodel`.cdm\"" || true
-      xcrun mapc "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`bas
+      xcrun mapc "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcmappingmodel`.cdm"
+      ;;
+    *.xcassets)
+      ABSOLUTE_XCASSET_FILE="$RESOURCE_PATH"
+      XCASSET_FILES+=("$ABSOLUTE_XCASSET_FILE")
+      ;;
+    *)
+      echo "$RESOURCE_PATH" || true
+      echo "$RESOURCE_PATH" >> "$RESOURCES_TO_COPY"
+      ;;
+  esac
+}
+
+mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOU
