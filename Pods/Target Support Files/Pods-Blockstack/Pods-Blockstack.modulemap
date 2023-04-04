@@ -1,2 +1,6 @@
 framework module Pods_Blockstack {
-  umbrella header "Pods-Blockstack-umbrell
+  umbrella header "Pods-Blockstack-umbrella.h"
+
+  export *
+  module * { export * }
+}
