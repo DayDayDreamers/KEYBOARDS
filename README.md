@@ -18,4 +18,14 @@ Functionality:
 <br/>
 
 <div>
- <img src="https://github.com/juliavi/blockst
+ <img src="https://github.com/juliavi/blockstack-browser-ios/blob/master/list.PNG" width="250"/>
+ &nbsp;
+ <img src="https://github.com/juliavi/blockstack-browser-ios/blob/master/search.PNG" width="250"/>
+ &nbsp;
+</div>
+
+<div>
+ <img src="https://github.com/juliavi/blockstack-browser-ios/blob/master/history.PNG" width="250"/>
+ &nbsp;
+<img src="https://github.com/juliavi/blockstack-browser-ios/blob/master/profile.PNG" width="250"/>
+</div>
